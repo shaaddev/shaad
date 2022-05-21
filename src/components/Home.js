@@ -26,7 +26,7 @@ class Home extends React.Component {
                     <h3 className="home-title">.Home</h3>
                     <span>
                         <h2>Hello, <strong>Shaad</strong> here.</h2> <br/>
-                        <h3>I build never</h3> <br/>
+                        <h3>I build sometimes</h3> <br/>
                     </span>
                     
                 </section>
