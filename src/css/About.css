@@ -1,0 +1,323 @@
+
+
+html {
+    scroll-behavior: smooth;
+    background-color: whitesmoke;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 85%);
+}
+
+h1 {
+    position: relative;
+    margin: 10 auto;
+    padding: 0;
+   
+}
+
+li {
+    list-style-type: none;
+}
+
+#about-hangul {
+    position: relative;
+    text-align: left;
+    width: 15%;
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif', 'Montserrat';
+    font-size: 25px;
+    left: 2%;
+    min-height: 50px;
+    z-index: 10;
+    border-bottom: 2px solid #000000;
+    
+}
+
+#about-header li {
+    position: relative;
+    padding: 0 70px;
+    margin: 0 auto;
+    text-align: center;
+    list-style-type: none;
+    display: inline-block;
+    height: 48px;
+    
+}
+
+#about-header a {
+    color: black;
+}
+
+#about-header ul {
+    text-align: center;
+    margin: 0 auto;
+    padding: 0;
+}
+
+#about-header a {
+    transition: all .1s ease-in;
+}
+
+#about-header a:hover {
+    color: rgb(164, 189, 228);
+    letter-spacing: 1px;
+}
+
+.about-navigation {
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif', 'Montserrat';
+    font-size: 14px;
+    width: 100%;
+    height: 48px;
+    min-height: 55px;
+    z-index: 10;
+    /* background-color: rgba(0, 0, 0, 85%); */
+    /* border: 2px solid red;  */
+}
+
+#about-section .about-title {
+    position: relative;
+    padding: 0;
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif', 'Montserrat';
+    font-size: 25px;
+    margin: 10 auto;
+    width: 15%;
+    text-align: left;
+    left: 2%;
+    min-height: 120px;
+    /* border: 2px solid red; */
+    z-index: 10;
+}
+
+#about-section p {
+    position: absolute;
+    padding: 0;
+    font-family:'Spoqa Han Sans Neo', 'sans-serif', 'Montserrat';
+    font-size: 15px;
+    margin: 0 auto;
+    width: 25%;
+    text-align: left;
+    height: 50%;
+    line-height: 30px;
+    right: 20%;
+    top: 30%;
+    /* border: 2px solid red; */
+    
+}
+
+.about-contact {
+    position: absolute;
+    padding: 0;
+    margin: 0 auto;
+    width: 125px;
+    height: 125px;
+    text-align: left;
+    right: 2%;
+    top: 20%;
+    min-height: 120px;
+    line-height: 70px;
+
+    
+    /* border: 2px solid red; */
+}
+
+#about-email-logo, #about-linkedin-logo, #about-github-logo {
+    position: relative;
+    padding: 0;
+    margin: 0 auto;
+    object-fit: fill;
+    top: 0;
+    left: 5px;
+    bottom: 0;
+    right: 0;
+    width: 30%;
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
+
+    transition: all ease-in .1s;
+}
+
+#about-email-logo:hover, #about-linkedin-logo:hover, #about-github-logo:hover {
+    left: 0;
+}
+
+
+
+
+#info {
+    position: absolute;
+    margin: 0 auto;
+    top: 85%;
+    left: 24%;
+    
+}
+
+.info-at-bottom {
+    padding: 10px;
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif', 'Montserrat';
+    font-size: 17px;
+    color: rgba(0, 0, 0, 85%);
+    border-bottom: 2px solid #000000;
+    border-radius: 2px;
+}
+
+#about-shape {
+    padding: 15vw 10vh;
+    position: absolute;
+    margin: 0 auto;
+    left: 15%;
+    right: 60%;
+    top: 20%;
+    bottom: 15%;
+    height: 20px;
+    width: 10%;
+    
+}
+
+#about-image {
+    position: absolute;
+    margin: 0 auto;
+    left: 15%;
+    right: 50%;
+    top: 10%;
+    bottom: 50%;
+    height: 90%;
+    image-rendering: auto;
+    box-shadow: 10px 5px 30px rgba(0, 0, 0, 85%); 
+    object-fit: fill;
+    
+}
+
+.background-shape {
+    background-color: rgba(252, 222, 197, 95%);
+    /* background-color: rgba(164, 189, 228, 40%); */
+}
+
+#about-bottom p{
+    position: absolute;
+    margin: 0 auto;
+    padding: 0;
+    left: 20px;
+    bottom: 0;
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif', 'Montserrat';
+    font-size: 12px;
+    font-weight: bold;
+    /* color: rgba(0, 0, 0, 85%); */
+    line-height: 30px;
+    width: 50%;
+    height: 60px;
+    color:rgba(0, 0, 0, 85%);
+    text-align: left;
+}
+
+b {
+    color: #26c5f6;
+}
+
+@media only screen and (min-width: 375px) and (max-width: 812px) {
+    #about-header li {
+        padding: 0 30px;
+    }
+
+    #about-header li:hover {
+        background-color: rgba(0, 0, 0, 10%);
+        border-radius: 10px;
+    }
+
+    #about-header a:hover {
+        letter-spacing: 0px;
+    }
+
+    #about-header a {
+        color: rgba(255, 255, 255, 85%);
+    }
+
+   .about-navigation {
+       font-size: 5px;
+       min-height: 100px;
+   }
+
+   #about-image, .info-at-bottom {
+       display: none;
+   }
+
+   .background-shape {
+       display: none;
+   }
+
+   #about-section p {
+        position: relative;
+        margin: 0 auto;
+        padding: 0;
+        text-align: left;
+        width: 50%;
+        left: 2%;
+        color: rgba(255, 255, 255, 85%);
+    }
+
+    #about-hangul {
+        display: none;
+    }
+
+    #about-section .about-title {
+        position: relative;
+        padding: 0;
+        font-size: 20px;
+        margin: 10 auto;
+        width: 15%;
+        text-align: left;
+        left: 2%;
+        min-height: 50px;
+        z-index: 10;
+        color: rgba(255, 255, 255, 85%);
+    }
+
+    .about-background-color {
+        background-image: url('purple.jpeg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        max-height: auto;
+        max-width: auto;
+        object-fit: fill;
+    }
+
+    .about-contact {
+        position: absolute;
+        padding: 0;
+        right: 20px;
+        bottom: 0;
+        text-align: right;
+    }
+
+    .about-contact li {
+        position: relative;
+        padding: 0 5px;
+        display: inline-block;
+        bottom: 2%;
+        right: 0;
+    }
+
+    #about-email-logo, #about-linkedin-logo, #about-github-logo {
+        filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(150%) contrast(100%);
+    }
+
+    #about-bottom p {
+        color: rgba(255, 255, 255, 85%);
+    }
+   
+}

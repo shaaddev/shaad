@@ -1,0 +1,332 @@
+
+html {
+    background-color: whitesmoke;
+    scroll-behavior: smooth;
+}
+
+h1 {
+    position: relative;
+    margin: 10 auto;
+    padding: 0;
+   
+}
+
+#home-hangul { /* Introduction */
+    position: relative;
+    padding: 0;
+    color: rgba(255, 255, 255, 85%);
+    text-align: left;
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif', 'Montserrat';
+    font-size: 25px;
+    font-weight: bold;
+    width: 15%;
+    right: 70%;
+    left: 2%;
+    bottom: 50%;
+    min-height: 50px;
+    z-index: 9999;
+    border-bottom: 2px solid rgba(255, 255, 255, 85%);
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* NAVIGATION BAR */
+
+a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 85%);
+}
+
+li {
+    list-style-type: none;
+    text-decoration: none;
+}
+
+#home-header li {
+    padding: 0 70px;
+    display: inline-block;
+    position: relative;
+    margin: 0 auto;
+    height: 48px;
+    text-align: center;
+}
+
+#home-header a {
+    transition: all .1s ease-in;
+}
+
+#home-header a:hover {
+    background-color: rgb(164, 189, 228);
+    color: rgb(164, 189, 228);
+    letter-spacing: 1px;
+    
+}
+
+#home-header ul {
+    position: relative;
+    margin: 0 auto;
+    padding: 0;
+    
+}
+
+.home-navigation {
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif', 'Montserrat';
+    font-size: 14px;
+    width: 100%;
+    height: 48px;
+    min-height: 55px;
+    /* background-color: rgba(0, 0, 0, 85%); */
+    z-index: 99;
+    /* border: 2px solid blue; */
+}
+
+/* ################################################ */
+/* ################################################ */
+
+
+.home-background-color {
+    padding: 30vh 0;
+    position: absolute;
+}
+
+.home-background-color {
+    margin: 0 auto;
+    width: 100%;
+    height: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 40%);
+}
+
+#home-section .home-title {
+    position: relative;
+    padding: 0;
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif', 'Montserrat';
+    font-size: 25px;
+    margin: 10 auto;
+    width: 15%;
+    text-align: left;
+    left: 2%;
+    min-height: 120px;
+    color: rgba(255, 255, 255, 85%);
+}
+
+#home-section span {
+    margin: 0 auto;
+}
+
+#home-section span h2{
+    position: relative;
+    margin: 0 auto;
+    text-align: left;
+    width: 50%;
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif', 'Montserrat';
+    font-size: 50px;
+    line-height: 30px;
+    color:rgba(255, 255, 255, 85%);
+    /* border: 2px solid red; */
+
+}
+
+#home-section span h3 {
+    position: relative;
+    margin: 0 auto;
+    text-align: left;
+    width: 50%;
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif', 'Montserrat';
+    font-size: 15px;
+    line-height: 30px;
+    color:rgba(255, 255, 255, 85%);
+    /* border: 2px solid red; */
+}
+
+
+.home-contact {
+    position: absolute;
+    padding: 0;
+    margin: 0 auto;
+    width: 125px;
+    height: 125px;
+    text-align: left;
+    right: 2%;
+    top: 20%;
+    min-height: 120px;
+    line-height: 70px;
+
+    
+    /* border: 2px solid red; */
+}
+
+#home-email-logo, #home-linkedin-logo, #home-github-logo {
+    position: relative;
+    padding: 0;
+    margin: 0 auto;
+    object-fit: fill;
+    top: 0;
+    left: 5px;
+    bottom: 0;
+    right: 0;
+    width: 30%;
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(150%) contrast(100%);
+
+
+
+    transition: all ease-in .1s;
+}
+
+#home-email-logo:hover, #home-linkedin-logo:hover, #home-github-logo:hover {
+    left: 0;
+}
+
+
+
+#home-background {
+    position: absolute;
+    image-rendering: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+
+video {
+    position: absolute;
+    
+}
+
+#home-back-video {
+    margin: 0 auto;
+    padding: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-size: cover;
+}
+
+.home-loop-video {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    image-resolution: normal;
+}
+
+#home-bottom p{
+    position: absolute;
+    margin: 0 auto;
+    padding: 0;
+    left: 20px;
+    bottom: 0;
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif', 'Montserrat';
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 30px;
+    width: 50%;
+    height: 60px;
+    color:rgba(255, 255, 255, 75%);
+    text-align: left;
+}
+
+b {
+    color: #26c5f6;
+}
+
+/* MOBILES */
+
+@media only screen and (min-width: 375px) and (max-width: 812px) {
+    #home-header li {
+        padding: 0 30px;
+    }
+
+    #home-header li:hover {
+        background-color: rgba(255, 255, 255, 10%);
+        border-radius: 10px;
+    }
+
+    #home-header a:hover {
+        letter-spacing: 0px;
+    }
+
+    #home-hangul {
+        display: none;
+    }
+
+   .home-navigation {
+       font-size: 5px;
+       min-height: 100px;
+   }
+
+   #home-section span h2 {
+        position: relative;
+        margin: 0 auto;
+        padding: 0;
+        font-size: 30px;
+        text-align: left;
+        width: 50%;
+        left: 2%;
+        line-height: 40px;
+        color: rgba(255, 255, 255, 85%);
+
+   }
+
+   #home-section span h3 {
+        position: relative;
+        margin: 0 auto;
+        padding: 0;
+        font-size: 15px;
+        text-align: left;
+        width: 50%;
+        left: 2%;
+        color: rgba(255, 255, 255, 85%);
+       
+   }
+
+   .home-contact {
+        position: absolute;
+        padding: 0;
+        margin: 0;
+        right: 20px;
+        bottom: 0;
+        text-align: right;
+   }
+
+
+   .home-contact li {
+       position: relative;
+       padding: 0 5px;
+       display: inline-block;
+       bottom: 0;
+       right: 0;
+   }
+
+   .home-background-color {
+        background-image: url('purple.jpeg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: auto;
+    }
+
+  
+   
+
+
+}
