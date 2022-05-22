@@ -224,12 +224,8 @@ b {
 
 @media only screen and (min-width: 375px) and (max-width: 812px) {
     #about-header li {
-        padding: 0 30px;
-    }
-
-    #about-header li:hover {
-        background-color: rgba(0, 0, 0, 10%);
-        border-radius: 10px;
+        padding: 0 20px;
+        margin: 15px;
     }
 
     #about-header a:hover {
@@ -241,7 +237,7 @@ b {
     }
 
    .about-navigation {
-       font-size: 5px;
+       font-size: 7px;
        min-height: 100px;
    }
 
@@ -320,4 +316,104 @@ b {
         color: rgba(255, 255, 255, 85%);
     }
    
+}
+
+@media (max-width: 600px) and (max-width: 1080px) {
+    #about-header li {
+        padding: 0 20px;
+        margin: 15px
+    }
+
+    #about-header li:hover {
+        background-color: rgba(0, 0, 0, 10%);
+        border-radius: 10px;
+    }
+
+    #about-header a:hover {
+        letter-spacing: 0px;
+    }
+
+    #about-header a {
+        color: rgba(255, 255, 255, 85%);
+    }
+
+   .about-navigation {
+       font-size: 7px;
+       min-height: 100px;
+   }
+
+   #about-image, .info-at-bottom {
+       display: none;
+   }
+
+   .background-shape {
+       display: none;
+   }
+
+   #about-section p {
+        position: relative;
+        margin: 0 auto;
+        padding: 0;
+        text-align: left;
+        width: 50%;
+        left: 2%;
+        color: rgba(255, 255, 255, 85%);
+    }
+
+    #about-hangul {
+        display: none;
+    }
+
+    #about-section .about-title {
+        position: relative;
+        padding: 0;
+        font-size: 20px;
+        margin: 10 auto;
+        width: 15%;
+        text-align: left;
+        left: 2%;
+        min-height: 50px;
+        z-index: 10;
+        color: rgba(255, 255, 255, 85%);
+    }
+
+    .about-background-color {
+        background-image: url('purple.jpeg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        max-height: auto;
+        max-width: auto;
+        object-fit: fill;
+    }
+
+    .about-contact {
+        position: absolute;
+        padding: 0;
+        right: 20px;
+        bottom: 0;
+        text-align: right;
+    }
+
+    .about-contact li {
+        position: relative;
+        padding: 0 5px;
+        display: inline-block;
+        bottom: 2%;
+        right: 0;
+    }
+
+    #about-email-logo, #about-linkedin-logo, #about-github-logo {
+        filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(150%) contrast(100%);
+    }
+
+    #about-bottom p {
+        color: rgba(255, 255, 255, 85%);
+    }
 }
