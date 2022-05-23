@@ -209,7 +209,7 @@ b {
 
 @media only screen and (min-width: 375px) and (max-width: 812px) {
     #exp-header li {
-        padding: 0 10px;
+        padding: 0;
         margin: 15px;
     }
 
@@ -276,7 +276,7 @@ b {
 
 @media (max-width: 600px) and (max-width: 1080px) {
     #exp-header li {
-        padding: 0 10px;
+        padding: 0;
         margin: 15px;
     }
 
@@ -330,6 +330,10 @@ b {
         display: inline-block;
         bottom: 2%;
         right: 0;
+    }
+
+    #exp-email-logo, #exp-linkedin-logo, #exp-github-logo {
+        filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
     }
 
     #exp-bottom p {
