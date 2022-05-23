@@ -209,7 +209,7 @@ b {
 
 @media only screen and (min-width: 375px) and (max-width: 812px) {
     #exp-header li {
-        padding: 0 10px;
+        padding: 0 7px;
         margin: 15px;
     }
 
@@ -276,7 +276,7 @@ b {
 
 @media (max-width: 600px) and (max-width: 1080px) {
     #exp-header li {
-        padding: 0 5px;
+        padding: 0 7px;
         margin: 15px;
     }
 
