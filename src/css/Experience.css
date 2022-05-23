@@ -252,16 +252,16 @@ b {
    .exp-contact {
         position: absolute;
         padding: 0;
-        right: 20px;
+        top: 70%;
+        right: 15px;
         bottom: 0;
-        text-align: right;
+        text-align: center;
     }
 
     .exp-contact li {
         position: relative;
         padding: 0 5px;
-        display: inline-block;
-        bottom: 2%;
+        bottom: 0;
         right: 0;
     }
 
@@ -319,16 +319,16 @@ b {
    .exp-contact {
         position: absolute;
         padding: 0;
-        right: 20px;
+        top: 70%;
+        right: 15px;
         bottom: 0;
-        text-align: right;
+        text-align: center;
     }
 
     .exp-contact li {
         position: relative;
         padding: 0 5px;
-        display: inline-block;
-        bottom: 2%;
+        bottom: 0;
         right: 0;
     }
 

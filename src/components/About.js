@@ -30,7 +30,7 @@ class About extends React.Component {
                         I am currently studying <strong>Information Systems Management </strong> at <strong> UWI School Of Business & Applied Studies Ltd.</strong> 
                         <br/><br/><br/>
                         <strong>Skills</strong>: <br />
-                        <strong>Python</strong> | <strong>Java</strong> | <strong>JavaScript ES6+</strong> | <strong>C++</strong> |  <strong>HTML x CSS</strong> |
+                        <strong>Python</strong> | <strong>Java</strong> | <strong>JavaScript ES6+</strong> | <strong>React.js</strong> |  <strong>HTML x CSS</strong> |
                         <strong>Docker</strong> | <strong>Git</strong> | <strong>AWS</strong>
                         <br/>
                     </p>

@@ -121,10 +121,6 @@ li {
     color: rgba(255, 255, 255, 85%);
 }
 
-#home-section span {
-    margin: 0 auto;
-}
-
 #home-section span h2{
     position: relative;
     margin: 0 auto;
@@ -150,6 +146,22 @@ li {
     /* border: 2px solid red; */
 }
 
+#home-section a {
+    position: relative;
+    margin: 0 auto;
+    padding: 10px 40px;
+    width: 50%;
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif', 'Montserrat';
+    font-size: 15px;
+    color: rgba(255, 255, 255, 85%);
+    border: 2px solid whitesmoke;
+    border-radius: 10px;
+}
+
+#home-section a:hover {
+    background-color: rgba(255, 255, 255, 15%);
+}
+
 
 .home-contact {
     position: absolute;
@@ -166,6 +178,7 @@ li {
     
     /* border: 2px solid red; */
 }
+
 
 #home-email-logo, #home-linkedin-logo, #home-github-logo {
     position: relative;
@@ -288,7 +301,7 @@ b {
         padding: 0;
         font-size: 30px;
         text-align: left;
-        width: 50%;
+        width: 75%;
         left: 2%;
         line-height: 40px;
         color: rgba(0, 0, 0, 85%);
@@ -300,26 +313,30 @@ b {
         padding: 0;
         font-size: 15px;
         text-align: left;
-        width: 50%;
+        box-sizing: border-box;
+        width: 75%;
         left: 2%;
-        color: rgba(0, 0, 0, 85%);
-       
+        color: rgba(0, 0, 0, 85%); 
+   }
+
+   #home-section a {
+       display: none;
    }
 
    .home-contact {
         position: absolute;
         padding: 0;
         margin: 0;
-        right: 20px;
+        top: 70%;
+        right: 15px;
         bottom: 0;
-        text-align: right;
+        text-align: center;
    }
 
 
    .home-contact li {
        position: relative;
        padding: 0 5px;
-       display: inline-block;
        bottom: 0;
        right: 0;
    }
@@ -383,7 +400,8 @@ b {
         padding: 0;
         font-size: 30px;
         text-align: left;
-        width: 50%;
+        box-sizing: border-box;
+        width: 75%;
         left: 2%;
         line-height: 40px;
         color: rgba(0, 0, 0, 85%);
@@ -396,19 +414,23 @@ b {
         padding: 0;
         font-size: 15px;
         text-align: left;
-        width: 50%;
+        width: 75%;
         left: 2%;
         color: rgba(0, 0, 0, 85%);
-       
    }
+
+    #home-section a {
+        display: none;
+    }
 
    .home-contact {
         position: absolute;
         padding: 0;
         margin: 0;
-        right: 20px;
+        top: 70%;
+        right: 15px;
         bottom: 0;
-        text-align: right;
+        text-align: center;
    }
 
 
@@ -431,7 +453,7 @@ b {
         animation: bgColor 5s infinite linear;
     }
 
-    #home-button p {
+    #home-bottom p {
         color:rgba(0, 0, 0, 75%);
     }
 }

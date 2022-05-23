@@ -249,16 +249,18 @@ b {
     } 
 
     .project-contact {
+        position: absolute;
         padding: 0;
-        right: 20px;
-        text-align: right;
+        top: 70%;
+        right: 15px;
+        bottom: 0;
+        text-align: center;
     }
 
     .project-contact li {
         position: relative;
         padding: 0 5px;
-        display: inline-block;
-        bottom: 2%;
+        bottom: 0;
         right: 0;
     }
 
