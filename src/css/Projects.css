@@ -102,7 +102,7 @@ li {
     right: 0;
     top: 0;
     bottom: 0;
-    background-color:rgba(0, 0, 0, 25%);
+    background-color:rgba(0, 0, 0, 40%);
     
 }
 
@@ -218,7 +218,9 @@ b {
 
    .project-navigation {
        font-size: 5px;
-       min-height: 100px;
+       height: 48px;
+       min-height: 55px;
+       background-color: rgba(0, 0, 0, 85%);
    }
 
    #project-hangul {
@@ -235,20 +237,15 @@ b {
         left: 2%;
         min-height: 50px;
         z-index: 10;
-        color: rgba(255, 255, 255, 85%);
-   }
+        color: rgba(0, 0, 0, 85%);
+    }
+
+    #project-section p {
+        color: rgba(0, 0, 0, 85%);
+    }
 
     .projects-background-color {
-        background-image: url('purple.jpeg');
-        background-size: cover;
-        background-repeat: no-repeat;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        width: 100%;
-        height: auto;
+        background-color: whitesmoke;
     } 
 
     .project-contact {
@@ -264,6 +261,14 @@ b {
         bottom: 2%;
         right: 0;
     }
+
+    #project-email-logo, #project-linkedin-logo, #project-github-logo {
+        filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
+    }
+
+    #project-bottom p {
+        color: rgba(0, 0, 0, 85%);
+    }
 }
 
 @media (max-width: 600px) and (max-width: 1080px) {
@@ -278,7 +283,9 @@ b {
 
    .project-navigation {
        font-size: 5px;
-       min-height: 100px;
+       height: 48px;
+       min-height: 55px;
+       background-color: rgba(0, 0, 0, 85%);
    }
 
    #project-hangul {
@@ -295,20 +302,16 @@ b {
         left: 2%;
         min-height: 50px;
         z-index: 10;
-        color: rgba(255, 255, 255, 85%);
-   }
+        color: rgba(0, 0, 0, 85%);
+    }
+
+    #project-section p {
+        color: rgba(0, 0, 0, 85%);
+    }
+
 
     .projects-background-color {
-        background-image: url('purple.jpeg');
-        background-size: cover;
-        background-repeat: no-repeat;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        width: 100%;
-        height: auto;
+        background-color: whitesmoke;
     } 
 
     .project-contact {

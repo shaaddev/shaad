@@ -18,7 +18,7 @@ class Projects extends React.Component {
 
                 <section id="project-section">
 
-                    <img id="project-image" src={'/images/background/airport.jpeg'} alt="pro" />
+                    <img id="project-image" src={'/images/background/area.jpeg'} alt="pro" />
                     <div className="projects-background-color"></div>
 
                     <h1 id="project-hangul">샤드</h1>

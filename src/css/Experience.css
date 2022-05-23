@@ -219,7 +219,9 @@ b {
 
    .exp-navigation {
        font-size: 5px;
-       min-height: 100px;
+       height: 48px;
+       min-height: 55px;
+       background-color: rgba(0, 0, 0, 85%);
    }
 
    #exp-hangul {
@@ -236,20 +238,15 @@ b {
         left: 2%;
         min-height: 50px;
         z-index: 10;
-        color: rgba(255, 255, 255, 85%);
+        color: rgba(0, 0, 0, 85%);
+   }
+
+   #ex-section p {
+       color:rgba(0, 0, 0, 85%);
    }
 
    .ex-background-color {
-        background-image: url('purple.jpeg');
-        background-size: cover;
-        background-repeat: no-repeat;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        width: 100%;
-        height: auto;
+        background-color: whitesmoke;
    }
 
    .exp-contact {
@@ -266,6 +263,14 @@ b {
         display: inline-block;
         bottom: 2%;
         right: 0;
+    }
+
+    #exp-email-logo, #exp-linkedin-logo, #exp-github-logo {
+        filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
+    }
+
+    #exp-bottom p {
+        color: rgba(0, 0, 0, 85%);
     }
 }
 
@@ -281,7 +286,9 @@ b {
 
    .exp-navigation {
        font-size: 5px;
-       min-height: 100px;
+       height: 48px;
+       min-height: 55px;
+       background-color: rgba(0, 0, 0, 85%);
    }
 
    #exp-hangul {
@@ -298,20 +305,15 @@ b {
         left: 2%;
         min-height: 50px;
         z-index: 10;
-        color: rgba(255, 255, 255, 85%);
+        color: rgba(0, 0, 0, 85%);
    }
 
+   #ex-section p {
+    color:rgba(0, 0, 0, 85%);
+    }
+
    .ex-background-color {
-        background-image: url('purple.jpeg');
-        background-size: cover;
-        background-repeat: no-repeat;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        width: 100%;
-        height: auto;
+        background-color: whitesmoke;
    }
 
    .exp-contact {
@@ -328,5 +330,9 @@ b {
         display: inline-block;
         bottom: 2%;
         right: 0;
+    }
+
+    #exp-bottom p {
+        color: rgba(0, 0, 0, 85%);
     }
 }

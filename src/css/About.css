@@ -238,7 +238,9 @@ b {
 
    .about-navigation {
        font-size: 5px;
-       min-height: 100px;
+       height: 48px;
+       min-height: 55px;
+       background-color: rgba(0, 0, 0, 85%);
    }
 
    #about-image, .info-at-bottom {
@@ -256,7 +258,7 @@ b {
         text-align: left;
         width: 50%;
         left: 2%;
-        color: rgba(255, 255, 255, 85%);
+        color: rgba(0, 0, 0, 85%);
     }
 
     #about-hangul {
@@ -273,23 +275,11 @@ b {
         left: 2%;
         min-height: 50px;
         z-index: 10;
-        color: rgba(255, 255, 255, 85%);
+        color: rgba(0, 0, 0, 85%);
     }
 
     .about-background-color {
-        background-image: url('purple.jpeg');
-        background-repeat: no-repeat;
-        background-size: cover;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        width: 100%;
-        height: 100%;
-        max-height: auto;
-        max-width: auto;
-        object-fit: fill;
+        background-color: whitesmoke;
     }
 
     .about-contact {
@@ -309,11 +299,11 @@ b {
     }
 
     #about-email-logo, #about-linkedin-logo, #about-github-logo {
-        filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(150%) contrast(100%);
+        filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
     }
 
     #about-bottom p {
-        color: rgba(255, 255, 255, 85%);
+        color: rgba(0, 0, 0, 85%);
     }
    
 }
@@ -322,11 +312,6 @@ b {
     #about-header li {
         padding: 0 20px;
         margin: 15px
-    }
-
-    #about-header li:hover {
-        background-color: rgba(0, 0, 0, 10%);
-        border-radius: 10px;
     }
 
     #about-header a:hover {
@@ -339,7 +324,9 @@ b {
 
    .about-navigation {
        font-size: 5px;
-       min-height: 100px;
+       height: 48px;
+       min-height: 55px;
+       background-color: rgba(0, 0, 0, 85%);
    }
 
    #about-image, .info-at-bottom {
@@ -357,7 +344,7 @@ b {
         text-align: left;
         width: 50%;
         left: 2%;
-        color: rgba(255, 255, 255, 85%);
+        color: rgba(0, 0, 0, 85%);
     }
 
     #about-hangul {
@@ -374,23 +361,11 @@ b {
         left: 2%;
         min-height: 50px;
         z-index: 10;
-        color: rgba(255, 255, 255, 85%);
+        color: rgba(0, 0, 0, 85%);
     }
 
     .about-background-color {
-        background-image: url('purple.jpeg');
-        background-repeat: no-repeat;
-        background-size: cover;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        width: 100%;
-        height: 100%;
-        max-height: auto;
-        max-width: auto;
-        object-fit: fill;
+        background-color: whitesmoke;
     }
 
     .about-contact {
@@ -410,10 +385,10 @@ b {
     }
 
     #about-email-logo, #about-linkedin-logo, #about-github-logo {
-        filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(150%) contrast(100%);
+        filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
     }
 
     #about-bottom p {
-        color: rgba(255, 255, 255, 85%);
+        color: rgba(0, 0, 0, 85%);
     }
 }
