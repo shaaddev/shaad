@@ -209,7 +209,7 @@ b {
 
 @media only screen and (min-width: 375px) and (max-width: 812px) {
     #exp-header li {
-        padding: 0 20px;
+        padding: 0 10px;
         margin: 15px;
     }
 
@@ -218,7 +218,7 @@ b {
     }
 
    .exp-navigation {
-       font-size: 5px;
+       font-size: 7px;
        height: 48px;
        min-height: 55px;
        background-color: rgba(0, 0, 0, 85%);
@@ -276,7 +276,7 @@ b {
 
 @media (max-width: 600px) and (max-width: 1080px) {
     #exp-header li {
-        padding: 0 20px;
+        padding: 0 10px;
         margin: 15px;
     }
 
@@ -285,7 +285,7 @@ b {
     }
 
    .exp-navigation {
-       font-size: 5px;
+       font-size: 7px;
        height: 48px;
        min-height: 55px;
        background-color: rgba(0, 0, 0, 85%);

@@ -277,7 +277,7 @@ b {
         width: 15%;
         text-align: left;
         left: 2%;
-        min-height: 130px;
+        min-height: 180px;
         z-index: 10;
         color: rgba(0, 0, 0, 85%);
     }
@@ -361,7 +361,21 @@ b {
        height: 48px;
        min-height: 55px;
        background-color: rgba(0, 0, 0, 85%);
-   }
+    }
+
+    #home-section .home-title {
+        position: relative;
+        padding: 0;
+        font-size: 20px;
+        margin: 10 auto;
+        width: 15%;
+        text-align: left;
+        left: 2%;
+        min-height: 180px;
+        z-index: 10;
+        color: rgba(0, 0, 0, 85%);
+    }
+
 
    #home-section span h2 {
         position: relative;
