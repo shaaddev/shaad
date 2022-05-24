@@ -80,8 +80,6 @@ li {
     height: 48px;
     min-height: 55px;
     z-index: 10;
-    /* background-color: rgba(0, 0, 0, 85%); */
-    /* border: 2px solid red;  */
 }
 
 #about-section .about-title {
@@ -94,7 +92,6 @@ li {
     text-align: left;
     left: 2%;
     min-height: 120px;
-    /* border: 2px solid red; */
     z-index: 10;
 }
 
@@ -110,8 +107,6 @@ li {
     line-height: 30px;
     right: 20%;
     top: 30%;
-    /* border: 2px solid red; */
-    
 }
 
 .about-contact {
@@ -125,10 +120,12 @@ li {
     top: 20%;
     min-height: 120px;
     line-height: 70px;
-
-    
-    /* border: 2px solid red; */
 }
+
+#about-section p strong {
+    padding: 0 5px;
+}
+
 
 #about-email-logo, #about-linkedin-logo, #about-github-logo {
     position: relative;
