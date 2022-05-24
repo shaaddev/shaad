@@ -31,7 +31,7 @@ class About extends React.Component {
                         <br/><br/><br/>
                         <strong>Skills</strong>: <br />
                         <strong>Python</strong> | <strong>Java</strong> | <strong>JavaScript ES6+</strong> | <strong>React.js</strong> |  <strong>HTML x CSS</strong> |
-                        <strong>Docker</strong> | <strong>Git</strong> | <strong>AWS</strong>
+                        <strong>Git</strong>
                         <br/>
                     </p>
 
