@@ -6,7 +6,7 @@
 <p align="center">From basic HTML to Django to React.js for easier deployment 🌸</p>
 
 <p >
-    <img src="public/images/preview.png">
+    <img src="public/images/prev.png">
 </p>
 
 
