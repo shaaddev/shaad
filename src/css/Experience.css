@@ -207,10 +207,12 @@ b {
     color: #26c5f6;
 }
 
-@media only screen and (min-width: 375px) and (max-width: 812px) {
+@media only screen and (max-width: 900px) {
     #exp-header li {
-        padding: 0 7px;
-        margin: 15px;
+        position: relative;
+        padding: 30px;
+        margin: 0 auto;
+        display: block;
     }
 
     #exp-header a:hover {
@@ -218,14 +220,20 @@ b {
     }
 
    .exp-navigation {
-       font-size: 7px;
-       height: 48px;
-       min-height: 55px;
+       font-size: 10px;
+       height: 44px;
+       min-height: 48px;
        background-color: rgba(0, 0, 0, 85%);
    }
 
    #exp-hangul {
-       display: none;
+        position: absolute;
+        top: 0;
+        left: 2%;
+        margin-top: 13px;
+        font-size: 20px;
+        z-index: 100;
+        border-bottom: none;
    }
 
    #ex-section h3 {
@@ -244,73 +252,6 @@ b {
    #ex-section p {
        color:rgba(0, 0, 0, 85%);
    }
-
-   .ex-background-color {
-        background-color: whitesmoke;
-   }
-
-   .exp-contact {
-        position: absolute;
-        padding: 0;
-        top: 70%;
-        right: 15px;
-        bottom: 0;
-        text-align: center;
-    }
-
-    .exp-contact li {
-        position: relative;
-        padding: 0 5px;
-        bottom: 0;
-        right: 0;
-    }
-
-    #exp-email-logo, #exp-linkedin-logo, #exp-github-logo {
-        filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
-    }
-
-    #exp-bottom p {
-        color: rgba(0, 0, 0, 85%);
-    }
-}
-
-@media (max-width: 600px) and (max-width: 1080px) {
-    #exp-header li {
-        padding: 0 7px;
-        margin: 15px;
-    }
-
-    #exp-header a:hover {
-        letter-spacing: 0px;
-    }
-
-   .exp-navigation {
-       font-size: 7px;
-       height: 48px;
-       min-height: 55px;
-       background-color: rgba(0, 0, 0, 85%);
-   }
-
-   #exp-hangul {
-       display: none;
-   }
-
-   #ex-section h3 {
-        position: relative;
-        padding: 0;
-        font-size: 20px;
-        margin: 10 auto;
-        width: 15%;
-        text-align: left;
-        left: 2%;
-        min-height: 50px;
-        z-index: 10;
-        color: rgba(0, 0, 0, 85%);
-   }
-
-   #ex-section p {
-    color:rgba(0, 0, 0, 85%);
-    }
 
    .ex-background-color {
         background-color: whitesmoke;

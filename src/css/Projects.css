@@ -206,10 +206,12 @@ b {
     color: #26c5f6;
 }
 
-@media only screen and (min-width: 375px) and (max-width: 812px) {
+@media only screen and (max-width: 900px) {
     #project-header li {
-        padding: 0 7px;
-        margin: 15px;
+        position: relative;
+        padding: 30px;
+        margin: 0 auto;
+        display: block;
     }
 
     #project-header a:hover {
@@ -217,14 +219,20 @@ b {
     }
 
    .project-navigation {
-       font-size: 7px;
-       height: 48px;
-       min-height: 55px;
+       font-size: 10px;
+       height: 44px;
+       min-height: 48px;
        background-color: rgba(0, 0, 0, 85%);
    }
 
    #project-hangul {
-       display: none;
+        position: absolute;
+        top: 0;
+        left: 2%;
+        margin-top: 13px;
+        font-size: 20px;
+        z-index: 100;
+        border-bottom: none;
    }
 
    #project-section .project-title {
@@ -261,72 +269,6 @@ b {
         position: relative;
         padding: 0 5px;
         bottom: 0;
-        right: 0;
-    }
-
-    #project-email-logo, #project-linkedin-logo, #project-github-logo {
-        filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
-    }
-
-    #project-bottom p {
-        color: rgba(0, 0, 0, 85%);
-    }
-}
-
-@media (max-width: 600px) and (max-width: 1080px) {
-    #project-header li {
-        padding: 0 7px;
-        margin: 15px;
-    }
-
-    #project-header a:hover {
-        letter-spacing: 0px;
-    }
-
-   .project-navigation {
-       font-size: 7px;
-       height: 48px;
-       min-height: 55px;
-       background-color: rgba(0, 0, 0, 85%);
-   }
-
-   #project-hangul {
-       display: none;
-   }
-
-   #project-section .project-title {
-        position: relative;
-        padding: 0;
-        font-size: 20px;
-        margin: 10 auto;
-        width: 15%;
-        text-align: left;
-        left: 2%;
-        min-height: 50px;
-        z-index: 10;
-        color: rgba(0, 0, 0, 85%);
-    }
-
-    #project-section p {
-        color: rgba(0, 0, 0, 85%);
-    }
-
-
-    .projects-background-color {
-        background-color: whitesmoke;
-    } 
-
-    .project-contact {
-        padding: 0;
-        right: 20px;
-        text-align: right;
-    }
-
-    .project-contact li {
-        position: relative;
-        padding: 0 5px;
-        display: inline-block;
-        bottom: 2%;
         right: 0;
     }
 

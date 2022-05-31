@@ -224,10 +224,12 @@ b {
     color: #26c5f6;
 }
 
-@media only screen and (min-width: 375px) and (max-width: 812px) {
+@media only screen and (max-width: 900px) {
     #about-header li {
-        padding: 0 7px;
-        margin: 15px;
+        position: relative;
+        padding: 30px;
+        margin: 0 auto;
+        display: block;
     }
 
     #about-header a:hover {
@@ -239,9 +241,9 @@ b {
     }
 
    .about-navigation {
-       font-size: 7px;
-       height: 48px;
-       min-height: 55px;
+       font-size: 10px;
+       height: 44px;
+       min-height: 48px;
        background-color: rgba(0, 0, 0, 85%);
    }
 
@@ -264,7 +266,14 @@ b {
     }
 
     #about-hangul {
-        display: none;
+        position: absolute;
+        color: rgba(255, 255, 255, 85%);
+        top: 0;
+        left: 2%;
+        margin-top: 13px;
+        font-size: 20px;
+        z-index: 100;
+        border-bottom: none;
     }
 
     #about-section .about-title {
@@ -310,87 +319,3 @@ b {
    
 }
 
-@media (max-width: 600px) and (max-width: 1080px) {
-    #about-header li {
-        padding: 0 7px;
-        margin: 15px
-    }
-
-    #about-header a:hover {
-        letter-spacing: 0px;
-    }
-
-    #about-header a {
-        color: rgba(255, 255, 255, 85%);
-    }
-
-   .about-navigation {
-       font-size: 7px;
-       height: 48px;
-       min-height: 55px;
-       background-color: rgba(0, 0, 0, 85%);
-   }
-
-   #about-image, .info-at-bottom {
-       display: none;
-   }
-
-   .background-shape {
-       display: none;
-   }
-
-   #about-section p {
-        position: relative;
-        margin: 0 auto;
-        padding: 0;
-        text-align: left;
-        width: 75%;
-        left: 2%;
-        color: rgba(0, 0, 0, 85%);
-    }
-
-    #about-hangul {
-        display: none;
-    }
-
-    #about-section .about-title {
-        position: relative;
-        padding: 0;
-        font-size: 20px;
-        margin: 10 auto;
-        width: 15%;
-        text-align: left;
-        left: 2%;
-        min-height: 50px;
-        z-index: 10;
-        color: rgba(0, 0, 0, 85%);
-    }
-
-    .about-background-color {
-        background-color: whitesmoke;
-    }
-
-    .about-contact {
-        position: absolute;
-        padding: 0;
-        top: 70%;
-        right: 15px;
-        bottom: 0;
-        text-align: center;
-    }
-
-    .about-contact li {
-        position: relative;
-        padding: 0 5px;
-        bottom: 0;
-        right: 0;
-    }
-
-    #about-email-logo, #about-linkedin-logo, #about-github-logo {
-        filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
-    }
-
-    #about-bottom p {
-        color: rgba(0, 0, 0, 85%);
-    }
-}

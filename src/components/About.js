@@ -6,13 +6,17 @@ class About extends React.Component {
     render() {
         return (
             <div>
-                <div className="about-navigation" id="about-header">  
+                <div className="about-navigation" id="about-header"> 
+                    <input type="checkbox" id="nav-toggle-tab" className="nav-toggle"/>
+                    <div className="inner-header">
                     <ul>
                         <li><Link to="/"><h2>.Home</h2></Link></li> 
                         <li><Link to="/about"><h2>.About</h2></Link></li> 
                         <li><Link to="/experience"><h2>.Experience</h2></Link></li> 
                         <li><Link to="/projects"><h2>.Projects</h2></Link></li>
                     </ul>
+                    </div>
+                    <label htmlFor="nav-toggle-tab" className="nav-toggle-tab" ><span></span></label>
                 </div>
 
                 <section id="about-section">

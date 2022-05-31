@@ -8,12 +8,16 @@ class Home extends React.Component {
         return (
             <div>
                 <div className="home-navigation" id="home-header">  
-                    <ul>
-                        <li><Link to="/"><h2>.Home</h2></Link></li> 
-                        <li><Link to="/about"><h2>.About</h2></Link></li> 
-                        <li><Link to="/experience"><h2>.Experience</h2></Link></li> 
-                        <li><Link to="/projects"><h2>.Projects</h2></Link></li>
-                    </ul>
+                    <input type="checkbox" id="nav-toggle-tab" className="nav-toggle"/>
+                    <div className="inner-header">
+                        <ul>
+                            <li><Link to="/"><h2>.Home</h2></Link></li> 
+                            <li><Link to="/about"><h2>.About</h2></Link></li> 
+                            <li><Link to="/experience"><h2>.Experience</h2></Link></li> 
+                            <li><Link to="/projects"><h2>.Projects</h2></Link></li>
+                        </ul>
+                    </div>
+                    <label htmlFor="nav-toggle-tab" className="nav-toggle-tab" ><span></span></label>
                 </div>
 
                 <h1 id="home-hangul">샤드</h1>
