@@ -26,17 +26,18 @@ class About extends React.Component {
 
                     <h3 className='about-title'>.About</h3>
 
-                    <div id="about-shape" class="background-shape"><img id="about-image" src={'/images/me/nyc.jpg'} alt="nyc" /></div>
-                    <div id="info" class="info-at-bottom" ><span><strong>Rashaad Lee Hue-Joseph</strong></span></div>
+                    <div id="about-shape" className="background-shape"><img id="about-image" src={'/images/me/coe.jpg'} alt="nyc" /></div>
+                    <div id="info" className="info-at-bottom" ><span><strong>Rashaad Lee Hue-Joseph</strong></span></div>
 
 
                     <p>
-                        I am currently studying <strong>Information Systems Management </strong> at <strong> UWI School Of Business & Applied Studies Ltd.</strong> 
+                        I am currently a second year <strong>Information Systems Management </strong> student at <strong> UWI School Of Business & Applied Studies Ltd.</strong> ❄️
                         <br/><br/><br/>
                         <strong>Skills</strong>: <br />
                         <strong>Python</strong> | <strong>Java</strong> | <strong>JavaScript ES6+</strong> | <strong>C++</strong> | <strong>React.js</strong> |  <strong>HTML x CSS</strong> |
                         <strong>Git</strong>
-                        <br/>
+                        <br/><br/><br/>
+                        In my spare time, I often play Video Games. And love listening to Music. 🎵 🎧
                     </p>
 
 
