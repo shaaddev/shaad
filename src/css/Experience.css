@@ -223,7 +223,6 @@ b {
        font-size: 10px;
        height: 44px;
        min-height: 48px;
-       background-color: rgba(0, 0, 0, 85%);
    }
 
    #exp-hangul {
@@ -234,6 +233,7 @@ b {
         font-size: 20px;
         z-index: 100;
         border-bottom: none;
+        color: rgba(0, 0, 0, 85%);
    }
 
    #ex-section h3 {

@@ -28,9 +28,22 @@ class Projects extends React.Component {
                     <h1 id="project-hangul">샤드</h1>
 
                     <h3 className='project-title'>.Projects</h3>
-                    <p>
-                        Coming Soon.
-                    </p>
+                    <div className="git-project">
+                        <a href="https://github.com/shaaddev/shaad" target="_blank" rel='noreferrer'><img className="git-logo" src={'images/logos/github.png'} alt="git"/></a>
+                        <h2 className="title">shaad</h2>
+                        <p className="description">
+                            This is my personal website, which you are watching right now
+                        </p>
+                        <h4 className="skills">CSS, HTML, JavaScript</h4>
+                    </div>
+                    <div className="git-project">
+                        <a href="https://github.com/shaaddev/airlineweb" target="_blank" rel='noreferrer'><img className="git-logo" src={'images/logos/github.png'} alt="git"/></a>
+                        <h2 className="title">Airline Web</h2>
+                        <p className="description">
+                            This project was created to test my knowledge in the Django Framework
+                        </p>
+                        <h4 className="skills">CSS, HTML, Python, JavaScript</h4>
+                    </div>
                 </section>
 
                 <div className="project-contact">

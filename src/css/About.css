@@ -239,7 +239,6 @@ b {
        font-size: 10px;
        height: 44px;
        min-height: 48px;
-       background-color: rgba(0, 0, 0, 85%);
    }
 
    #about-image, .info-at-bottom {
@@ -262,7 +261,7 @@ b {
 
     #about-hangul {
         position: absolute;
-        color: rgba(255, 255, 255, 85%);
+        color: rgba(0, 0, 0, 85%);
         top: 0;
         left: 2%;
         margin-top: 13px;

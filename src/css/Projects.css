@@ -127,22 +127,62 @@ li {
     font-size: 25px;
     text-align: left;
     left: 2%;
-    min-height: 125px;
+    min-height: 80px;
     
     /* border: 2px solid red; */
 }
 
-#project-section p {
+#project-section .git-project {
+    display: inline-block;
     position: relative;
-    margin: 0 auto;
-    color: rgba(255, 255, 255, 85%);
+    padding: 17vh 3vw;
+    margin: 20px;
+    left: 25%;
+    background-color: rgba(161, 165, 164, 85%);
     font-family:'Spoqa Han Sans Neo', 'sans-serif', 'Montserrat';
     font-size: 20px;
     font-weight: bold;
-    width: 70%;
-    text-align: center;
+    width: 15%;
+    text-align: left;
     min-height: 125px;
-    
+    border-radius: 10px;
+    box-shadow: 2px 6px 9px 0px rgba(0, 0, 0, 50%);
+}
+
+.git-project .title {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    font-size: 30px;
+}
+
+.git-project .description {
+    position: absolute;
+    left: 5%;
+    width: 90%;
+    font-size: 15px;
+    line-height: 30px;
+}
+
+.git-project .skills {
+    position: absolute;
+    bottom: 1%;
+    left: 5%;
+    font-size: 10px;
+}
+
+
+.git-logo {
+    position: absolute;
+    right: 5%;
+    top: 5%;
+    width: 25px;
+    height: 25px;
+    transition: all .2s ease-in;
+}
+
+.git-logo:hover {
+    top: 3%;
 }
 
 .project-contact {
@@ -222,7 +262,6 @@ b {
        font-size: 10px;
        height: 44px;
        min-height: 48px;
-       background-color: rgba(0, 0, 0, 85%);
    }
 
    #project-hangul {
@@ -233,6 +272,7 @@ b {
         font-size: 20px;
         z-index: 100;
         border-bottom: none;
+        color: rgba(0, 0, 0, 85%);
    }
 
    #project-section .project-title {
@@ -248,8 +288,11 @@ b {
         color: rgba(0, 0, 0, 85%);
     }
 
-    #project-section p {
-        color: rgba(0, 0, 0, 85%);
+    #project-section .git-project {
+        display: block;
+        width: auto;
+        left: 0;
+        background-color: rgba(255, 255, 255, 85%);
     }
 
     .projects-background-color {
@@ -273,10 +316,10 @@ b {
     }
 
     #project-email-logo, #project-linkedin-logo, #project-github-logo {
-        filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
+        display: none;
     }
 
     #project-bottom p {
-        color: rgba(0, 0, 0, 85%);
+        display: none;
     }
 }
