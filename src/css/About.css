@@ -145,24 +145,6 @@ li {
 }
 
 
-
-
-#info {
-    position: absolute;
-    margin: 0 auto;
-    top: 85%;
-    left: 24%;
-    
-}
-
-.info-at-bottom {
-    padding: 10px;
-    font-family: 'Spoqa Han Sans Neo', 'sans-serif', 'Montserrat';
-    font-size: 17px;
-    border-bottom: 2px solid rgba(0, 0, 0, 85%);
-    border-radius: 2px;
-}
-
 #about-shape {
     padding: 15vw 10vh;
     position: absolute;
@@ -241,9 +223,6 @@ b {
        min-height: 48px;
    }
 
-   #about-image, .info-at-bottom {
-       display: none;
-   }
 
    .background-shape {
        display: none;

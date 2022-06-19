@@ -27,8 +27,6 @@ class About extends React.Component {
                     <h3 className='about-title'>.About</h3>
 
                     <div id="about-shape" className="background-shape"><img id="about-image" src={'/images/me/coe.jpg'} alt="nyc" /></div>
-                    <div id="info" className="info-at-bottom" ><span><strong>Rashaad Lee Hue-Joseph</strong></span></div>
-
 
                     <p>
                         I am currently a second year <strong>Information Systems Management </strong> student at <strong> UWI School Of Business & Applied Studies Ltd.</strong> ❄️
