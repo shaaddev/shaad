@@ -32,7 +32,7 @@ class About extends React.Component {
                         I am currently a second year <strong>Information Systems Management </strong> student at <strong> UWI School Of Business & Applied Studies Ltd.</strong> ❄️
                         <br/><br/><br/>
                         <strong>Skills</strong>: <br />
-                        <strong>Python</strong> | <strong>Java</strong> | <strong>JavaScript ES6+</strong> | <strong>C++</strong> | <strong>Django</strong> |  <strong>React.js</strong> |
+                        <strong>Python</strong> | <strong>Java</strong> | <strong>JavaScript ES6+</strong> | <strong>C++</strong> | <strong>Django</strong> | <strong>HTML x CSS</strong> |
                         <strong>Git</strong>
                         <br/><br/><br/>
                         In my spare time, I often play Video Games. And love listening to Music. 🎵 🎧
