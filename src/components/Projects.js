@@ -3,28 +3,35 @@ import { Link } from 'react-router-dom';
 import '../css/Projects.css';
 
 class Projects extends React.Component {
+    onClick = (e) => {
+        e.preventDefault()
+    }
     render() {
+        function openNav(){
+            document.getElementById("proj-nav").style.width = "100%";
+        }
+
+        function closeNav(){
+            document.getElementById("proj-nav").style.width = "0";
+        }
+
         return (
             <div>
 
-                <div className="project-navigation" id="project-header">
-                    <input type="checkbox" id="nav-toggle-tab" className="nav-toggle"/>
-                    <div className="inner-header">    
-                    <ul>
-                        <li><Link to="/"><h2>.Home</h2></Link></li> 
-                        <li><Link to="/about"><h2>.About</h2></Link></li> 
-                        <li><Link to="/experience"><h2>.Experience</h2></Link></li> 
-                        <li><Link to="/projects"><h2>.Projects</h2></Link></li>
-                    </ul>
-                    </div>
-                    <label htmlFor="nav-toggle-tab" className="nav-toggle-tab" ><span></span></label>
+                <div className="proj-Nav" id="proj-nav">   
+                    <span id="proj-closebtn" onClick={closeNav}>&times;</span>
+                    <Link to="/"><h2>Home</h2></Link>
+                    <Link to="/about"><h2>About</h2></Link>
+                    <Link to="/experience"><h2>Experience</h2></Link>
+                    <Link to="/projects"><h2>Projects</h2></Link>
                 </div>
 
+                <span className="proj-openbtn" onClick={openNav}>&#9776;</span>
+
+
                 <section id="project-section">
-
-                    <img id="project-image" src={'/images/background/area.jpeg'} alt="pro" />
+                    <img className="project-image" src={"/images/videos/donald-angry.gif"} alt="snow"></img>
                     <div className="projects-background-color"></div>
-
                     <h1 id="project-hangul">샤드</h1>
 
                     <h3 className='project-title'>.Projects</h3>

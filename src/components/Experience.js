@@ -4,25 +4,35 @@ import '../css/Experience.css';
 
 
 class Experience extends React.Component {
+    onClick = (e) => {
+        e.preventDefault()
+    }
     render() {
+        function openNav(){
+            document.getElementById("exp-nav").style.width = "100%";
+        }
+
+        function closeNav(){
+            document.getElementById("exp-nav").style.width = "0";
+        }
+
         return (
             <div>
-                <div className="exp-navigation" id="exp-header">
-                    <input type="checkbox" id="nav-toggle-tab" className="nav-toggle"/>
-                    <div className="inner-header">  
-                    <ul>
-                        <li><Link to="/"><h2>.Home</h2></Link></li> 
-                        <li><Link to="/about"><h2>.About</h2></Link></li> 
-                        <li><Link to="/experience"><h2>.Experience</h2></Link></li> 
-                        <li><Link to="/projects"><h2>.Projects</h2></Link></li>
-                    </ul>
-                    </div>
-                    <label htmlFor="nav-toggle-tab" className="nav-toggle-tab" ><span></span></label>
+
+                <div className="exp-Nav" id="exp-nav">   
+                    <span id="exp-closebtn" onClick={closeNav}>&times;</span>
+                    <Link to="/"><h2>Home</h2></Link>
+                    <Link to="/about"><h2>About</h2></Link>
+                    <Link to="/experience"><h2>Experience</h2></Link>
+                    <Link to="/projects"><h2>Projects</h2></Link>
                 </div>
+
+                <span className="exp-openbtn" onClick={openNav}>&#9776;</span>
+
 
                 <section id="ex-section">
 
-                    <img className="exp-image" src={'/images/background/airport.jpeg'} alt="experience" /> 
+                    <img className="exp-image" src={'/images/videos/donald-sleepy.gif'} alt="experience" /> 
                     <div className="ex-background-color"></div> 
 
                     <h1 id="exp-hangul">샤드</h1>

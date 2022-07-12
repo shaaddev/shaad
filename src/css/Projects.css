@@ -44,45 +44,62 @@ li {
     text-decoration: none;
 }
 
-#project-header li {
-    padding: 0 70px;
-    display: inline-block;
-    position: relative;
+.proj-Nav {
     margin: 0 auto;
-    height: 48px;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    background-color: whitesmoke;
+    overflow-x: hidden;
+    text-transform: uppercase;
+    transition: 0.5s;
+    padding-top: 150px;
     text-align: center;
 }
 
-#project-header a {
-    transition: all .1s ease-in;
+.proj-Nav a{
+    margin: 0 auto;
+    margin-top: 50px;
+    padding-left: 10%;
+    width: 25%;
+    text-align: left;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 400;
+    display: block;
+    color: black;
+    transition: 0.3s;
+    /* border: 2px solid red;/ */
 }
 
-#project-header a:hover {
-    background-color: rgb(164, 189, 228);
+.proj-Nav a:hover, #proj-closebtn:hover {
     color: rgb(164, 189, 228);
     letter-spacing: 1px;
-    
 }
 
-#project-header ul {
-    position: relative;
-    margin: 0 auto;
-    padding: 0;
-    
-}
-
-.project-navigation {
-    margin: 0 auto;
-    text-align: center;
-    position: relative;
-    font-family: 'Spoqa Han Sans Neo', 'sans-serif', 'Montserrat';
-    font-size: 14px;
-    width: 100%;
-    height: 48px;
-    min-height: 55px;
-    /* background-color: rgba(0, 0, 0, 85%); */
+.proj-openbtn {
+    position: fixed;
+    cursor: pointer;
+    font-size: 40px;
+    right: 5%;
+    top: 20px;
+    color: whitesmoke;
     z-index: 99;
-    /* border: 2px solid blue; */
+}
+
+#proj-closebtn {
+    position: absolute;
+    cursor: pointer;
+    z-index: 10;
+    top: 0;
+    right: 5%;
+    font-size: 36px;
+    margin-left: 50px;
+    margin-top: 12px;
+    text-align: right;
+    color: black;
 }
 
 /* ################################################ */
@@ -102,11 +119,10 @@ li {
     right: 0;
     top: 0;
     bottom: 0;
-    background-color:rgba(0, 0, 0, 40%);
-    
+    background-color:rgba(69, 69, 69, 25%);
 }
 
-#project-image {
+.project-image {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -128,8 +144,6 @@ li {
     text-align: left;
     left: 2%;
     min-height: 125px;
-    
-    /* border: 2px solid red; */
 }
 
 #project-section p {
@@ -157,9 +171,6 @@ li {
     top: 20%;
     min-height: 120px;
     line-height: 70px;
-
-    
-    /* border: 2px solid red; */
 }
 
 #project-email-logo, #project-linkedin-logo, #project-github-logo {
@@ -173,9 +184,6 @@ li {
     right: 0;
     width: 30%;
     filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(150%) contrast(100%);
-
-
-
     transition: all ease-in .1s;
 }
 
@@ -186,21 +194,18 @@ li {
 }
 
 #project-bottom p{
-    position: absolute;
+    position: fixed;
     margin: 0 auto;
     padding: 0;
     left: 20px;
     bottom: 0;
-    font-family: 'Spoqa Han Sans Neo', 'sans-serif', 'Montserrat';
     font-size: 12px;
     font-weight: bold;
-    color: rgba(0, 0, 0, 85%);
     line-height: 30px;
     width: 50%;
     height: 60px;
-    color:rgba(255, 255, 255, 75%);
     text-align: left;
-    
+    color: whitesmoke;
 }
 
 b {
@@ -208,37 +213,30 @@ b {
 }
 
 @media only screen and (max-width: 900px) {
-    #project-header li {
-        position: relative;
-        padding: 30px;
+    .proj-Nav {
         margin: 0 auto;
-        display: block;
+        text-align: left;
+        padding-top: 75px;
     }
 
-    #project-header a:hover {
-        letter-spacing: 0px;
+    .proj-Nav a {
+        padding-left: 0;
+        margin-left: 35%;
+        font-size: 18px;
     }
 
-   .project-navigation {
-       font-size: 10px;
-       height: 44px;
-       min-height: 48px;
-   }
+    .proj-openbtn {
+        color: whitesmoke;
+    }
 
    #project-hangul {
-        position: absolute;
-        top: 0;
-        left: 2%;
-        margin-top: 13px;
-        font-size: 20px;
-        z-index: 100;
-        border-bottom: none;
-        color: rgba(0, 0, 0, 85%);
+        display: none;
    }
 
    #project-section .project-title {
         position: relative;
         padding: 0;
+        padding-top: 25px;
         font-size: 20px;
         margin: 10 auto;
         width: 15%;
@@ -246,7 +244,7 @@ b {
         left: 2%;
         min-height: 50px;
         z-index: 10;
-        color: rgba(0, 0, 0, 85%);
+        color: rgba(255, 255, 255, 85%);
     }
 
     #project-section .git-project {
@@ -256,25 +254,15 @@ b {
         background-color: rgba(255, 255, 255, 85%);
     }
 
-    .projects-background-color {
-        background-color: whitesmoke;
-    } 
-
-    .project-contact {
-        position: absolute;
-        padding: 0;
-        top: 70%;
-        right: 15px;
-        bottom: 0;
-        text-align: center;
+    .project-image {
+        object-fit: cover;
     }
 
-    .project-contact li {
-        position: relative;
-        padding: 0 5px;
-        bottom: 0;
-        right: 0;
+    #project-section p {
+        color: whitesmoke;
     }
+
+   
 
     #project-email-logo, #project-linkedin-logo, #project-github-logo {
         display: none;

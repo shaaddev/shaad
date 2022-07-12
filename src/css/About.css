@@ -3,10 +3,10 @@ html {
     scroll-behavior: smooth;
 }
 
-
 body {
     margin: 0;
     padding: 0;
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif', 'Monsterrat';
 }
 
 a {
@@ -27,61 +27,77 @@ li {
     position: relative;
     text-align: left;
     width: 15%;
-    font-family: 'Spoqa Han Sans Neo', 'sans-serif', 'Montserrat';
     font-size: 25px;
     left: 2%;
     min-height: 50px;
     z-index: 10;
     border-bottom: 2px solid rgba(0, 0, 0, 85%);
-    
 }
 
-#about-header li {
-    position: relative;
-    padding: 0 70px;
+.about-Nav {
     margin: 0 auto;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    background-color: whitesmoke;
+    overflow-x: hidden;
+    text-transform: uppercase;
+    transition: 0.5s;
+    padding-top: 150px;
     text-align: center;
-    list-style-type: none;
-    display: inline-block;
-    height: 48px;
-    
 }
 
-#about-header a {
-    color: rgba(0, 0, 0, 85%);
-}
-
-#about-header ul {
-    text-align: center;
+.about-Nav a{
     margin: 0 auto;
-    padding: 0;
+    margin-top: 50px;
+    padding-left: 10%;
+    width: 20%;
+    text-align: left;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 400;
+    display: block;
+    color: black;
+    transition: 0.3s;
 }
 
-#about-header a {
-    transition: all .1s ease-in;
-}
-
-#about-header a:hover {
+.about-Nav a:hover, #about-closebtn:hover {
     color: rgb(164, 189, 228);
     letter-spacing: 1px;
 }
 
-.about-navigation {
-    margin: 0 auto;
-    padding: 0;
-    position: relative;
-    font-family: 'Spoqa Han Sans Neo', 'sans-serif', 'Montserrat';
-    font-size: 14px;
-    width: 100%;
-    height: 48px;
-    min-height: 55px;
-    z-index: 10;
+.about-openbtn {
+    position: fixed;
+    cursor: pointer;
+    font-size: 40px;
+    right: 5%;
+    top: 20px;
+    color: black;
+    z-index: 99;
 }
+
+#about-closebtn {
+    position: absolute;
+    cursor: pointer;
+    z-index: 10;
+    top: 0;
+    right: 5%;
+    font-size: 36px;
+    margin-left: 50px;
+    margin-top: 12px;
+    text-align: right;
+    color: black;
+}
+
+/* ################################################ */
+/* ################################################ */
+
 
 #about-section .about-title {
     position: relative;
     padding: 0;
-    font-family: 'Spoqa Han Sans Neo', 'sans-serif', 'Montserrat';
     font-size: 25px;
     margin: 10 auto;
     width: 15%;
@@ -94,7 +110,6 @@ li {
 #about-section p {
     position: absolute;
     padding: 0;
-    font-family:'Spoqa Han Sans Neo', 'sans-serif', 'Montserrat';
     font-size: 15px;
     font-weight: 500;
     margin: 0 auto;
@@ -107,7 +122,7 @@ li {
 }
 
 .about-contact {
-    position: absolute;
+    position: fixed;
     padding: 0;
     margin: 0 auto;
     width: 125px;
@@ -183,12 +198,11 @@ li {
 }
 
 #about-bottom p{
-    position: absolute;
+    position: fixed;
     margin: 0 auto;
     padding: 0;
     left: 20px;
     bottom: 0;
-    font-family: 'Spoqa Han Sans Neo', 'sans-serif', 'Montserrat';
     font-size: 12px;
     font-weight: bold;
     line-height: 30px;
@@ -202,26 +216,17 @@ b {
 }
 
 @media only screen and (max-width: 900px) {
-    #about-header li {
-        position: relative;
-        padding: 30px;
+    .abou-Nav {
         margin: 0 auto;
-        display: block;
+        text-align: left;
+        padding-top: 75px;
     }
 
-    #about-header a:hover {
-        letter-spacing: 0px;
+    .about-Nav a {
+        padding-left: 0;
+        margin-left: 35%;
+        font-size: 18px;
     }
-
-    #about-header a {
-        color: rgba(255, 255, 255, 85%);
-    }
-
-   .about-navigation {
-       font-size: 10px;
-       height: 44px;
-       min-height: 48px;
-   }
 
 
    .background-shape {
@@ -232,26 +237,20 @@ b {
         position: relative;
         margin: 0 auto;
         padding: 0;
-        text-align: left;
+        text-align: justify;
         width: 75%;
         left: 2%;
         color: rgba(0, 0, 0, 85%);
     }
 
     #about-hangul {
-        position: absolute;
-        color: rgba(0, 0, 0, 85%);
-        top: 0;
-        left: 2%;
-        margin-top: 13px;
-        font-size: 20px;
-        z-index: 100;
-        border-bottom: none;
+        display: none;
     }
 
     #about-section .about-title {
         position: relative;
         padding: 0;
+        padding-top: 25px;
         font-size: 20px;
         margin: 10 auto;
         width: 15%;

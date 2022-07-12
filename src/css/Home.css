@@ -6,6 +6,10 @@ html {
     scroll-behavior: smooth;
 }
 
+body {
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif', 'Monsterrat';
+}
+
 h1 {
     position: relative;
     margin: 10 auto;
@@ -18,7 +22,6 @@ h1 {
     padding: 0;
     color: rgba(255, 255, 255, 85%);
     text-align: left;
-    font-family: 'Spoqa Han Sans Neo', 'sans-serif', 'Montserrat';
     font-size: 25px;
     font-weight: bold;
     width: 15%;
@@ -26,7 +29,7 @@ h1 {
     left: 2%;
     bottom: 50%;
     min-height: 50px;
-    z-index: 9999;
+    z-index: 999;
     border-bottom: 2px solid rgba(255, 255, 255, 85%);
 }
 
@@ -48,48 +51,62 @@ li {
     text-decoration: none;
 }
 
-#home-header li {
-    padding: 0 70px;
-    display: inline-block;
-    position: relative;
+.home-Nav {
     margin: 0 auto;
-    height: 48px;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    background-color: whitesmoke;
+    overflow-x: hidden;
+    text-transform: uppercase;
+    transition: 0.5s;
+    padding-top: 150px;
     text-align: center;
-}
-
-#home-header a {
-    transition: all .1s ease-in;
-}
-
-#home-header a:hover {
-    background-color: rgb(164, 189, 228);
-    color: rgb(164, 189, 228);
-    letter-spacing: 1px;
     
 }
 
-#home-header ul {
-    position: relative;
+.home-Nav a{
     margin: 0 auto;
-    padding: 0;
+    margin-top: 50px;
+    padding-left: 10%;
+    width: 25%;
+    text-align: left;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 400;
+    display: block;
+    color: black;
+    transition: 0.3s;
 }
 
-.home-navigation {
-    margin: 0 auto;
-    text-align: center;
-    position: relative;
-    font-family: 'Spoqa Han Sans Neo', 'sans-serif', 'Montserrat';
-    font-size: 14px;
-    width: 100%;
-    height: 48px;
-    min-height: 55px;
-    /* background-color: rgba(0, 0, 0, 85%); */
+.home-Nav a:hover, #closebtn:hover {
+    color: rgb(164, 189, 228);
+    letter-spacing: 1px;
+}
+
+.openbtn {
+    position: fixed;
+    cursor: pointer;
+    font-size: 40px;
+    right: 5%;
+    top: 20px;
+    color: whitesmoke;
     z-index: 99;
-    /* border: 2px solid blue; */
 }
 
-.nav-toggle {
-    display: none;
+#closebtn {
+    position: absolute;
+    cursor: pointer;
+    z-index: 10;
+    top: 0;
+    right: 5%;
+    font-size: 36px;
+    margin-left: 50px;
+    margin-top: 12px;
+    text-align: right;
+    color: black;
 }
 
 /* ################################################ */
@@ -141,7 +158,7 @@ li {
 #home-section span h3 {
     position: relative;
     margin: 0 auto;
-    text-align: left;
+    text-align: justify;
     width: 50%;
     font-family: 'Spoqa Han Sans Neo', 'sans-serif', 'Montserrat';
     font-size: 15px;
@@ -265,102 +282,30 @@ b {
 /* MOBILES */
 
 @media only screen and (max-width: 900px) {
-    #home-header li {
-        position: relative;
-        padding: 30px;
+   .home-Nav {
         margin: 0 auto;
-        display: block;
-    }
-
-    #home-header a:hover {
-        letter-spacing: 0px;
-    }
-
-
-    #home-hangul {
-        position: absolute;
-        top: 0;
-        left: 2%;
-        margin-top: 13px;
-        font-size: 20px;
-        z-index: 100;
-        border-bottom: none;
-        color: rgba(0, 0, 0, 85%);
-    }
-
-   .home-navigation {
-       font-size: 10px;
-       height: 44px;
-       min-height: 48px;
+        text-align: left;
+        padding-top: 75px;
    }
 
-   .inner-header {
-        text-align: center;
-        background-color: rgb(0, 0, 0);
-        backdrop-filter: blur(8px);
-        width: 100%;
-        display: block;
-        transform: scale(1, 0);
-        transform-origin: top;
-        transition: transform 400ms ease-in;
-    }
+   .home-Nav a {
+        padding-left: 0;
+        margin-left: 35%;
+        font-size: 18px;
+   }
 
-    .inner-header a {
-        text-transform: uppercase;
-        opacity: 0;
-    }
+   .openbtn {
+        color: black;
+   }
 
-    .nav-toggle {
+    #home-hangul {
         display: none;
-    }
-
-    .nav-toggle:checked ~ .inner-header {
-        transform: scale(1, 1);
-    }
-
-    .nav-toggle:checked ~ .inner-header a {
-        opacity: 1;
-    }
-
-    .nav-toggle-tab {
-        position: absolute;
-        top: 0;
-        right: 0;
-        margin-top: 2px;
-        margin-right: 1em;
-        height: 90%;
-        display: flex;
-        align-items: center;
-    }
-
-    .nav-toggle-tab span, 
-    .nav-toggle-tab span::before, 
-    .nav-toggle-tab span::after {
-        display: block;
-        background: rgba(0, 0, 0, 85%);
-        height: 2px;
-        width: 2em;
-        border-radius: 2px;
-        position: relative;
-    }
-
-    .nav-toggle-tab span::before, 
-    .nav-toggle-tab span::after {
-        content: '';
-        position: absolute;
-    }
-
-    .nav-toggle-tab span::before {
-        bottom: 7px;
-    }
-
-    .nav-toggle-tab span::after {
-        top: 7px;
     }
 
    #home-section .home-title {
         position: relative;
         padding: 0;
+        padding-top: 25px;
         font-size: 20px;
         margin: 10 auto;
         width: 15%;
@@ -388,7 +333,7 @@ b {
         margin: 0 auto;
         padding: 0;
         font-size: 15px;
-        text-align: left;
+        text-align: justify;
         box-sizing: border-box;
         width: 75%;
         left: 2%;

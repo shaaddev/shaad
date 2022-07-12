@@ -3,21 +3,30 @@ import { Link } from 'react-router-dom';
 import '../css/About.css';
 
 class About extends React.Component {
+    onClick = (e) => {
+        e.preventDefault()
+    }
     render() {
+        function openNav(){
+            document.getElementById("about-nav").style.width = "100%";
+        }
+
+        function closeNav(){
+            document.getElementById("about-nav").style.width = "0";
+        }
+
         return (
             <div>
-                <div className="about-navigation" id="about-header"> 
-                    <input type="checkbox" id="nav-toggle-tab" className="nav-toggle"/>
-                    <div className="inner-header">
-                    <ul>
-                        <li><Link to="/"><h2>.Home</h2></Link></li> 
-                        <li><Link to="/about"><h2>.About</h2></Link></li> 
-                        <li><Link to="/experience"><h2>.Experience</h2></Link></li> 
-                        <li><Link to="/projects"><h2>.Projects</h2></Link></li>
-                    </ul>
-                    </div>
-                    <label htmlFor="nav-toggle-tab" className="nav-toggle-tab" ><span></span></label>
+                
+                <div className="about-Nav" id="about-nav">   
+                    <span id="about-closebtn" onClick={closeNav}>&times;</span>
+                    <Link to="/"><h2>Home</h2></Link>
+                    <Link to="/about"><h2>About</h2></Link>
+                    <Link to="/experience"><h2>Experience</h2></Link>
+                    <Link to="/projects"><h2>Projects</h2></Link>
                 </div>
+
+                <span className="about-openbtn" onClick={openNav}>&#9776;</span>
 
                 <section id="about-section">
                     <div className='about-background-color'></div>
@@ -64,7 +73,6 @@ class About extends React.Component {
                 <div id="about-bottom">
                     <p>Made By <b>R.L.H</b> <br/> All rights reserved ©</p>
                 </div>
-            
             </div>
         )
     }
