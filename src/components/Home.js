@@ -17,7 +17,8 @@ class Home extends React.Component {
 
         return (
             <div>
-                <div className="home-Nav" id="home-nav">   
+                <div className="home-Nav" id="home-nav">
+                    <h1 className="home-nav-hangul">샤드</h1>   
                     <span id="closebtn" onClick={closeNav}>&times;</span>
                     <Link to="/"><h2>Home</h2></Link>
                     <Link to="/about"><h2>About</h2></Link>

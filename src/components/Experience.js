@@ -20,6 +20,7 @@ class Experience extends React.Component {
             <div>
 
                 <div className="exp-Nav" id="exp-nav">   
+                    <h1 className="exp-nav-hangul">샤드</h1>   
                     <span id="exp-closebtn" onClick={closeNav}>&times;</span>
                     <Link to="/"><h2>Home</h2></Link>
                     <Link to="/about"><h2>About</h2></Link>

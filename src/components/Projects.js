@@ -18,7 +18,8 @@ class Projects extends React.Component {
         return (
             <div>
 
-                <div className="proj-Nav" id="proj-nav">   
+                <div className="proj-Nav" id="proj-nav">
+                    <h1 className="proj-nav-hangul">샤드</h1>      
                     <span id="proj-closebtn" onClick={closeNav}>&times;</span>
                     <Link to="/"><h2>Home</h2></Link>
                     <Link to="/about"><h2>About</h2></Link>

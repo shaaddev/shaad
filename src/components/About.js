@@ -18,7 +18,8 @@ class About extends React.Component {
         return (
             <div>
                 
-                <div className="about-Nav" id="about-nav">   
+                <div className="about-Nav" id="about-nav">
+                    <h1 className="about-nav-hangul">샤드</h1>   
                     <span id="about-closebtn" onClick={closeNav}>&times;</span>
                     <Link to="/"><h2>Home</h2></Link>
                     <Link to="/about"><h2>About</h2></Link>

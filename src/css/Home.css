@@ -75,7 +75,7 @@ li {
     text-align: left;
     text-decoration: none;
     font-size: 20px;
-    font-weight: 400;
+    font-weight: 500;
     display: block;
     color: black;
     transition: 0.3s;
@@ -84,6 +84,18 @@ li {
 .home-Nav a:hover, #closebtn:hover {
     color: rgb(164, 189, 228);
     letter-spacing: 1px;
+}
+
+.home-nav-hangul{
+    position: absolute;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 0;
+    top: 0;
+    left: 2%;
+    text-align: justify;
+    white-space: nowrap;
+    min-height: 50px;
 }
 
 .openbtn {

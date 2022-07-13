@@ -68,6 +68,18 @@ li {
     letter-spacing: 1px;
 }
 
+.about-nav-hangul{
+    position: absolute;
+    font-size: 25px;
+    padding: 0;
+    top: 0;
+    left: 2%;
+    text-align: justify;
+    white-space: nowrap;
+    min-height: 50px;
+}
+
+
 .about-openbtn {
     position: fixed;
     cursor: pointer;
