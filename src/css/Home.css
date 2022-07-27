@@ -36,6 +36,10 @@ body {
     padding: 0;
 }
 
+.nav-icons {
+    display: none;
+}
+
 /* NAVIGATION BAR */
 
 a {
@@ -89,7 +93,7 @@ li {
     font-weight: bold;
     padding: 0;
     top: 0;
-    left: 2%;
+    left: 5%;
     text-align: justify;
     white-space: nowrap;
     min-height: 50px;
@@ -291,6 +295,28 @@ b {
 /* MOBILES */
 
 @media only screen and (max-width: 900px) {
+
+    .nav-icons {
+        position: relative;
+        margin: 0 auto;
+        padding: 0;
+        display: block;
+        white-space: nowrap;
+        width: 100%;
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    .nav-icons li {
+        position: relative;
+        display: inline-block;
+        margin: 0 auto;
+        padding: 0 40px;
+    }
+
+    .nav-icons img {
+        width: 25px;
+    }
 
    .home-Nav {
         margin: 0 auto;

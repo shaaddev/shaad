@@ -25,6 +25,12 @@ class Projects extends React.Component {
                     <Link to="/about"><h2>About</h2></Link>
                     <Link to="/experience"><h2>Experience</h2></Link>
                     <Link to="/projects"><h2>Projects</h2></Link>
+
+                    <ul className='nav-icons'>
+                        <li><a href="mailto:rashaadleehue1@gmail.com" target=""><img className="nav-mail" src={'images/logos/mail.png'} alt="mail"/></a></li>
+                        <li><a href="https://www.linkedin.com/in/rashaadleehue-joseph/" target="_blank" rel='noreferrer'><img className="nav-linkedin" src={'images/logos/linkedin.png'} alt="link"/></a></li>
+                        <li><a href="https://github.com/shaaddev" target="_blank" rel='noreferrer'><img className="nav-git" src={'images/logos/github.png'} alt="git"/></a></li>
+                    </ul>
                 </div>
 
                 <span className="proj-openbtn" onClick={openNav}>&#9776;</span>
