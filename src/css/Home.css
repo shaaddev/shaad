@@ -1,6 +1,3 @@
-@import "bgColor.css";
-
-
 html {
     background-color: whitesmoke;
     scroll-behavior: smooth;
@@ -213,7 +210,7 @@ li {
 }
 
 
-#home-email-logo, #home-linkedin-logo, #home-github-logo {
+.home-email-logo, .home-linkedin-logo, .home-github-logo {
     position: relative;
     padding: 0;
     margin: 0 auto;
@@ -223,14 +220,14 @@ li {
     bottom: 0;
     right: 0;
     width: 30%;
-    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(150%) contrast(100%);
+    filter: invert(100%);
 
 
 
     transition: all ease-in .1s;
 }
 
-#home-email-logo:hover, #home-linkedin-logo:hover, #home-github-logo:hover {
+.home-email-logo:hover, .home-linkedin-logo:hover, .home-github-logo:hover {
     left: 0;
 }
 
@@ -294,6 +291,7 @@ b {
 /* MOBILES */
 
 @media only screen and (max-width: 900px) {
+
    .home-Nav {
         margin: 0 auto;
         text-align: left;
@@ -307,7 +305,7 @@ b {
    }
 
    .openbtn {
-        color: black;
+        color: rgba(255, 255, 255, 75%);
    }
 
     #home-hangul {
@@ -322,10 +320,10 @@ b {
         margin: 10 auto;
         width: 15%;
         text-align: left;
-        left: 2%;
+        left: 5%;
         min-height: 120px;
         z-index: 10;
-        color: rgba(0, 0, 0, 85%);
+        color: rgba(255, 255, 255, 75%);
     }
 
    #home-section span h2 {
@@ -337,7 +335,7 @@ b {
         width: 75%;
         left: 2%;
         line-height: 40px;
-        color: rgba(0, 0, 0, 85%);
+        color: rgba(255, 255, 255, 75%);
     }
 
    #home-section span h3 {
@@ -349,7 +347,7 @@ b {
         box-sizing: border-box;
         width: 75%;
         left: 2%;
-        color: rgba(0, 0, 0, 85%); 
+        color: rgba(255, 255, 255, 75%); 
    }
 
    #home-section a {
@@ -357,36 +355,19 @@ b {
    }
 
    .home-contact {
-        position: absolute;
-        padding: 0;
-        margin: 0;
-        top: 70%;
-        right: 15px;
-        bottom: 0;
-        text-align: center;
+        display: none;
    }
 
-
-   .home-contact li {
-       position: relative;
-       padding: 0 5px;
-       bottom: 0;
-       right: 0;
+   #home-background {
+        display: block;
+        object-fit: cover;
    }
-
-   .home-background-color {
-        background-color: whitesmoke;
-    }
-
-    #home-email-logo, #home-linkedin-logo, #home-github-logo {
-        filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
-    }
 
     .name {
-        animation: bgColor 5s infinite linear;
+        color: rgb(164, 189, 228);
     }
 
     #home-bottom p {
-        color: rgba(0, 0, 0, 85%);
+        color: rgba(255, 255, 255, 75%);
     }
 }

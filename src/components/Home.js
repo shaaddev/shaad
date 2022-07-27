@@ -51,17 +51,17 @@ class Home extends React.Component {
                     <ul>
                         <li>
                             <a href="mailto:rashaadleehue1@gmail.com" target="">
-                                <img id="home-email-logo"  src={'images/logos/gmail.png'} alt="Email"/>
+                                <img className="home-email-logo"  src={'images/logos/mail.png'} alt="Email"/>
                             </a>
                         </li>
                         <li>
                             <a href="https://www.linkedin.com/in/rashaadleehue-joseph/" target="_blank" rel='noreferrer'>
-                                <img id="home-linkedin-logo"  src={'images/logos/linkedin.png'} alt="Linkedin"/>
+                                <img className="home-linkedin-logo"  src={'images/logos/linkedin.png'} alt="Linkedin"/>
                             </a>
                         </li>   
                         <li>
                             <a href="https://github.com/shaaddev" target="_blank" rel='noreferrer'>
-                                <img id="home-github-logo" src={'images/logos/github.png'} alt="Github"/>
+                                <img className="home-github-logo" src={'images/logos/github.png'} alt="Github"/>
                             </a>
                         </li>
                     </ul>

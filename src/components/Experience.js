@@ -49,17 +49,17 @@ class Experience extends React.Component {
                     <ul>
                         <li>
                             <a href="mailto:rashaadleehue1@gmail.com" target="">
-                                <img id="exp-email-logo"  src={'images/logos/gmail.png'} alt="Email"/>
+                                <img className="exp-email-logo"  src={'images/logos/mail.png'} alt="Email"/>
                             </a>
                         </li>
                         <li>
                             <a href="https://www.linkedin.com/in/rashaadleehue-joseph/" target="_blank" rel='noreferrer'>
-                                <img id="exp-linkedin-logo"  src={'images/logos/linkedin.png'} alt="Linkedin"/>
+                                <img className="exp-linkedin-logo"  src={'images/logos/linkedin.png'} alt="Linkedin"/>
                             </a>
                         </li>   
                         <li>
                             <a href="https://github.com/shaaddev" target="_blank" rel='noreferrer'>
-                                <img id="exp-github-logo" src={'images/logos/github.png'} alt="Github"/>
+                                <img className="exp-github-logo" src={'images/logos/github.png'} alt="Github"/>
                             </a>
                         </li>
                     </ul>

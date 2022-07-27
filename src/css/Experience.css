@@ -184,7 +184,7 @@ li {
     line-height: 70px;
 }
 
-#exp-email-logo, #exp-linkedin-logo, #exp-github-logo {
+.exp-email-logo, .exp-linkedin-logo, .exp-github-logo {
     position: relative;
     padding: 0;
     margin: 0 auto;
@@ -200,7 +200,7 @@ li {
 
 
 
-#exp-email-logo:hover, #exp-linkedin-logo:hover, #exp-github-logo:hover {
+.exp-email-logo:hover, .exp-linkedin-logo:hover, .exp-github-logo:hover {
     left: 0;
 }
 
@@ -254,7 +254,7 @@ b {
         margin: 10 auto;
         width: 15%;
         text-align: left;
-        left: 2%;
+        left: 5%;
         min-height: 50px;
         z-index: 10;
         color: rgba(255, 255, 255, 85%);
@@ -269,24 +269,8 @@ b {
    }
 
    .exp-contact {
-        position: absolute;
-        padding: 0;
-        top: 70%;
-        right: 15px;
-        bottom: 0;
-        text-align: center;
-    }
-
-    .exp-contact li {
-        position: relative;
-        padding: 0 5px;
-        bottom: 0;
-        right: 0;
-    }
-
-    #exp-email-logo, #exp-linkedin-logo, #exp-github-logo {
-        filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(150%) contrast(100%);
-    }
+        display: none;    
+   }
 
     #exp-bottom p {
         color: rgba(255, 255, 255, 85%);

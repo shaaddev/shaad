@@ -60,17 +60,17 @@ class Projects extends React.Component {
                     <ul>
                         <li>
                             <a href="mailto:rashaadleehue1@gmail.com" target="">
-                                <img id="project-email-logo"  src={'images/logos/gmail.png'} alt="Email"/>
+                                <img className="project-email-logo"  src={'images/logos/mail.png'} alt="Email"/>
                             </a>
                         </li>
                         <li>
                             <a href="https://www.linkedin.com/in/rashaadleehue-joseph/" target="_blank" rel='noreferrer'>
-                                <img id="project-linkedin-logo"  src={'images/logos/linkedin.png'} alt="Linkedin"/>
+                                <img className="project-linkedin-logo"  src={'images/logos/linkedin.png'} alt="Linkedin"/>
                             </a>
                         </li>   
                         <li>
                             <a href="https://github.com/shaaddev" target="_blank" rel='noreferrer'>
-                                <img id="project-github-logo" src={'images/logos/github.png'} alt="Github"/>
+                                <img className="project-github-logo" src={'images/logos/github.png'} alt="Github"/>
                             </a>
                         </li>
                     </ul>

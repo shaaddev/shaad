@@ -185,7 +185,7 @@ li {
     line-height: 70px;
 }
 
-#project-email-logo, #project-linkedin-logo, #project-github-logo {
+.project-email-logo, .project-linkedin-logo, .project-github-logo {
     position: relative;
     padding: 0;
     margin: 0 auto;
@@ -201,7 +201,7 @@ li {
 
 
 
-#project-email-logo:hover, #project-linkedin-logo:hover, #project-github-logo:hover {
+.project-email-logo:hover, .project-linkedin-logo:hover, .project-github-logo:hover {
     left: 0;
 }
 
@@ -253,7 +253,7 @@ b {
         margin: 10 auto;
         width: 15%;
         text-align: left;
-        left: 2%;
+        left: 5%;
         min-height: 50px;
         z-index: 10;
         color: rgba(255, 255, 255, 85%);
@@ -274,13 +274,11 @@ b {
         color: whitesmoke;
     }
 
-   
-
-    #project-email-logo, #project-linkedin-logo, #project-github-logo {
+    .project-contact {
         display: none;
     }
 
     #project-bottom p {
-        display: none;
+        color: rgba(255, 255, 255, 85%);
     }
 }

@@ -55,17 +55,17 @@ class About extends React.Component {
                     <ul>
                         <li>
                             <a href="mailto:rashaadleehue1@gmail.com" target="">
-                                <img id="about-email-logo"  src={'images/logos/gmail.png'} alt="Email"/>
+                                <img className="about-email-logo"  src={'images/logos/mail.png'} alt="Email"/>
                             </a>
                         </li>
                         <li>
                             <a href="https://www.linkedin.com/in/rashaadleehue-joseph/" target="_blank" rel='noreferrer'>
-                                <img id="about-linkedin-logo"  src={'images/logos/linkedin.png'} alt="Linkedin"/>
+                                <img className="about-linkedin-logo"  src={'images/logos/linkedin.png'} alt="Linkedin"/>
                             </a>
                         </li>   
                         <li>
                             <a href="https://github.com/shaaddev" target="_blank" rel='noreferrer'>
-                                <img id="about-github-logo" src={'images/logos/github.png'} alt="Github"/>
+                                <img className="about-github-logo" src={'images/logos/github.png'} alt="Github"/>
                             </a>
                         </li>
                     </ul>
