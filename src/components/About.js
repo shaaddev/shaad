@@ -51,7 +51,6 @@ class About extends React.Component {
                         <strong>Python</strong> | <strong>Java</strong> | <strong>JavaScript ES6+</strong> | <strong>C++</strong> | <strong>Django</strong> | <strong>HTML x CSS</strong> |
                         <strong>Git</strong>
                         <br/><br/><br/>
-                        I often play Video Games in my free time. And enjoy music listening. 🎵 🎧
                     </p>
 
 
