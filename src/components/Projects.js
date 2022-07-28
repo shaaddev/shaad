@@ -19,12 +19,12 @@ class Projects extends React.Component {
             "Social Events" : {
                 desc: "A web app intended for patrons of Trinidad and Tobago to seek for the next party locations.",
                 techStack: "Python (Django), HTML x CSS, JavaScript, Bootstrap, PostgreSQL",
-                link: ""
+                link: "https://github.com/shaaddev"
             },
             "shaad" : {
                 desc: "Portfolio of the developer that created this website.",
                 techStack: "React.js, HTML x CSS",
-                link: ""
+                link: "https://github.com/shaaddev/shaad"
             },
             "Roytec Airlines" : {
                 desc: "A school project that was done with static scripting, then migrated into django for backend development.",
