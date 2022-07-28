@@ -16,6 +16,19 @@ class Experience extends React.Component {
             document.getElementById("exp-nav").style.width = "0";
         }
 
+        const experience = {
+            "Digi-Data" : {
+                jobTitle: "Web Developer Intern @",
+                duration: "JUNE 2022 - JULY 2022",
+                desc: [
+                    "Built proof of concept form using .NET for clients",
+                    "Connected client .NET website with SQL Server",
+                    "Created sample project (under maintenance page using CMS)",
+                    "Migrated pages built to live environment using a WordPress Migrations plugin"
+                ]
+            }
+        }
+
         return (
             <div>
 
@@ -37,18 +50,31 @@ class Experience extends React.Component {
                 <span className="exp-openbtn" onClick={openNav}>&#9776;</span>
 
 
-                <section id="ex-section">
+                <section className="ex-section">
 
                     <img className="exp-image" src={'/images/videos/donald-sleepy.gif'} alt="experience" /> 
                     <div className="ex-background-color"></div> 
 
                     <h1 id="exp-hangul">샤드</h1>
 
-                    <h3>.Experience</h3>
-                    <p>
-                       Coming Soon.
-
-                    </p>
+                    <h3 className="exp-title">.Experience</h3>
+                    
+                    <div className="exp-listing">
+                        {Object.keys(experience).map(key => (
+                            <>
+                                {/* <h3 className="exp-list-head">{key}</h3> */}
+                                <h4 className="exp-list-title">{experience[key]["jobTitle"] + " "} <c>{key}</c></h4>
+                                <p className="exp-list-duration">{experience[key]["duration"]}</p>
+                                <ul className="exp-list-desc">
+                                    {experience[key]["desc"].map(function (item) {
+                                        return (
+                                            <li>{item}</li>
+                                        )
+                                    })}
+                                </ul>
+                            </>
+                        ))}
+                    </div>
                 </section>
 
                 <div className="exp-contact">

@@ -15,6 +15,24 @@ class Projects extends React.Component {
             document.getElementById("proj-nav").style.width = "0";
         }
 
+        const projects = {
+            "Social Events" : {
+                desc: "A web app intended for patrons of Trinidad and Tobago to seek for the next party locations.",
+                techStack: "Python (Django), HTML x CSS, JavaScript, Bootstrap, PostgreSQL",
+                link: ""
+            },
+            "shaad" : {
+                desc: "Portfolio of the developer that created this website.",
+                techStack: "React.js, HTML x CSS",
+                link: ""
+            },
+            "Roytec Airlines" : {
+                desc: "A school project that was done with static scripting, then migrated into django for backend development.",
+                techStack: "Python (Django), HTML x CSS, JavaScript, Bootstrap, SQLite",
+                link: "https://github.com/shaaddev/airlineweb"
+            }
+        }
+
         return (
             <div>
 
@@ -36,30 +54,22 @@ class Projects extends React.Component {
                 <span className="proj-openbtn" onClick={openNav}>&#9776;</span>
 
 
-                <section id="project-section">
+                <section className="project-section">
                     <img className="project-image" src={"/images/videos/donald-angry.gif"} alt="snow"></img>
                     <div className="projects-background-color"></div>
                     <h1 id="project-hangul">샤드</h1>
 
                     <h3 className='project-title'>.Projects</h3>
 
-                    <p>Coming Soon.</p>
-                    {/* <div className="git-project">
-                        <a href="https://github.com/shaaddev/shaad" target="_blank" rel='noreferrer'><img className="git-logo" src={'images/logos/github.png'} alt="git"/></a>
-                        <h2 className="title">shaad</h2>
-                        <p className="description">
-                            This is my personal website, which you are watching right now
-                        </p>
-                        <h4 className="skills">CSS, HTML, JavaScript</h4>
-                    </div>
-                    <div className="git-project">
-                        <a href="https://github.com/shaaddev/airlineweb" target="_blank" rel='noreferrer'><img className="git-logo" src={'images/logos/github.png'} alt="git"/></a>
-                        <h2 className="title">Airline Web</h2>
-                        <p className="description">
-                            This project was created to test my knowledge in the Django Framework
-                        </p>
-                        <h4 className="skills">CSS, HTML, Python, JavaScript</h4>
-                    </div> */}
+                    {Object.keys(projects).map(key => (
+                        <div className="project-list">
+                            <a href={projects[key]["link"]} target="_blank" rel="noreferrer"><img className="list-git" src={'images/logos/github.png'} alt="git"/></a>
+                            <h3 className="proj-list-title">{key}</h3>
+                            <p className="proj-list-desc">{projects[key]["desc"]}</p>
+                            <p className="proj-list-techStack">{projects[key]["techStack"]}</p>
+                        </div>
+                    ))}
+                    
                 </section>
 
                 <div className="project-contact">

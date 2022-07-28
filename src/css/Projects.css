@@ -7,6 +7,7 @@ html {
 body {
     margin: 0;
     padding: 0;
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif', 'Montserrat';
 }
 
 h1 {
@@ -20,7 +21,6 @@ h1 {
     padding: 0;
     color: rgba(255, 255, 255, 85%);
     text-align: left;
-    font-family: 'Spoqa Han Sans Neo', 'sans-serif', 'Montserrat';
     font-size: 25px;
     font-weight: bold;
     width: 15%;
@@ -120,7 +120,7 @@ li {
 
 .projects-background-color {
     padding: 30vh 0;
-    position: absolute;
+    position: fixed;
 }
 
 .projects-background-color {
@@ -135,7 +135,7 @@ li {
 }
 
 .project-image {
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
@@ -145,35 +145,72 @@ li {
     height: 100%;
 }
 
-#project-section .project-title {
+.project-section .project-title {
     padding: 0;
     margin: 10 auto;
     width: 15%;
     position: relative;
     color: rgba(255, 255, 255, 85%);
-    font-family: 'Spoqa Han Sans Neo', 'sans-serif', 'Montserrat';
     font-size: 25px;
     text-align: left;
     left: 2%;
     min-height: 125px;
 }
 
-#project-section p {
+
+.project-list {
     position: relative;
+    width: 400px;
+    height: 400px;
     margin: 0 auto;
-    color: rgba(255, 255, 255, 85%);
-    font-family:'Spoqa Han Sans Neo', 'sans-serif', 'Montserrat';
-    font-size: 20px;
-    font-weight: bold;
-    width: 70%;
-    text-align: center;
-    min-height: 125px;
+    margin-bottom: 25px;
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 100%);
+    border: 5px solid black;
+}
+
+.project-list .list-git {
+    position: relative;
+    left: 5%;
+    margin-top: 5%;
+    width: 25px;
+    transition: all ease-in-out .1s;
 }
 
 
+.proj-list-title {
+    position: relative;
+    left: 5%;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    word-wrap: break-word;
+    width: 85%;
+}
+
+.proj-list-desc {
+    position: relative;
+    left: 5%;
+    text-align: justify;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 30px;
+    width: 85%;
+    margin-bottom: 30px;
+}
+
+.proj-list-techStack {
+    position: relative;
+    left: 5%;
+    font-size: 11px;
+    font-weight: 600;
+    width: 85%;
+    line-height: 25px;
+    color: rgba(0, 0, 0, 50%);
+}
+
 
 .project-contact {
-    position: absolute;
+    position: fixed;
     padding: 0;
     margin: 0 auto;
     width: 125px;
@@ -195,7 +232,7 @@ li {
     bottom: 0;
     right: 0;
     width: 30%;
-    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(150%) contrast(100%);
+    filter: invert(100%);
     transition: all ease-in .1s;
 }
 
@@ -245,7 +282,7 @@ b {
         display: none;
    }
 
-   #project-section .project-title {
+   .project-section .project-title {
         position: relative;
         padding: 0;
         padding-top: 25px;
@@ -259,7 +296,7 @@ b {
         color: rgba(255, 255, 255, 85%);
     }
 
-    #project-section .git-project {
+    .project-section .git-project {
         display: block;
         width: auto;
         left: 0;
@@ -270,15 +307,11 @@ b {
         object-fit: cover;
     }
 
-    #project-section p {
-        color: whitesmoke;
-    }
-
     .project-contact {
         display: none;
     }
 
     #project-bottom p {
-        color: rgba(255, 255, 255, 85%);
+        display: none;
     }
 }

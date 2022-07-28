@@ -146,7 +146,7 @@ li {
     height: 100%;
 }
 
-#ex-section h3 {
+.ex-section .exp-title {
     padding: 0;
     margin: 10 auto;
     width: 15%;
@@ -159,16 +159,52 @@ li {
     min-height: 125px; 
 }
 
-#ex-section p {
+.exp-listing {
     position: relative;
     margin: 0 auto;
-    color: rgba(255, 255, 255, 85%);
-    font-family:'Spoqa Han Sans Neo', 'sans-serif', 'Montserrat';
+    width: 700px;
+    height: 400px;
+    background-color: rgba(255, 255, 255, 5%);
+    border: 2px solid #fff;
+    border-radius: 10px;
+    color: #fff;
+}
+
+.exp-list-head {
+    position: relative;
+    left: 5%;
+    top: 5%;
+    margin-bottom: 5%;
+}
+
+.exp-list-title {
+    position: relative;
+    left: 5%;
+    top: 5%;
     font-size: 20px;
-    font-weight: bold;
-    width: 70%;
-    text-align: center;
-    min-height: 125px;
+}
+
+c{
+    color: rgb(123, 205, 5);
+}
+
+.exp-list-duration {
+    position: relative;
+    left: 5%;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+
+.exp-list-desc {
+    position: relative;
+    line-height: 30px;
+    left: 2%;
+}
+
+.exp-list-desc li::before {
+    content: "•     ";
+    color: rgb(123, 205, 5);
 }
 
 .exp-contact {
@@ -194,7 +230,7 @@ li {
     bottom: 0;
     right: 0;
     width: 30%;
-    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(150%) contrast(100%);
+    filter: invert(100%);
     transition: all ease-in .1s;
 }
 
@@ -246,7 +282,7 @@ b {
         display: none;
    }
 
-   #ex-section h3 {
+   .ex-section h3 {
         position: relative;
         padding: 0;
         padding-top: 25px;
@@ -260,7 +296,7 @@ b {
         color: rgba(255, 255, 255, 85%);
    }
 
-   #ex-section p {
+   .ex-section p {
        color:rgba(255, 255, 255, 85%);
    }
 
@@ -270,6 +306,15 @@ b {
 
    .exp-contact {
         display: none;    
+   }
+
+   .exp-listing {
+        width: 400px;
+   }
+
+   .exp-list-desc {
+        text-align: left;
+        width: 80%;
    }
 
     #exp-bottom p {
