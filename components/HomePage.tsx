@@ -10,6 +10,8 @@ import Contact from "./Contact"
   
 
 export default function HomePage(){
+    const desc = "I'm an aspiring software development engineer based in New York. I have interests in full-stack web development, cloud computing, machine learning, and everything in between.";
+
     return(
         <>
             <div className="flex px-1 justify-center items-center">
@@ -18,8 +20,7 @@ export default function HomePage(){
                         <div className="p-5 md:p-12">
                             <h1 className="text-3xl md:text-5xl lg:text-6xl leading-10 font-semibold mb-5">Shaad <span className="text-sky-800">Lee Hue</span></h1>
                             <h2 className="text-normal md:text-lg mb-5 font-semibold"><span className='text-sky-800'>Experimental</span> Developer</h2>
-                            <h3 className="text-sm sm:text-normal md:text-lg font-semibold">I'm an aspiring software development engineer based in New York. I have interests in full-stack web development, cloud computing, machine learning, 
-                            and everything in between.</h3>
+                            <h3 className="text-sm sm:text-normal md:text-lg font-semibold">{desc}</h3>
                         </div>
                     </CardContent>
                 </Card>
