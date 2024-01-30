@@ -21,7 +21,7 @@ export default function HomePage(){
                             <h2 className="text-normal md:text-lg mb-5 font-semibold"><span className='text-sky-800'>Experimental</span> Developer</h2>
                             <h3 className="text-sm sm:text-normal md:text-lg font-semibold">{desc}</h3>
                             <Button className="mt-14 rounded-full bg-sky-900 px-5 py-1 font-medium">
-                                <Link href='CV.pdf' download>
+                                <Link href='CV.pdf' target="_blank" rel="noopener noreferrer" locale={false} download>
                                     Download Resume <HiDownload className="inline top-0"/>
                                 </Link>
                             </Button>
