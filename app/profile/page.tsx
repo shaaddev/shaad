@@ -1,10 +1,5 @@
 import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
+    Card
 } from "@/components/ui/card"
 
 export default function Profile(){
