@@ -44,7 +44,7 @@ export default function Projects(){
         {
             title: "shaad",
             desc: "Latest version of the personal website that you're currently on.",
-            techStack: "NextJS, TailwindCSS, TypeScript",
+            techStack: "Next.js, TailwindCSS, TypeScript",
             link: "https://github.com/shaaddev/shaad",
         },
         {
