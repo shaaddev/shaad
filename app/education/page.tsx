@@ -15,7 +15,7 @@ export default function Education(){
     get ready for a job in the IT sector. "
 
     const mercy_desc = "Currently studying Computer Science at Mercy University obtaining knowledge of programme creation and computer systems \
-    analysis. Useful abilities in software engineering, computer architecture, operating systems, and computer networking"
+    analysis. Useful abilities in software engineering, computer architecture, operating systems, and computer networking."
 
     const education = [
         {   
