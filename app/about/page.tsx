@@ -3,12 +3,6 @@
 export default function About(){
     const skills = ['Python', 'TypeScript', 'JavaScript ES6+', 'React.js/Next.js', 'Django/Flask', 'Java', 'Git', 'AWS']
 
-    const desc1 = (
-    <span>
-        Seeking a challenging role within a progressive organization to provide the opportunity to utilize my skills as a <strong className="school">Software Development Engineer.</strong>
-    </span>
-    );
-
     return(
         <main className="flex flex-col items-center justify-between p-10 md:p-10">
             <h1 className="font-semibold text-zinc-200 text-2xl mb-5">ABOUT</h1>

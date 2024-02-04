@@ -2,9 +2,7 @@ import {
     Card,
     CardContent,
     CardDescription,
-    CardFooter,
     CardHeader,
-    CardTitle,
 } from "@/components/ui/card"
 import { FaGithub } from "react-icons/fa";
 import { IoMdLink } from "react-icons/io";
