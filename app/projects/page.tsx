@@ -62,7 +62,7 @@ export default function Projects(){
                             <CardHeader>
                                 <CardDescription className="inline-flex text-slate-200 gap-2 text-xl">
                                     <Link href={p.link} target="_blank" className="hover:opacity-75"><FaGithub /></Link>
-                                    <Link href={p.activeLink || "#" } target="_blank" className="hover:opacity-75"><IoMdLink/></Link>
+                                    <Link href={p.activeLink || "" } target={p.activeLink ? "_blank" : "" } className="hover:opacity-75"><IoMdLink/></Link>
                                 </CardDescription>
                             </CardHeader>
                             <CardContent>
