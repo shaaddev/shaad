@@ -2,7 +2,7 @@ export const projects = [
     {
         title: "Social Events (NextJS)",
         desc: "This is a web app intended to help persons of interest to promote their upcoming events. Originally created using the python framework Django.",
-        techStack: "Next.js, PostgreSQL, Tailwind CSS",
+        techStack: "Next.js, PostgreSQL, Tailwind CSS, Shadcn",
         link: "https://github.com/shaaddev/SocialEventsNextJS",
         activeLink: "https://social-events-next-js.vercel.app/"
     },
@@ -29,7 +29,7 @@ export const projects = [
     {
         title: "shaad",
         desc: "Latest version of the personal website that you're currently on.",
-        techStack: "Next.js, TailwindCSS, TypeScript",
+        techStack: "Next.js, TailwindCSS, Shadcn",
         link: "https://github.com/shaaddev/shaad",
     },
     {
