@@ -6,52 +6,11 @@ import {
 } from "@/components/ui/card"
 import { FaGithub } from "react-icons/fa";
 import { IoMdLink } from "react-icons/io";
-
 import Link from "next/link";
-
+import { projects } from "@/constants/info";
 
 export default function Projects(){
-    const projects = [
-        {
-            title: "Social Events (NextJS)",
-            desc: "This is a web app intended to help persons of interest to promote their upcoming events. Originally created using the python framework Django.",
-            techStack: "Next.js, PostgreSQL, Tailwind CSS",
-            link: "https://github.com/shaaddev/SocialEventsNextJS",
-            activeLink: "https://social-events-next-js.vercel.app/"
-        },
-        {
-            title: "PS Captures (Static)",
-            desc: "Video Gallery of a few clips from my PlayStation Captures. Using Next.js, Tailwind CSS and inspiration from vercel's image gallery template",
-            techStack: "Next.js, Tailwind CSS, Material UI",
-            link: "https://github.com/shaaddev/PSCapturesStatic",
-            activeLink: "https://ps-captures-static.vercel.app/"
-        },
-        {
-            title: "Eternal Brawlers",
-            desc: "Top Down 2D Indie Surival Game built using the Unity Engine.",
-            techStack: "Unity Engine, C#",
-            link: "https://github.com/shaaddev/Eternal-Brawlers",
-            activeLink: "https://shaaddev.itch.io/eternal-brawlers"
-        },
-        {
-            title: "Social Events",
-            desc: "A web app intended for patrons of Trinidad and Tobago to seek for the next party locations.",
-            techStack: "Python (Django), HTML x CSS, JavaScript, Bootstrap, PostgreSQL",
-            link: "https://github.com/shaaddev/SocialEvents",
-        },
-        {
-            title: "shaad",
-            desc: "Latest version of the personal website that you're currently on.",
-            techStack: "Next.js, TailwindCSS, TypeScript",
-            link: "https://github.com/shaaddev/shaad",
-        },
-        {
-            title: "Inventory Data",
-            desc: "This is a simple Inventory Management System that was built using C/C++ - 16 Jul 2021",
-            techStack: "C/C++",
-            link: "https://github.com/shaaddev/Inventory-Data"
-        },
-    ]
+    
     return(
         <main className="flex flex-col items-center justify-between p-10 md:p-10">
             <h1 className="font-semibold text-zinc-200 text-2xl mb-5">PROJECTS</h1>
