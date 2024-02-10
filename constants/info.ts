@@ -1,5 +1,12 @@
 export const projects = [
     {
+        title: "Compute Age",
+        desc: "From the Terminal to the User Interface, originally created in Java, this web app helps you to calculate your age",
+        techStack: "Next.js,Tailwind CSS, Shadcn",
+        link: "https://github.com/shaaddev/ComputeAge",
+        activeLink: "https://compute-age.vercel.app/"
+    },
+    {
         title: "Social Events (NextJS)",
         desc: "This is a web app intended to help persons of interest to promote their upcoming events. Originally created using the python framework Django.",
         techStack: "Next.js, PostgreSQL, Tailwind CSS, Shadcn",
