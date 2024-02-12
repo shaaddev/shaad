@@ -14,6 +14,13 @@ export const projects = [
         activeLink: "https://social-events-next-js.vercel.app/"
     },
     {
+        title: "Serenity Focus",
+        desc: "A productivity tracker app developed by a group as part of the TechWise Program web development course, supported by Google and provided by TalentSprint",
+        techStack: "MongoDB, Express.js, HTML x CSS",
+        link: "https://github.com/TechWise-Project-2/SerenityFocus",
+        activeLink: "https://www.serenityfocuss.com/"
+    },
+    {
         title: "PS Captures (Static)",
         desc: "Video Gallery of a few clips from my PlayStation Captures. Using Next.js, Tailwind CSS and inspiration from vercel's image gallery template",
         techStack: "Next.js, Tailwind CSS, Material UI",
@@ -38,13 +45,7 @@ export const projects = [
         desc: "Latest version of the personal website that you're currently on.",
         techStack: "Next.js, TailwindCSS, Shadcn",
         link: "https://github.com/shaaddev/shaad",
-    },
-    {
-        title: "Inventory Data",
-        desc: "This is a simple Inventory Management System that was built using C/C++ - 16 Jul 2021",
-        techStack: "C/C++",
-        link: "https://github.com/shaaddev/Inventory-Data"
-    },
+    }
 ]
 
 const techwise_desc = "Selected among the top 120 students across select colleges for TechWise, a program offered by TalentSprint \
