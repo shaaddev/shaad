@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
 
 
 export default function Contact(){
@@ -15,6 +16,11 @@ export default function Contact(){
                     <li>
                         <Link href="https://www.linkedin.com/in/rleehue-joseph/" target="_blank">
                             <FaLinkedin className="inline mr-1"/>Linkedin
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="mailto:rashaadleehue1@gmail.com" target="_blank">
+                            <MdEmail className="inline mr-1"/>Say Hi
                         </Link>
                     </li>
                 </ul>
