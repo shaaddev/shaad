@@ -6,7 +6,7 @@ export default function Contact(){
     return(
         <>
             <div className="flex flex-col ">
-                <ul className="flex flex-row gap-5 mt-2 mb-4 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-8 text-neutral-200">
+                <ul className="flex flex-row gap-5 mt-2 mb-4 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-8 text-black dark:text-neutral-200">
                     <li>
                         <Link href="https://github.com/shaaddev" target="_blank">
                             <FaGithub className="inline mr-1"/>Github
