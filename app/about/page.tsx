@@ -1,7 +1,7 @@
 
 
 export default function About(){
-    const skills = ['Python', 'TypeScript', 'JavaScript ES6+', 'React.js/Next.js', 'Django/Flask', 'Java', 'Git', 'AWS']
+    const skills = ['Python', 'TypeScript', 'JavaScript ES6+', 'React.js/Next.js', 'Git', 'AWS']
 
     return(
         <main className="flex flex-col items-center justify-between p-10 md:p-10">
