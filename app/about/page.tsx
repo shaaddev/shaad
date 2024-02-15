@@ -7,7 +7,7 @@ export default function About(){
         <main className="flex flex-col items-center justify-between p-10 md:p-10">
             <h1 className="font-semibold text-black dark:text-zinc-200 text-2xl mb-5">ABOUT</h1>
             <div className="text-black dark:text-zinc-200 lg:w-3/5 2xl:w-2/5">
-                <p className="mb-10 font-semibold">I am currently a first year <strong className='text-green-700'> Computer Science </strong> major (Bachelor of Science) at <strong className='text-green-700'> Mercy University, Dobbs Ferry.</strong></p>
+                <p className="mb-10 font-semibold">I am currently a second year <strong className='text-green-700'> Computer Science </strong> major (Bachelor of Science) at <strong className='text-green-700'> Mercy University, Dobbs Ferry.</strong></p>
                 <b>Skills:</b>
                 <div className="grid gap-4 my-5 grid-cols-2">
                     {skills.map(function(skill){
