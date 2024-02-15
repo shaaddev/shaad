@@ -3,6 +3,7 @@ import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Theme from "@/components/Theme";
+import Copyright from "@/components/Copyright";
 
 const mont = Montserrat({ subsets: ["latin"] });
 
@@ -23,6 +24,7 @@ export default function RootLayout({
         
         <main>{children}</main>
         <Theme />
+        <Copyright />
       </body>
     </html>
   );
