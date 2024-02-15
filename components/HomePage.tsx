@@ -5,7 +5,7 @@ import {
 import { Button } from "@/components/ui/button";
 import Contact from "./Contact"
 import Link from "next/link";
-import { HiDownload } from "react-icons/hi";
+import { MdArrowOutward } from "react-icons/md";
 
 
 export default function HomePage(){
@@ -20,9 +20,9 @@ export default function HomePage(){
                             <h1 className="text-3xl md:text-5xl lg:text-6xl leading-10 font-semibold mb-5">Shaad <span className="text-sky-800">Lee Hue</span></h1>
                             <h2 className="text-normal md:text-lg mb-5 font-semibold"><span className='text-sky-800'>Experimental</span> Developer</h2>
                             <h3 className="text-sm sm:text-normal md:text-lg font-semibold">{desc}</h3>
-                            <Button className="mt-14 rounded-full bg-sky-900 px-5 py-1 font-medium text-neutral-200">
-                                <Link href='CV.pdf' target="_blank" rel="noopener noreferrer" locale={false} download>
-                                    Download Resume <HiDownload className="inline top-0"/>
+                            <Button className="mt-14 rounded-full bg-sky-900 px-5 py-1 font-medium text-neutral-200 dark:hover:bg-black">
+                                <Link href='CV.pdf' target="_blank" rel="noopener noreferrer" locale={false}>
+                                    Check Resume <MdArrowOutward className="inline top-0"/>
                                 </Link>
                             </Button>
                         </div>
