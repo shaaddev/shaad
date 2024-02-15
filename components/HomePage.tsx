@@ -9,7 +9,8 @@ import { MdArrowOutward } from "react-icons/md";
 
 
 export default function HomePage(){
-    const desc = "I'm an aspiring software development engineer based in New York. I have interests in full-stack web development, cloud computing, machine learning, and everything in between.";
+    const desc = "I'm an aspiring software development engineer based in New York. I have interests in full-stack web development, cloud computing, and helping \
+                    businesses scale their architecture.";
 
     return(
         <>
