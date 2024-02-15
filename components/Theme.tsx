@@ -35,7 +35,7 @@ export default function Theme(){
     }, [])
 
     return (
-        <button onClick={toggleTheme} className='fixed z-10 bottom-10 right-10 md:right-16 text-black dark:text-slate-200 p-2 rounded-full border border-black dark:border-white'>
+        <button onClick={toggleTheme} className='fixed z-10 bottom-2 md:bottom-10 right-5 md:right-16 text-black dark:text-slate-200 p-2 rounded-full border border-black dark:border-white'>
             {theme === 'light' ? (<BsSun className='w-5 h-5 '/>) : ( <BsMoon className='w-5 h-5' /> )}
         </button>
     )
