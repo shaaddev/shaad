@@ -9,8 +9,8 @@ import { MdArrowOutward } from "react-icons/md";
 
 
 export default function HomePage(){
-    const desc = "I'm an aspiring software development engineer based in New York. I have interests in full-stack web development, cloud computing, and helping \
-                    businesses scale their architecture.";
+    const desc = "I'm a certified cloud developer - associate and software development engineer based in New York. I have interests in full-stack web development, cloud computing, and helping \
+                    businesses scale their architecture. ";
 
     return(
         <>
@@ -20,7 +20,7 @@ export default function HomePage(){
                         <div className="p-5 md:p-12">
                             <h1 className="text-3xl md:text-5xl lg:text-6xl leading-10 font-semibold mb-5">Shaad <span className="text-sky-800">Lee Hue</span></h1>
                             <h2 className="text-normal md:text-lg mb-5 font-semibold"><span className='text-sky-800'>Experimental</span> Developer</h2>
-                            <h3 className="text-sm sm:text-normal md:text-lg font-semibold">{desc}</h3>
+                            <h3 className="text-sm sm:text-normal md:text-base font-semibold">{desc}</h3>
                             <Button className="mt-14 rounded-full bg-sky-900 px-5 py-1 font-medium text-neutral-200 dark:hover:bg-black">
                                 <Link href='CV.pdf' target="_blank" rel="noopener noreferrer" locale={false}>
                                     Check Resume <MdArrowOutward className="inline top-0"/>
