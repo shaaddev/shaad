@@ -16,7 +16,7 @@ export default function Projects(){
             <h1 className="font-semibold text-black dark:text-zinc-200 text-2xl mb-5 lg:mb-0">PROJECTS</h1>
             <div className="flex flex-col justify-center lg:grid lg:grid-cols-2 xl:grid-cols-3 lg:gap-4 lg:p-10 xl:p-24">
                 {projects.map((p: any) => (
-                    <div key={p.title} className="flex flex-col items-center justify-center">
+                    <div key={p.id} className="flex flex-col items-center justify-center">
                         <Card  className="w-full h-auto lg:w-full lg:h-full mb-5 lg:mb-0 text-black bg-neutral-50 shadow shadow-black/10 dark:bg-zinc-800 dark:text-neutral-200 border-none rounded-2xl p-2">
                             <CardHeader>
                                 <CardDescription className="inline-flex text-black dark:text-slate-200 gap-2 text-xl">
