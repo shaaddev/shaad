@@ -5,7 +5,7 @@ export const projects = [
         desc: "From the Terminal to the User Interface, originally created in Java, this web app helps you to calculate your age",
         techStack: "Next.js,Tailwind CSS, Shadcn",
         link: "https://github.com/shaaddev/ComputeAge",
-        activeLink: "https://compute-age.vercel.app/"
+        activeLink: "https://age.shaadleehue.com/"
     },
     {
         id: 2,
