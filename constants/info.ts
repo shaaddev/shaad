@@ -13,7 +13,7 @@ export const projects = [
         desc: "This is a web app intended to help persons of interest to promote their upcoming events. Originally created using the python framework Django.",
         techStack: "Next.js, PostgreSQL, Tailwind CSS, Shadcn",
         link: "https://github.com/shaaddev/SocialEventsNextJS",
-        activeLink: "https://social-events.shaadleehue.com/"
+        activeLink: "https://events.shaadleehue.com/"
     },
     {
         id: 3,
