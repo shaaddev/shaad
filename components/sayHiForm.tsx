@@ -15,7 +15,6 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { sendEmail } from "@/actions/sendEmail";
 import { useRouter } from "next/navigation";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 
 const schema = z.object({
     name: z.string({
