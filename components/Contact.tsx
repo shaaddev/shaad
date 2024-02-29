@@ -21,7 +21,7 @@ export default function Contact(){
                         </Link>
                     </li>
                     <li>
-                        <Link href="mailto:rashaadleehue1@gmail.com" target="_blank">
+                        <Link href="/say_hi" target="">
                             <MdEmail className="inline mr-1"/>
                             <p className="inline align-middle hover:bg-gradient-to-r hover:text-transparent hover:bg-clip-text hover:from-pink-500 hover:to-yellow-500">Say Hi</p>
                         </Link>
