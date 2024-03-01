@@ -8,19 +8,19 @@ export default function Navbar(){
                     <div className="block mr-4">
                         <ul className="flex flex-row gap-2 mt-2 mb-4 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
                             <li className="block p-1 font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
-                                <Link href="/" className="flex items-center text-base font-medium">Home</Link>
+                                <Link href="/" className="flex items-center text-base font-medium transition-all hover:opacity-60">Home</Link>
                             </li>
                             <li className="block p-1 font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
-                                <Link href="/profile" className="flex items-center text-base font-medium">Profile</Link>
+                                <Link href="/profile" className="flex items-center text-base font-medium transition-all hover:opacity-60">Profile</Link>
                             </li>
                             <li className="block p-1 font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
-                                <Link href="/about" className="flex items-center text-base font-medium">About</Link>
+                                <Link href="/about" className="flex items-center text-base font-medium transition-all hover:opacity-60">About</Link>
                             </li>
                             <li className="block p-1 font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
-                                <Link href="/education" className="flex items-center text-base font-medium">Education</Link>
+                                <Link href="/education" className="flex items-center text-base font-medium transition-all hover:opacity-60">Education</Link>
                             </li>
                             <li className="block p-1 font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900">
-                                <Link href="/projects" className="flex items-center text-base font-medium">Projects</Link>
+                                <Link href="/projects" className="flex items-center text-base font-medium transition-all hover:opacity-60">Projects</Link>
                             </li>
                         </ul>
                     </div>
