@@ -10,7 +10,7 @@ import {
     Text,
 } from "@react-email/components";
 
-type CyberEmailProps = {
+type EmailProps = {
     message: string,
     name: string,
     email: string
@@ -18,7 +18,7 @@ type CyberEmailProps = {
 
 export default function PortfolioEmail({
     message, name, email
-}: CyberEmailProps){
+}: EmailProps){
     return(
         <Html>
           <Head />
