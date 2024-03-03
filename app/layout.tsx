@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Theme from "@/components/Theme";
 import Copyright from "@/components/Copyright";
+import { Providers } from "./providers";
 
 const mont = Montserrat({ subsets: ["latin"] });
 
@@ -18,13 +19,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={mont.className && 'bg-white dark:bg-neutral-900'}>
-        <Navbar />
-        
-        <main>{children}</main>
-        <Theme />
-        <Copyright />
+        <Providers>
+          <Navbar />
+            <main>
+              {children}
+            </main>
+          <Theme />
+          <Copyright />
+        </Providers>
       </body>
     </html>
   );

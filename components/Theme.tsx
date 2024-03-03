@@ -1,42 +1,40 @@
-'use client';
+'use client'
 import { BsSun, BsMoon } from 'react-icons/bs';
 import { useState, useEffect } from 'react';
-
-type Theme = 'light' | 'dark';
+import { useTheme } from 'next-themes';
+import Image from 'next/image';
 
 export default function Theme(){
-    const [theme, setTheme] = useState<Theme>('dark');
+    const [mounted, setMounted] = useState(false)
+    const {setTheme, resolvedTheme } = useTheme()
 
-    const toggleTheme = () => {
-        if (theme === 'light'){
-            setTheme('dark');
-            window.localStorage.setItem('current_mode', 'dark');
-            document.documentElement.classList.add('dark');
-        } else {
-            setTheme('light');
-            window.localStorage.setItem('current_mode', 'light');
-            document.documentElement.classList.remove('dark');
-        }
+    useEffect(() => setMounted(true), [])
+
+    if (!mounted) return (
+        <Image 
+            src='data:image/svg+xml;base64,PHN2ZyBzdHJva2U9IiNGRkZGRkYiIGZpbGw9IiNGRkZGRkYiIHN0cm9rZS13aWR0aD0iMCIgdmlld0JveD0iMCAwIDI0IDI0IiBoZWlnaHQ9IjIwMHB4IiB3aWR0aD0iMjAwcHgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiB4PSIyIiB5PSIyIiBmaWxsPSJub25lIiBzdHJva2Utd2lkdGg9IjIiIHJ4PSIyIj48L3JlY3Q+PC9zdmc+Cg=='
+            width={20}
+            height={20}
+            sizes='20x20'
+            alt="toggle"
+            priority={false}
+            title="toggle"
+        />
+    )
+
+    if (resolvedTheme === 'dark'){
+        return (
+            <button onClick={() => setTheme('light')} className='fixed z-10 bottom-5 md:bottom-10 right-5 md:right-16 text-black dark:text-slate-200 p-2 rounded-full border border-black dark:border-white'>
+                <BsSun className='w-5 h-5 '/>
+            </button>
+        )
     }
 
-    useEffect(() => {
-        const localTheme = window.localStorage.getItem('theme') as Theme | null;
-
-        if (localTheme){
-            setTheme(localTheme)
-
-            if (localTheme === 'dark'){
-                document.documentElement.classList.add('dark');
-            }
-        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            setTheme('dark')
-            document.documentElement.classList.add('dark');
-        }
-    }, [])
-
-    return (
-        <button onClick={toggleTheme} className='fixed z-10 bottom-5 md:bottom-10 right-5 md:right-16 text-black dark:text-slate-200 p-2 rounded-full border border-black dark:border-white'>
-            {theme === 'light' ? (<BsSun className='w-5 h-5 '/>) : ( <BsMoon className='w-5 h-5' /> )}
-        </button>
-    )
+    if (resolvedTheme === 'light'){
+        return (
+            <button onClick={() => setTheme('dark')} className='fixed z-10 bottom-5 md:bottom-10 right-5 md:right-16 text-black dark:text-slate-200 p-2 rounded-full border border-black dark:border-white'>
+                <BsMoon className='w-5 h-5 '/>
+            </button>
+        )
+    }
 }
