@@ -15,6 +15,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { sendEmail } from "@/actions/sendEmail";
 import { useRouter } from "next/navigation";
+import { useToast } from "@/components/ui/use-toast";
 
 const schema = z.object({
     name: z.string({
@@ -41,9 +42,14 @@ export default function SayHiForm(){
         resolver: zodResolver(schema),
     })
     const router = useRouter();
+    const { toast } = useToast();
     
     const onSubmit = () => {
-        router.push('/');
+        toast({
+            title: 'Message sent succesfully!',
+            description: 'Thank you'
+        })
+        router.push('/'); 
     }
 
     return(
