@@ -7,7 +7,7 @@ import { education } from "@/constants/info"
 export default function Education(){
     
     return(
-        <main className="flex flex-col items-center justify-between p-10 xl:mx-72 2xl:mx-96">
+        <main className="flex flex-col items-center justify-between p-10 lg:mx-48 xl:mx-72 2xl:mx-96">
             <h1 className="font-semibold text-black dark:text-zinc-200 text-2xl mb-5">EDUCATION</h1>
             {education.map((e: any) => (
                 <div key={e.id} className="flex flex-col items-center justify-center">
