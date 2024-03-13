@@ -1,5 +1,3 @@
-
-
 export default function About(){
     const skills = ['Python', 'TypeScript', 'JavaScript ES6+', 'React.js/Next.js', 'Git', 'AWS']
 

@@ -4,12 +4,21 @@ import {
 } from "@/components/ui/card"
 import { education } from "@/constants/info"
 
+interface Education {
+    id: number;
+    school: string;
+    title: string;
+    duration: string;
+    degree: string;
+    desc: string;
+}
+
 export default function Education(){
     
     return(
         <main className="flex flex-col items-center justify-between p-10 lg:mx-48 xl:mx-72 2xl:mx-96">
             <h1 className="font-semibold text-black dark:text-zinc-200 text-2xl mb-5">EDUCATION</h1>
-            {education.map((e: any) => (
+            {education.map((e: Education) => (
                 <div key={e.id} className="flex flex-col items-center justify-center">
                     <Card className="w-full h-auto text-black dark:text-zinc-200 bg-neutral-50 shadow shadow-black/10 dark:bg-zinc-800 border-none mb-10 rounded-2xl p-3">
                         <CardContent>

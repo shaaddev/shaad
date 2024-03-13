@@ -1,4 +1,22 @@
-export const projects = [
+interface Projects {
+    id: number;
+    title: string;
+    desc: string;
+    techStack: string;
+    link: string;
+    activeLink: string;
+}
+
+interface Education {
+    id: number;
+    school: string;
+    title: string;
+    duration: string;
+    degree: string;
+    desc: string;
+}
+
+export const projects: Projects[] = [
     {
         id: 1,
         title: "Compute Age",
@@ -45,6 +63,7 @@ export const projects = [
         desc: "A web app intended for patrons of Trinidad and Tobago to seek for the next party locations.",
         techStack: "Python (Django), HTML x CSS, JavaScript, Bootstrap, PostgreSQL",
         link: "https://github.com/shaaddev/SocialEvents",
+        activeLink: ""
     },
     {
         id: 7,
@@ -52,6 +71,7 @@ export const projects = [
         desc: "Latest version of the personal website that you're currently on.",
         techStack: "Next.js, TailwindCSS, Shadcn",
         link: "https://github.com/shaaddev/shaad",
+        activeLink: ""
     }
 ]
 
@@ -67,7 +87,7 @@ get ready for a job in the IT sector. "
 const mercy_desc = "Currently studying Computer Science at Mercy University obtaining knowledge of programme creation and computer systems \
 analysis. Useful abilities in software engineering, computer architecture, operating systems, and computer networking."
 
-export const education = [
+export const education: Education[] = [
     {   
         id: 1,
         school: "Mercy University",
