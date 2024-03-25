@@ -51,14 +51,6 @@ export const projects: Projects[] = [
     },
     {
         id: 5,
-        title: "Eternal Brawlers",
-        desc: "Top Down 2D Indie Surival Game built using the Unity Engine.",
-        techStack: "Unity Engine, C#",
-        link: "https://github.com/shaaddev/Eternal-Brawlers",
-        activeLink: "https://shaaddev.itch.io/eternal-brawlers"
-    },
-    {
-        id: 6,
         title: "Social Events",
         desc: "A web app intended for patrons of Trinidad and Tobago to seek for the next party locations.",
         techStack: "Python (Django), HTML x CSS, JavaScript, Bootstrap, PostgreSQL",
@@ -66,7 +58,7 @@ export const projects: Projects[] = [
         activeLink: ""
     },
     {
-        id: 7,
+        id: 6,
         title: "shaad",
         desc: "Latest version of the personal website that you're currently on.",
         techStack: "Next.js, TailwindCSS, Shadcn",
