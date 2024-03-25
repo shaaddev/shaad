@@ -27,7 +27,7 @@ export default function ProjectsPage(){
                                 </CardDescription>
                             </CardHeader>
                             <CardContent>
-                                <h3 className="text-sky-500 my-5 text-xl font-semibold">{p.title}</h3>
+                                <h3 className="text-sky-400 my-5 text-xl font-semibold">{p.title}</h3>
                                 <p className="text-left text-sm  leading-8 mb-7">{p.desc}</p>
                                 <p className="opacity-50 text-sm mb-5">{p.techStack}</p>
                             </CardContent>
