@@ -1,4 +1,4 @@
-interface Projects {
+export interface Projects {
     id: number;
     title: string;
     desc: string;
@@ -7,7 +7,7 @@ interface Projects {
     activeLink: string;
 }
 
-interface Education {
+export interface Education {
     id: number;
     school: string;
     title: string;
@@ -37,7 +37,7 @@ export const projects: Projects[] = [
         id: 3,
         title: "Serenity Focus",
         desc: "A productivity tracker app developed by a group as part of the TechWise Program web development course, supported by Google and provided by TalentSprint",
-        techStack: "MongoDB, Express.js, HTML x CSS",
+        techStack: "Next.js, PostgreSQL, Tailwind CSS, DaisyUI",
         link: "https://github.com/TechWise-Project-2/SerenityFocus",
         activeLink: "https://serenityfocuss.com/"
     },

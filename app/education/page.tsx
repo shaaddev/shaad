@@ -2,18 +2,9 @@ import {
     Card,
     CardContent
 } from "@/components/ui/card"
-import { education } from "@/constants/info"
+import { education, Education } from "@/constants/info"
 
-interface Education {
-    id: number;
-    school: string;
-    title: string;
-    duration: string;
-    degree: string;
-    desc: string;
-}
-
-export default function Education(){
+export default function EducationPage(){
     
     return(
         <main className="flex flex-col items-center justify-between p-10 lg:mx-48 xl:mx-72 2xl:mx-96">

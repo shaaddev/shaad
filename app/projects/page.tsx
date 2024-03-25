@@ -7,22 +7,15 @@ import {
 import { FaGithub } from "react-icons/fa";
 import { IoMdLink } from "react-icons/io";
 import Link from "next/link";
-import { projects } from "@/constants/info";
+import { projects, Projects } from "@/constants/info";
+import Spotlight from "@/components/Spotlight";
 
-interface Projects {
-    id: number;
-    link: string;
-    activeLink: string;
-    title: string;
-    desc: string;
-    techStack: string;
-}
-
-export default function Projects(){
+export default function ProjectsPage(){
     
     return(
         <main className="flex flex-col items-center justify-between p-10">
-            <h1 className="font-semibold text-black dark:text-zinc-200 text-2xl mb-5 lg:mb-0">PROJECTS</h1>
+            <h1 className="font-semibold text-black dark:text-zinc-200 text-2xl mb-5 lg:mb-5">PROJECTS</h1>
+            <Spotlight />
             <div className="flex flex-col justify-center md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-4 md:p-10 xl:p-24">
                 {projects.map((p: Projects) => (
                     <div key={p.id} className="flex flex-col items-center justify-center">
