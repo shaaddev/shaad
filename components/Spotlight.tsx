@@ -33,7 +33,7 @@ export default function Spotlight(){
             id: 2,
             title: "Social Events",
             desc: "This is a web app intended to help persons of interest to promote their upcoming events. Originally created using the python framework Django.",
-            techStack: "Next.js, PostgreSQL, Tailwind CSS, Shadcn",
+            techStack: "Next.js, PostgreSQL, Tailwind CSS, Shadcn, AWS",
             link: "https://github.com/shaaddev/SocialEventsNextJS",
             activeLink: "https://events.shaadleehue.com/",
             image: '/images/5.jpeg'
