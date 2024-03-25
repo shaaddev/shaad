@@ -72,17 +72,17 @@ export default function Spotlight(){
                                     <CardContent className="px-10 flex flex-col items-center justify-center z-10 place-self-end">
                                         <CardTitle>
                                             <div className="">
-                                                <h1 className="text-2xl text-rose-700">{p.title}</h1>
+                                                <h1 className="text-2xl text-sky-500">{p.title}</h1>
                                             </div>
                                         </CardTitle>
                                         <CardDescription>
                                             <div className="text-slate-300 md:text-md lg:text-lg w-full">
                                                 <p className="mb-4">{p.desc}</p>
-                                                <p className="text-rose-700 md:text-xs lg:text-sm text-center">{p.techStack}</p>
+                                                <p className="text-sky-500 md:text-xs lg:text-sm text-center">{p.techStack}</p>
                                             </div>
                                             <div className="flex flex-row gap-6 items-center justify-center mt-2 text-slate-300">
-                                                <Link href={p.link} target="_blank" className="hover:opacity-75"><FaGithub className="w-5 h-5"/></Link>
-                                                <Link href={p.activeLink} target={p.activeLink !== "" ? "_blank" : "" } className="hover:opacity-75"><FaExternalLinkAlt className="w-5 h-5"/></Link>
+                                                <Link href={p.link} target="_blank" className="hover:opacity-75" aria-label="GitHub"><FaGithub className="w-5 h-5"/></Link>
+                                                <Link href={p.activeLink} target={p.activeLink !== "" ? "_blank" : "" } className="hover:opacity-75" aria-label="external link"><FaExternalLinkAlt className="w-5 h-5"/></Link>
                                             </div>
                                         </CardDescription>
                                     </CardContent>
