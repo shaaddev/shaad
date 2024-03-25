@@ -11,7 +11,7 @@ export default function Profile(){
                 <div className="text-center md:text-left items-center">
                     <h1 className="text-2xl font-bold">Shaad Lee Hue</h1>
                     <div className="text-md lg:text-lg font-semibold">
-                        Title: <span className="text-sky-800">Software Development Engineer</span>
+                        Title: <span className="text-sky-500">Software Development Engineer</span>
                     </div>
                 </div>
             </div>
