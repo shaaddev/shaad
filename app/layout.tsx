@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={mont.className && 'bg-white dark:bg-neutral-900'}>
+      <body className={mont.className}>
         <Providers>
           <Navbar />
             <main>
