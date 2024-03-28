@@ -25,8 +25,8 @@ export default function Theme(){
             className={btn_style}    
         >
             {resolvedTheme === 'dark' ? 
-            (<BsSun className={btn_size}/>) : 
-            (<BsMoon className={btn_size}/>)}
+            (<BsSun className={btn_size} aria-label='the sun'/>) : 
+            (<BsMoon className={btn_size} aria-label='the moon'/>)}
         </button>
     )
 }
