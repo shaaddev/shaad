@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import Contact from "./Contact"
 import Link from "next/link";
 import { MdArrowOutward } from "react-icons/md";
-
+import cardImage from '@/public/images/asd.jpg'
 
 export default function HomePage(){
     const desc = "I'm a certified cloud developer - associate and software development engineer based in New York. I have interests in full-stack web development, cloud computing, and helping \
@@ -15,17 +15,20 @@ export default function HomePage(){
     return(
         <>
             <div className="flex px-1 justify-center items-center">
-                <Card className="w-full md:w-4/5 md:h-auto bg-zinc-800 text-neutral-200 mb-9 border-none rounded-2xl bg-[url('/images/23.jpg')] bg-cover bg-center">
+                <Card 
+                    className="w-full md:w-4/5 md:h-auto bg-zinc-800 text-neutral-200 mb-9 border-none rounded-2xl bg-cover bg-center"
+                    style={{ backgroundImage: `url(${cardImage.src})` }}
+                >
                     <CardContent>
                         <div className="p-5 md:p-12">
                             <h1 className="text-3xl md:text-5xl lg:text-6xl leading-10 font-semibold mb-5">
                                 Shaad 
-                                <span className="text-sky-800 ml-2">
+                                <span className="text-sky-700 ml-2">
                                     Lee Hue
                                 </span>
                             </h1>
                             <h2 className="text-normal md:text-lg mb-5 font-semibold">
-                                <span className='bg-gradient-to-r text-transparent bg-clip-text from-orange-300 to-sky-800 mr-1'>
+                                <span className='bg-gradient-to-r text-transparent bg-clip-text from-rose-300 to-sky-600 mr-1'>
                                     Experimental
                                 </span>
                                 Developer
