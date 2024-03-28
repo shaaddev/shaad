@@ -2,7 +2,6 @@
 import { BsSun, BsMoon } from 'react-icons/bs';
 import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
-import Image from 'next/image';
 
 export default function Theme(){
     const [mounted, setMounted] = useState(false)
@@ -12,19 +11,25 @@ export default function Theme(){
 
     if (!mounted) return
 
-    if (resolvedTheme === 'dark'){
-        return (
-            <button onClick={() => setTheme('light')} className='fixed z-10 bottom-5 md:bottom-10 right-5 md:right-16 text-black dark:text-slate-200 p-2 rounded-full border border-black dark:border-white' aria-label='sun'>
-                <BsSun className='w-5 h-5 '/>
-            </button>
-        )
+    const toggleTheme = () => {
+        if (resolvedTheme === 'dark'){
+            setTheme('light')
+        } else if (resolvedTheme === 'light'){
+            setTheme('dark')
+        }
     }
 
-    if (resolvedTheme === 'light'){
-        return (
-            <button onClick={() => setTheme('dark')} className='fixed z-10 bottom-5 md:bottom-10 right-5 md:right-16 text-black dark:text-slate-200 p-2 rounded-full border border-black dark:border-white' aria-label='moon'>
-                <BsMoon className='w-5 h-5 '/>
-            </button>
-        )
-    }
+    return (
+        <button 
+            onClick={toggleTheme}
+            className={btn_style}    
+        >
+            {resolvedTheme === 'dark' ? 
+            (<BsSun className={btn_size}/>) : 
+            (<BsMoon className={btn_size}/>)}
+        </button>
+    )
 }
+
+const btn_style = 'fixed z-10 bottom-5 md:bottom-10 right-5 md:right-16 text-black dark:text-slate-200 p-2 rounded-full border border-black dark:border-white'
+const btn_size = 'w-5 h-5'
