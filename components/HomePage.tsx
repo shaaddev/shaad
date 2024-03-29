@@ -23,7 +23,7 @@ export default function HomePage(){
                         <div className="p-5 md:p-12">
                             <h1 className="text-3xl md:text-5xl lg:text-6xl leading-10 font-semibold mb-5">
                                 Shaad 
-                                <span className="text-sky-700 ml-2">
+                                <span className="text-sky-500 ml-2">
                                     Lee Hue
                                 </span>
                             </h1>
