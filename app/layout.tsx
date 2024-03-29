@@ -7,7 +7,10 @@ import Copyright from "@/components/Copyright";
 import { Providers } from "./providers";
 import { Toaster } from "@/components/ui/toaster";
 
-const mont = Montserrat({ subsets: ["latin"] });
+const mont = Montserrat({ 
+  variable: '--font-mont',
+  subsets: ["latin"] 
+});
 
 export const metadata: Metadata = {
   title: "shaad",
