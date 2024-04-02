@@ -9,8 +9,7 @@ import { MdArrowOutward } from "react-icons/md";
 import cardImage from '@/public/images/asd.jpg'
 
 export default function HomePage(){
-    const desc = "I'm a certified cloud developer - associate and software development engineer based in New York. I have interests in full-stack web development, cloud computing, and helping \
-                    businesses scale their architecture. ";
+    const desc = "I'm a certified AWS developer - associate and software development engineer based in New York. I have interests in full-stack web development, cloud computing, and DevOps.";
 
     return(
         <>
