@@ -23,7 +23,7 @@ export const projects: Projects[] = [
         desc: "From the Terminal to the User Interface, originally created in Java, this web app helps you to calculate your age",
         techStack: "Next.js,Tailwind CSS, Shadcn",
         link: "https://github.com/shaaddev/ComputeAge",
-        activeLink: "https://age.shaadleehue.com/"
+        activeLink: "https://age.shaad.io/"
     },
     {
         id: 2,
@@ -31,7 +31,7 @@ export const projects: Projects[] = [
         desc: "This is a web app intended to help persons of interest to promote their upcoming events. Originally created using the python framework Django.",
         techStack: "Next.js, PostgreSQL, Tailwind CSS, Shadcn, AWS",
         link: "https://github.com/shaaddev/SocialEventsNextJS",
-        activeLink: "https://events.shaadleehue.com/"
+        activeLink: "https://events.shaad.io/"
     },
     {
         id: 3,
