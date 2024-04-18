@@ -3,7 +3,7 @@
 </p>
 
 <h1 align="center">shaadleehue.com 🫧</h1>
-<p align="center">The latest development of <a href="https://shaadleehue.com/" target="_blank">shaadleehue.com</a> built with Next.js, TailwindCSS, and Shadcn  🌸</p>
+<p align="center">The latest development of <a href="https://www.shaad.io/" target="_blank">shaad.io</a> built with Next.js, TailwindCSS, and Shadcn  🌸</p>
 
 <p>
     <img src="public/images/1.png">
