@@ -6,7 +6,7 @@
 <p align="center">The latest development of <a href="https://www.shaad.io/" target="_blank">shaad.io</a> built with Next.js, TailwindCSS, and Shadcn  🌸</p>
 
 <p>
-    <img src="public/images/1.png">
+    <img src="public/images/ss.png">
 </p>
 
 
