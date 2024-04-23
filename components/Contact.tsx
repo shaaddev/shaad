@@ -16,7 +16,7 @@ const contactItems = [
         target: '_blank'
     },
     {
-        name: "Email",
+        name: "Hire Me",
         icon: <MdEmail className="inline mr-2"/>,
         link: "/say_hi",
         target: ''
@@ -35,7 +35,7 @@ export default function Contact(){
                                 <p className={`inline align-middle hover:bg-gradient-to-r hover:text-transparent hover:bg-clip-text
                                     ${c.name === 'Github' ? 'hover:from-green-400 hover:to-blue-500' : '' }
                                     ${c.name === 'Linkedin' ? 'hover:from-blue-500 hover:to-pink-500' : '' }
-                                    ${c.name === 'Email' ? 'hover:from-pink-500 hover:to-yellow-500' : '' }
+                                    ${c.name === 'Hire Me' ? 'hover:from-pink-500 hover:to-yellow-500' : '' }
                                     `}>
                                     {c.name}
                                 </p>
