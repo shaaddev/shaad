@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-import Theme from "@/components/Theme";
 import Copyright from "@/components/Copyright";
 import { Providers } from "./providers";
 import { Toaster } from "@/components/ui/toaster";
@@ -31,7 +30,6 @@ export default function RootLayout({
               {children}
             </main>
           <Toaster />
-          <Theme />
           <Copyright />
         </Providers>
       </body>
