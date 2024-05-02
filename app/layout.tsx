@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Copyright from "@/components/Copyright";
 import { Providers } from "./providers";
 import { Toaster } from "@/components/ui/toaster";
+import Theme from "@/components/Theme";
 
 const mont = Montserrat({ 
   variable: '--font-mont',
@@ -29,6 +30,7 @@ export default function RootLayout({
             <main>
               {children}
             </main>
+          <Theme />
           <Toaster />
           <Copyright />
         </Providers>
