@@ -24,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${mont.className} mx-auto max-w-7xl`}>
+      <body className={`${mont.className} mx-auto max-w-screen-2xl`}>
         <Providers>
           <Navbar />
             <main>
