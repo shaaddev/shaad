@@ -2,17 +2,16 @@
 💻 - 📱
 </p>
 
-<h1 align="center">shaadleehue.com 🫧</h1>
-<p align="center">The latest development of <a href="https://www.shaad.io/" target="_blank">shaad.io</a> built with Next.js, TailwindCSS, and Shadcn  🌸</p>
+<h1 align="center">🌸 shaad.io 🫧</h1>
 
-<p>
-    <img src="public/images/ss.png">
-</p>
+- **Framework**: [Next.js](https://nextjs.org/)
+- **Deployment**: [Vercel](https://vercel.com/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/) x [Shadcn](https://ui.shadcn.com/)
+- **Analytics**: [Google Analytics](https://developers.google.com/analytics)
 
 
 
 ## 🌎 Set up 🛠
-#
 I. Install the dependencies
 
 ```bash
@@ -30,7 +29,7 @@ $ bun run dev
 ```
 
 ## 🛫 Build and run production ⚙️
-#
+
 
 ```bash
 $ npm run build

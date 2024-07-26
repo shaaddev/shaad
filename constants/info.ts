@@ -101,7 +101,7 @@ export const education: Education[] = [
         school: "UWI Roytec",
         title: "Information Systems Management",
         duration: "SEPTEMBER 2020 - AUGUST 2022",
-        degree: "A.S. Information Systems Management - ADISM",
+        degree: "A.S. Information Systems Management",
         desc: uwi_desc
     }
 ]
