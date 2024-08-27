@@ -6,7 +6,7 @@ import Copyright from "@/components/Copyright";
 import { Providers } from "./providers";
 import { Toaster } from "@/components/ui/toaster";
 import Theme from "@/components/Theme";
-import Script from "next/script";
+import { Analytics } from '@vercel/analytics/react'
 
 const mont = Montserrat({ 
   variable: '--font-mont',
@@ -25,21 +25,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <Script 
-          async 
-          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
-        />
-        <Script id="google-analytics">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-4SZ4W9G753');
-          `}
-        </Script>
-      </head>
       <body className={`${mont.className} mx-auto max-w-screen-2xl`}>
         <Providers>
           <Navbar />
@@ -49,6 +34,7 @@ export default function RootLayout({
           <Theme />
           <Toaster />
           <Copyright />
+          <Analytics />
         </Providers>
       </body>
     </html>
