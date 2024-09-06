@@ -53,11 +53,11 @@ export default function SayHiForm(){
     }
 
     return(
-        <div className="min-h-96 w-full md:w-3/5">
+        <div className="min-h-96 w-full">
             <div className="flex flex-col items-center justify-center p-2 lg:p-16">
                 <Form {...form}>
                     <form action={async (formData) => { await sendEmail(formData) }} className="space-y-6 text-neutral-200 w-full">
-                        <div className="flex flex-col justify-center lg:grid lg:grid-cols-2 lg:gap-6 text-black dark:text-white">
+                        <div className="flex flex-col justify-center lg:grid lg:grid-cols-1 lg:gap-6 text-black dark:text-white">
                             <FormField 
                                 control={form.control}
                                 name="name"

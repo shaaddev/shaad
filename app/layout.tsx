@@ -5,8 +5,9 @@ import Navbar from "@/components/Navbar";
 import Copyright from "@/components/Copyright";
 import { Providers } from "./providers";
 import { Toaster } from "@/components/ui/toaster";
-import Theme from "@/components/Theme";
 import { Analytics } from '@vercel/analytics/react'
+import { cn } from "@/lib/utils";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 const mont = Montserrat({ 
   variable: '--font-mont',
@@ -25,17 +26,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${mont.className} mx-auto max-w-screen-2xl`}>
+      <body className={cn(
+        "min-h-screen bg-background font-sans antialiased max-w-2xl mx-auto py-12 sm:py-24 px-6",
+        mont.className
+      )}>
         <Providers>
-          <Navbar />
-            <main>
-              {children}
-            </main>
-          <Theme />
-          <Toaster />
+          <TooltipProvider delayDuration={0}>
+            {children}
+            <Navbar />
+          </TooltipProvider>
           <Copyright />
-          <Analytics />
+          <Toaster />
         </Providers>
+        <Analytics />
       </body>
     </html>
   );

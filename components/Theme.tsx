@@ -1,35 +1,21 @@
 'use client'
-import { BsSun, BsMoon } from 'react-icons/bs';
-import { useState, useEffect } from 'react';
+import { Sun, Moon } from 'lucide-react';
 import { useTheme } from 'next-themes';
+import { Button } from './ui/button';
 
 export default function Theme(){
-    const [mounted, setMounted] = useState(false)
-    const {setTheme, resolvedTheme } = useTheme()
-
-    useEffect(() => setMounted(true), [])
-
-    if (!mounted) return
-
-    const toggleTheme = () => {
-        if (resolvedTheme === 'dark'){
-            setTheme('light')
-        } else if (resolvedTheme === 'light'){
-            setTheme('dark')
-        }
-    }
+    const {theme, setTheme} = useTheme()
 
     return (
-        <button 
-            onClick={toggleTheme}
-            className={btn_style}    
+        <Button 
+          onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+          className='px-2 rounded-full'
+          type="button"
+          size="icon"
+          variant="ghost"    
         >
-            {resolvedTheme === 'dark' ? 
-            (<BsSun className={btn_size} aria-label='the sun'/>) : 
-            (<BsMoon className={btn_size} aria-label='the moon'/>)}
-        </button>
+          <Sun className='h-[1.2rem] w-[1.2rem] text-neutral-800 dark:hidden dark:text-neutral-200' aria-label='the sun'/>
+          <Moon className='hidden h-[1.2rem] w-[1.2rem] text-neutral-800 dark:block dark:text-neutral-200' aria-label='the moon'/>
+        </Button>
     )
 }
-
-const btn_style = 'fixed z-10 bottom-5 md:bottom-10 right-5 md:right-16 text-black dark:text-slate-200 p-2 rounded-full border border-black dark:border-white'
-const btn_size = 'w-5 h-5'

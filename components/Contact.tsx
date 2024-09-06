@@ -1,49 +1,37 @@
 import Link from "next/link"
-import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
+import BlurFade from "./magicui/blur-fade"
+import { Button } from "./ui/button"
 
-const contactItems = [
-    {
-        name: "Github",
-        icon: <FaGithub className="inline mr-2"/>,
-        link: "https://github.com/shaaddev",
-        target: '_blank'
-    },
-    {
-        name: "Linkedin",
-        icon: <FaLinkedin className="inline mr-2"/>,
-        link: "https://www.linkedin.com/in/rleehue-joseph/",
-        target: '_blank'
-    },
-    {
-        name: "Hire Me",
-        icon: <MdEmail className="inline mr-2"/>,
-        link: "/say_hi",
-        target: ''
-    }
-]
-
-export default function Contact(){
+export default function Contact({ delay }: {delay: number}) {
     return(
-        <>
-            <div className="flex flex-col ">
-                <ul className="flex flex-row gap-5 mt-2 mb-4 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-8 text-black dark:text-neutral-200">
-                    {contactItems.map((c) => (
-                        <li key={c.name}>
-                            <Link href={c.link} target={c.target}>
-                                {c.icon}
-                                <p className={`inline align-middle hover:bg-gradient-to-r hover:text-transparent hover:bg-clip-text
-                                    ${c.name === 'Github' ? 'hover:from-green-400 hover:to-blue-500' : '' }
-                                    ${c.name === 'Linkedin' ? 'hover:from-blue-500 hover:to-pink-500' : '' }
-                                    ${c.name === 'Hire Me' ? 'hover:from-pink-500 hover:to-yellow-500' : '' }
-                                    `}>
-                                    {c.name}
-                                </p>
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
+        <section id="contact">
+            <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full py-12 ">
+              <BlurFade delay={delay * 16}>
+                <div className="space-y-3">
+                  <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
+                    Contact
+                  </div>
+                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                    Get in Touch
+                  </h2>
+                  <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                    Want to chat? Just shoot me a dm{" "}
+                    <Link
+                      href='https://www.linkedin.com/in/rleehue-joseph/'
+                      className="text-blue-500 hover:underline"
+                    >
+                      with a direct question on linkedin
+                    </Link>{" "}
+                    or send me an email
+                  </p>
+                  <Link href='/say_hi' className=" ">
+                      <Button type="button" className="rounded-lg mt-5">
+                        Say Hi
+                      </Button>
+                    </Link>
+                </div>
+              </BlurFade>
             </div>
-        </>
+        </section>
     )
 }
