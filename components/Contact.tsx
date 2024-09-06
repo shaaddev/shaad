@@ -2,7 +2,7 @@ import Link from "next/link"
 import BlurFade from "./magicui/blur-fade"
 import { Button } from "./ui/button"
 
-export default function Contact({ delay }: {delay: number}) {
+export function Contact({ delay }: {delay: number}) {
     return(
         <section id="contact">
             <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full py-12 ">

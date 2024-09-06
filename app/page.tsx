@@ -5,7 +5,7 @@ import { _Education } from "@/components/education";
 import { _Experience } from "@/components/experience";
 import { Skills } from "@/components/skills";
 import { Projects } from "@/components/projects";
-import Contact from "@/components/contact";
+import { Contact } from "@/components/contact";
 
 
 export default function Home() {
