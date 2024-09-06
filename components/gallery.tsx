@@ -2,7 +2,7 @@ import BlurFade from '@/components/magicui/blur-fade'
 import Image from 'next/image';
 
 const images = Array.from({ length: 6}, (_, i) => {
-  return `/pics/me${i + 1}.${'jpg' || 'JPG'}`
+  return `/images/me${i + 1}.${'jpg' || 'JPG'}`
 })
 
 export function Gallery({delay}: {delay: number}) {
