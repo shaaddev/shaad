@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, Globe2 } from "lucide-react";
+import { Github, Linkedin, Mail, Globe2, Rss } from "lucide-react";
 
 
 export interface Projects {
@@ -221,6 +221,12 @@ export const social: SocialProps[] = [
     name: 'Linkedin', 
     link: 'https://www.linkedin.com/in/rleehue-joseph/',
     icon: Linkedin,
+    target: '_blank'
+  },
+  {
+    name: 'Medium',
+    link: 'https://medium.com/@shaaddev',
+    icon: Rss,
     target: '_blank'
   }, 
   {
