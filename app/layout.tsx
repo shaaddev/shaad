@@ -4,10 +4,10 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Copyright from "@/components/Copyright";
 import { Providers } from "./providers";
+import { Contact } from "@/components/contact";
 import { Toaster } from "@/components/ui/toaster";
-import { Analytics } from '@vercel/analytics/react'
 import { cn } from "@/lib/utils";
-import { TooltipProvider } from "@/components/ui/tooltip";
+import { ViewTransitions } from "next-view-transitions";
 
 const mont = Montserrat({ 
   variable: '--font-mont',
@@ -25,21 +25,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={cn(
-        "min-h-screen bg-background font-sans antialiased max-w-2xl mx-auto py-12 sm:py-24 px-6",
-        mont.className
-      )}>
-        <Providers>
-          <TooltipProvider delayDuration={0}>
-            {children}
-            <Navbar />
-          </TooltipProvider>
-          <Copyright />
-          <Toaster />
-        </Providers>
-        <Analytics />
-      </body>
-    </html>
+    <ViewTransitions>
+      <html lang="en" suppressHydrationWarning>
+        <body className={cn(
+          "bg-background font-sans antialiased max-w-2xl mx-auto",
+          mont.className
+        )}>
+          <div className="flex flex-col justify-between min-h-screen py-12 sm:py-24 px-6">
+            <Providers>
+              <main>
+                {children}
+                <Copyright />
+                <Toaster />
+              </main>
+              <Contact />
+            </Providers>
+          </div>
+        </body>
+      </html>
+    </ViewTransitions>
   );
 }

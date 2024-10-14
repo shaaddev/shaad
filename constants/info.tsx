@@ -34,19 +34,8 @@ export const projects: Projects[] = [
         desc: "Spreadsheet alternative for managing Job Applications. Scaling to 400+ users and iterated on user feedback to make continuous optimizations",
         techStack: ['Next.js', 'Tailwind CSS', 'Shadcn', 'Supabase', 'PostgreSQL', 'Kinde Auth'],
         activeLink: "https://www.llandit.com/",
+        link: "https://github.com/shaaddev/ApplicationRecord",
         dates: "June 2024 - Present",
-        links: [
-          {
-            type: 'Website',
-            href: 'https://www.llandit.com/',
-            icon: <Globe2 />,
-          },
-          {
-            type: 'Source',
-            href: 'https://github.com/shaaddev/ApplicationRecord',
-            icon: <Github />,
-          }
-        ],
         image: '/2.png'
     },
     {
@@ -56,18 +45,6 @@ export const projects: Projects[] = [
       link: "https://github.com/rukaiah-edhah/RateMyProf",
       activeLink: "https://rate-my-prof-plum.vercel.app/",
       dates: "August 2024 - August 2024",
-      links: [
-        {
-          type: 'Website',
-          href: 'https://rate-my-prof-plum.vercel.app/',
-          icon:  <Globe2 />
-        },
-        {
-          type: 'Source',
-          href: 'https://github.com/rukaiah-edhah/RateMyProf',
-          icon: <Github />
-        }
-      ],
       image: '/1.png',
       video: ''
     },
@@ -78,18 +55,6 @@ export const projects: Projects[] = [
         link: "https://github.com/TechWise-Project-2/SerenityFocus",
         activeLink: "https://serenityfocuss.com/",
         dates: "December 2023 - Present",
-        links: [
-          {
-            type: 'Website',
-            href: 'https://serenityfocuss.com/',
-            icon:  <Globe2 />
-          },
-          {
-            type: 'Source',
-            href: 'https://github.com/TechWise-Project-2/SerenityFocus',
-            icon: <Github />
-          }
-        ],
         image: '/6.jpeg'
     },
     {
@@ -99,18 +64,6 @@ export const projects: Projects[] = [
         link: "https://github.com/shaaddev/SocialEventsNextJS",
         activeLink: "https://events.shaad.io/",
         dates: "2022 - 2024",
-        links: [
-          {
-            type: 'Website',
-            href: 'https://events.shaad.io/',
-            icon:  <Globe2 />
-          },
-          {
-            type: 'Source',
-            href: 'https://github.com/shaaddev/SocialEventsNextJS',
-            icon: <Github />
-          }
-        ],
         image: '/5.jpeg'
     },
     {
@@ -119,19 +72,7 @@ export const projects: Projects[] = [
       techStack: ['Next.js', 'Tailwind CSS', 'Shadcn'],
       link: "https://github.com/shaaddev/ComputeAge",
       activeLink: "https://age.shaad.io/",
-      dates: "2023-2023",
-      links: [
-        {
-          type: 'Website',
-          href: 'https://age.shaad.io/',
-          icon:  <Globe2 />
-        },
-        {
-          type: 'Source',
-          href: 'https://github.com/shaaddev/ComputeAge',
-          icon: <Github />
-        }
-      ],
+      dates: "2023 - 2023",
       image: '/4.jpeg'
     },
 ]
