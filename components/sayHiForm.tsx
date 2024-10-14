@@ -56,17 +56,10 @@ export default function SayHiForm(){
       try {
         const result = await sendEmail(formData);
 
-        if (result.success) {
-          toast.success('Message sent succesfully!',{
-            description: 'Thank you'
-          })
-          router.push('/');
-        } else {
-          toast.error('Submission failed', {
-            description: result.message || 'An unknown error occured'
-          })
-        }
-
+        toast.success('Message sent succesfully!',{
+          description: 'Thank you'
+        })
+        router.push('/');
       } catch (error) {
         toast.error('An unexpected error occured')
       } 
