@@ -1,4 +1,5 @@
 'use client';
+import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from 'zod';
@@ -42,9 +43,11 @@ export default function SayHiForm(){
         resolver: zodResolver(schema),
     })
     const router = useRouter();
+    const [isPending, setIsPending] = useState(false);
+
     
     const onSubmit = async (values: z.infer<typeof schema>) => {
-
+      setIsPending(true);
       const formData = new FormData();
 
       for (const [key, value] of Object.entries(values)) {
@@ -62,7 +65,9 @@ export default function SayHiForm(){
         router.push('/');
       } catch (error) {
         toast.error('An unexpected error occured')
-      } 
+      } finally {
+        setIsPending(false);
+      }
     }
 
     return(
@@ -107,7 +112,13 @@ export default function SayHiForm(){
                                 </FormItem>
                             )}
                         />
-                        <Button type="submit" className="dark:bg-slate-200 dark:text-black">Submit</Button>  
+                        <Button 
+                          type="submit" 
+                          className="dark:bg-slate-200 dark:text-black"
+                          disabled={isPending}
+                        >
+                          {isPending ? 'Sending...' : 'Send'}
+                        </Button>  
                     </form>
                 </Form>
             </div>
