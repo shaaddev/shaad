@@ -6,7 +6,7 @@
 
 - **Framework**: [Next.js](https://nextjs.org/)
 - **Deployment**: [Vercel](https://vercel.com/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/) x [Shadcn](https://ui.shadcn.com/) x [MagicUI](https://magicui.design/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/) x [Shadcn](https://ui.shadcn.com/)
 - **Analytics**: [Vercel Analytics](https://vercel.com/docs/analytics)
 
 
