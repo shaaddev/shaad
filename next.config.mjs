@@ -12,7 +12,7 @@ const nextConfig = {
 const withMDX = createMDX({
   options: {
     remarkPlugins: [],
-    rehypePlugins: [[rehypePrettyCode, { theme: "tokyo-night" }]],
+    rehypePlugins: [[rehypePrettyCode, { theme: "github-dark-high-contrast" }]],
   }
 });
 

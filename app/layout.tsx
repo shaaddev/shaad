@@ -6,7 +6,6 @@ import Copyright from "@/components/Copyright";
 import { Providers } from "./providers";
 import { Contact } from "@/components/contact";
 import { Toaster } from "@/components/ui/sonner";
-import { cn } from "@/lib/utils";
 import { ViewTransitions } from "next-view-transitions";
 
 const mont = Montserrat({ 
@@ -26,14 +25,11 @@ export default function RootLayout({
 }>) {
   return (
     <ViewTransitions>
-      <html lang="en" suppressHydrationWarning>
-        <body className={cn(
-          "bg-background font-sans antialiased max-w-2xl mx-auto",
-          mont.className
-        )}>
-          <div className="flex flex-col justify-between min-h-screen py-12 sm:py-24 px-6">
+      <html lang="en" suppressHydrationWarning className={`${mont.className}`}>
+        <body className="antialiased tracking-tight">
+          <div className="flex flex-col justify-between min-h-screen py-12 sm:py-24 px-6 bg-background max-w-2xl mx-auto">
             <Providers>
-              <main>
+              <main className="">
                 {children}
                 <Copyright />
                 <Toaster position="bottom-right" />

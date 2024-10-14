@@ -1,16 +1,12 @@
 import type { MDXComponents } from 'mdx/types'
 import React, { ComponentPropsWithoutRef } from 'react'
-import Image from 'next/image'
 import { Link } from 'next-view-transitions'
-import { useMemo } from 'react'
-import { cn } from '@/lib/utils'
-import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+
 
 type AnchorProps = ComponentPropsWithoutRef<'a'>
 
 const CustomLink = ({ href, children, ...otherProps }: AnchorProps) => {
-  const className = 'text-blue-500 hover:text-primary/80'
+  const className = 'text-blue-500 hover:text-primary/80 hover:underline'
   if (href?.startsWith('/')) {
     return(
       <Link href={href} className={className} {...otherProps}>
@@ -40,18 +36,17 @@ const CustomLink = ({ href, children, ...otherProps }: AnchorProps) => {
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
-    ...components,
-    h1: (props) => <h1 className='text-3xl font-bold pt-12 mb-3 fade-in' {...props}/>,
-    h2: (props) => <h2 className='text-2xl font-medium mt-8 mb-3' {...props}/>,
-    h3: (props) => <h3 className='text-xl font-medium mt-8 mb-3' {...props}/>,
+    h1: (props) => <h1 className='text-4xl font-bold mt-8 mb-4 text-primary' {...props}/>,
+    h2: (props) => <h2 className='text-3xl font-medium mt-6 mb-3 text-primary' {...props}/>,
+    h3: (props) => <h3 className='text-2xl font-medium mt-4 mb-2 text-primary' {...props}/>,
     h4: (props) => <h4 className='text-lg font-medium' {...props}/>,
     a: CustomLink,
     p: (props) => <p className="leading-snug mt-6" {...props} />,
-    ul: (props) => <ul className="my-6 ml-6 list-disc [&>li]:mt-2" {...props} />,
-    ol: (props) => <ol className="my-6 ml-6 list-decimal [&>li]:mt-2" {...props} />,
-    li: (props) => <li className="mt-2" {...props} />,
+    ul: (props) => <ul className="my-6 list-disc space-y-1 pl-5" {...props} />,
+    ol: (props) => <ol className="my-6 text-xl font-bold list-decimal pl-5 space-y-2" {...props} />,
+    li: (props) => <li className="mt-2 pl-1" {...props} />,
     strong: (props) => <strong className="font-medium" {...props} />,
-    em: (props) => <em className="font-medium" {...props} />,
+    em: (props) => <code className="bg-inherit border border-black/20 dark:border-white/20 text-primary rounded px-1 py-0.5 font-mono text-sm" {...props} />,
     blockquote: (props) => (
       <blockquote
         className="mt-6 border-l-2 border-primary pl-6 italic text-muted-foreground"
@@ -67,10 +62,6 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     tr: (props) => <tr className="m-0 border-t p-0 even:bg-muted" {...props} />,
     th: (props) => <th className="border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right" {...props} />,
     td: (props) => <td className="border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right" {...props} />,
-    Button,
-    Card,
-    CardContent,
-    CardHeader,
-    CardTitle,
+    ...components,
   }
 }
