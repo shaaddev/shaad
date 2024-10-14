@@ -15,7 +15,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { sendEmail } from "@/actions/sendEmail";
 import { useRouter } from "next/navigation";
-import { useToast } from "@/components/ui/use-toast";
+import { toast } from 'sonner'
 
 const schema = z.object({
     name: z.string({
@@ -29,7 +29,7 @@ const schema = z.object({
     message: z.string({
         required_error: "Please enter your message",
         invalid_type_error: "Must be a string"
-    }).min(10, {
+    }).min(2, {
         message: "Message must be at least 10 characters",
     })
     .max(256, {
@@ -42,21 +42,41 @@ export default function SayHiForm(){
         resolver: zodResolver(schema),
     })
     const router = useRouter();
-    const { toast } = useToast();
     
-    const onSubmit = () => {
-        toast({
-            title: 'Message sent succesfully!',
+    const onSubmit = async (values: z.infer<typeof schema>) => {
+
+      const formData = new FormData();
+
+      for (const [key, value] of Object.entries(values)) {
+        if (value !== undefined && value !== null && value !== "") {
+          formData.append(key, value);
+        }
+      }
+
+      try {
+        const result = await sendEmail(formData);
+
+        if (result.success) {
+          toast.success('Message sent succesfully!',{
             description: 'Thank you'
-        })
-        router.push('/'); 
+          })
+          router.push('/');
+        } else {
+          toast.error('Submission failed', {
+            description: result.message || 'An unknown error occured'
+          })
+        }
+
+      } catch (error) {
+        toast.error('An unexpected error occured')
+      } 
     }
 
     return(
         <div className="min-h-84 w-full">
             <div className="flex flex-col items-center justify-center p-2 lg:p-16">
                 <Form {...form}>
-                    <form action={async (formData) => { await sendEmail(formData) }} className="space-y-6 text-neutral-200 w-full">
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 text-neutral-200 w-full">
                         <div className="flex flex-col justify-center lg:grid lg:grid-cols-1 lg:gap-6 text-black dark:text-white">
                             <FormField 
                                 control={form.control}
@@ -94,7 +114,7 @@ export default function SayHiForm(){
                                 </FormItem>
                             )}
                         />
-                        <Button type="submit" onClick={onSubmit}  className="dark:bg-slate-200 dark:text-black">Submit</Button>  
+                        <Button type="submit" className="dark:bg-slate-200 dark:text-black">Submit</Button>  
                     </form>
                 </Form>
             </div>

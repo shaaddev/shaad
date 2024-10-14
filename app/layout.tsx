@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 import Copyright from "@/components/Copyright";
 import { Providers } from "./providers";
 import { Contact } from "@/components/contact";
-import { Toaster } from "@/components/ui/toaster";
+import { Toaster } from "@/components/ui/sonner";
 import { cn } from "@/lib/utils";
 import { ViewTransitions } from "next-view-transitions";
 
@@ -36,7 +36,7 @@ export default function RootLayout({
               <main>
                 {children}
                 <Copyright />
-                <Toaster />
+                <Toaster position="bottom-right" />
               </main>
               <Contact />
             </Providers>

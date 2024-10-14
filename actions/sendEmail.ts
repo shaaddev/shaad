@@ -13,6 +13,8 @@ export const sendEmail = async(formData: FormData) => {
 
     if (!message || typeof message !== "string"){
         return {
+            success: false,
+            message: 'Missing required fields',
             error: 'Invalid message',
         };
     }
@@ -30,8 +32,14 @@ export const sendEmail = async(formData: FormData) => {
             })
         });
 
-
+        return {
+          sucess: true
+        }
     } catch (error){
-        return console.log('error', error)
+        return {
+          success: false,
+          error: error
+        }
+
     }
 }
