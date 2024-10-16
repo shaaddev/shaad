@@ -1,6 +1,9 @@
 import { Github, Linkedin, Mail, Globe2, Rss } from "lucide-react";
 
 
+import type { JSX } from "react";
+
+
 export interface Projects {
     title: string;
     desc: string;
@@ -80,7 +83,7 @@ export const projects: Projects[] = [
 const techwise_desc = "Selected among the top 120 students across select colleges for TechWise, a program offered by TalentSprint \
 and supported by Google that identifies and empowers capable students, preparing them for high-growth tech \
 careers. A holistic program cultivating Industry-Ready Skills in Python, Web Developement, DSA, and Corporate \
-Proficiency, TechWise enables its participants to be job ready." 
+Proficiency, TechWise enables its participants to be job ready."
 
 const uwi_desc = "Graduated with an Associate Degree that mixes a variety of Information Technology (IT) disciplines, such as \
 information systems, programming, database systems, web design, hardware, and networking, with the business skills required to \
