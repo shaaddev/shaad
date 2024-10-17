@@ -6,7 +6,7 @@ export function Personal() {
   const route = [
     { name: "Contact Me", url: "/say_hi" },
     { name: "Resume", url: "/CV.pdf" },
-    { name: "Article", url: "/w/ai-sdk-core" },
+    { name: "Notes", url: "/w" },
   ];
 
   return (
