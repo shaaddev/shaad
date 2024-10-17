@@ -5,7 +5,7 @@ import rehypePrettyCode from "rehype-pretty-code";
 const nextConfig = {
   pageExtensions: ["mdx", "ts", "tsx"],
   experimental: {
-    mdxRs: true,
+    mdxRs: false,
   },
 };
 
