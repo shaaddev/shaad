@@ -8,9 +8,9 @@ import { Contact } from "@/components/contact";
 import { Toaster } from "@/components/ui/sonner";
 import { ViewTransitions } from "next-view-transitions";
 
-const mont = Montserrat({ 
-  variable: '--font-mont',
-  subsets: ["latin"] 
+const mont = Montserrat({
+  variable: "--font-mont",
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
