@@ -1,0 +1,53 @@
+import { Name } from "../name";
+
+# Using Google Analytics with React/Next.js Projects
+
+<Name />
+
+Don't mind me here, I am only creating a quick note.
+
+1. Create your own Google Analytics Project
+
+If you haven't done this part before, it as simple as signing up on the Google Analytics page, see link below:
+
+[Google Analytics for Developers](https://developers.google.com/analytics)
+
+2. Create your Google Analytics Component
+
+Inside of your _components_ folder, create a file called _google-analytics.tsx_, and add the following:
+
+```tsx
+import React from 'react';
+import Script from 'next/script';
+
+export function GoogleAnalytics {
+  return(
+    <>
+      <Script
+        strategy='lazyOnload'
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+      />
+      <Script id='' strategy='lazyOnload'>
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${process.env.NEXT_PUBLIC_MEASUREMENT_ID', {
+            page_path: window.location.pathname,
+          });
+        `}
+      </Script>
+    </>
+  )
+}
+```
+
+3. Add the secrets into your _.env.local_ file
+
+```bash
+# Google Analytics
+NEXT_PUBLIC_GA_ID=your_google_analytics_key
+NEXT_PUBLIC_MEASUREMENT_ID=your_google_analytics_key
+```
+
+El fin. :)

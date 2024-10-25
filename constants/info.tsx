@@ -225,6 +225,11 @@ export const about = {
 
 export const notes = [
   {
+    name: "Google Analytics",
+    link: "/w/using-google-analytics-with-react-next-projects",
+    desc: "Using Google Analytics with React and Next.js Projects",
+  },
+  {
     name: "AI SDK Core",
     link: "/w/ai-sdk-core",
     desc: "Using AI Vercel SDK (AI SDK Core) with Next.js and App Router",
