@@ -13,7 +13,7 @@ const mont = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "shaad",
+  title: "Shaad Lee Hue",
   description: "Shaad is a full-stack developer based in New York",
 };
 
