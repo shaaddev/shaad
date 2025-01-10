@@ -7,9 +7,7 @@ import PortfolioEmail from "@/emails/portfolio-email";
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export const sendEmail = async (formData: FormData) => {
-  const sender = formData.get("email");
-  const message = formData.get("message");
-  const name = formData.get("name");
+  const { email, message, name } = Object.fromEntries(formData);
 
   if (!message || typeof message !== "string") {
     return {
@@ -24,10 +22,10 @@ export const sendEmail = async (formData: FormData) => {
       from: "Portfolio Website <shaad@shaaddev.com>",
       to: [process.env.EMAIL as string],
       subject: "New Message",
-      reply_to: sender as string,
+      replyTo: email as string,
       react: React.createElement(PortfolioEmail, {
         message: message as string,
-        email: sender as string,
+        email: email as string,
         name: name as string,
       }),
     });
