@@ -1,8 +1,7 @@
-import { experience, Experience } from "@/constants/info"
+import { experience, Experience } from "@/constants/info";
 
-
-export function _Experience(){
-  return(
+export function _Experience() {
+  return (
     <section id="experience">
       <div className="flex min-h-0 flex-col gap-y-3 my-12">
         <h2 className="text-xl font-bold mb-5">Experience</h2>
@@ -18,5 +17,5 @@ export function _Experience(){
         ))}
       </div>
     </section>
-  )
+  );
 }

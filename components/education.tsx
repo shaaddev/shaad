@@ -1,7 +1,7 @@
-import { education, Education } from "@/constants/info"
+import { education, Education } from "@/constants/info";
 
-export function _Education(){
-  return(
+export function _Education() {
+  return (
     <section id="education">
       <div className="flex min-h-0 flex-col gap-y-3 my-12">
         <h2 className="text-xl font-bold mb-5">Education</h2>
@@ -12,10 +12,12 @@ export function _Education(){
               <h3 className="text-sm sm:text-base">{e.title}</h3>
               <p className="text-sm text-muted-foreground">{e.duration}</p>
             </div>
-            <p className="text-xs sm:text-sm text-muted-foreground">{e.degree}</p>
+            <p className="text-xs sm:text-sm text-muted-foreground">
+              {e.degree}
+            </p>
           </div>
         ))}
       </div>
     </section>
-  )
+  );
 }

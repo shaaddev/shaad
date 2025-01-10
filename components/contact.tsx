@@ -1,11 +1,11 @@
-import Theme from "./Theme"
+import Theme from "./Theme";
 
-export function Contact(){
+export function Contact() {
   const links = [
-    { name: 'Github', url: 'https://github.com/shaaddev' },
-    { name: 'Linkedin', url: 'https://www.linkedin.com/in/rleehue-joseph/' },
-    { name: 'Medium', url: 'https://medium.com/@shaaddev' },
-  ]
+    { name: "Github", url: "https://github.com/shaaddev" },
+    { name: "Linkedin", url: "https://www.linkedin.com/in/rleehue-joseph/" },
+    { name: "Medium", url: "https://medium.com/@shaaddev" },
+  ];
 
   return (
     <footer className="mt-12 text-center">
@@ -24,5 +24,5 @@ export function Contact(){
         <Theme />
       </div>
     </footer>
-  )
+  );
 }

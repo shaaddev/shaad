@@ -1,4 +1,4 @@
-import {Name} from '../name'
+import { Name } from "../name";
 
 # Using AI Vercel SDK (AI SDK Core) with Next.js and App Router
 
@@ -68,7 +68,7 @@ bunx shadcn@latest add button input
 
 3. Create an environment variable file
 
-Create a new file called *.env.local* in the root directory and this is where you'll store various API Keys. As said before, you can use any provider but for this project, we will be using Google as this is the free option.
+Create a new file called _.env.local_ in the root directory and this is where you'll store various API Keys. As said before, you can use any provider but for this project, we will be using Google as this is the free option.
 
 ```bash
 GOOGLE_GENERATIVE_AI_API_KEY=your_google_api_key
@@ -76,9 +76,9 @@ GOOGLE_GENERATIVE_AI_API_KEY=your_google_api_key
 
 4. Creating Server Action
 
-We will be implementing a *continueConversation* function that will insert the user's message into the conversation and stream back the new message.
+We will be implementing a _continueConversation_ function that will insert the user's message into the conversation and stream back the new message.
 
-Create a new file *app/actions.tsx* and add the following:
+Create a new file _app/actions.tsx_ and add the following:
 
 ```ts
 'use server'
@@ -102,40 +102,46 @@ Yep, it's that simple!
 
 5. Creating the Chatbot Component
 
-Create a new Folder called *components* if you don't have one already and create a new file called *components/chatbot.tsx* and add the following. Don't worry, we'll be calling this component in *app/page.tsx* later on.
+Create a new Folder called _components_ if you don't have one already and create a new file called _components/chatbot.tsx_ and add the following. Don't worry, we'll be calling this component in _app/page.tsx_ later on.
 
 ```tsx
-'use client'
+"use client";
 
-import { useState, useEffect, useRef } from "react"
-import { CoreMessage } from "ai"
-import { continueConversation } from "@/app/actions"
-import { readStreamableValue } from "ai/rsc"
-import { Button } from "@/components/ui/button"
-import ReactMarkdown from "react-markdown"
-import { Send } from "lucide-react"
+import { useState, useEffect, useRef } from "react";
+import { CoreMessage } from "ai";
+import { continueConversation } from "@/app/actions";
+import { readStreamableValue } from "ai/rsc";
+import { Button } from "@/components/ui/button";
+import ReactMarkdown from "react-markdown";
+import { Send } from "lucide-react";
 
 interface ChatbotProps {
-  e: React.FormEvent
-  messages: CoreMessage[]
-  setMessages: React.Dispatch<React.SetStateAction<CoreMessage[]>>
-  input: string
-  setInput: React.Dispatch<React.SetStateAction<string>>
+  e: React.FormEvent;
+  messages: CoreMessage[];
+  setMessages: React.Dispatch<React.SetStateAction<CoreMessage[]>>;
+  input: string;
+  setInput: React.Dispatch<React.SetStateAction<string>>;
 }
 
-async function handleSendMessage({e, messages, setMessages, input, setInput}: ChatbotProps){
-  e.preventDefault()
+async function handleSendMessage({
+  e,
+  messages,
+  setMessages,
+  input,
+  setInput,
+}: ChatbotProps) {
+  e.preventDefault();
 
   const newMessages: CoreMessage[] = [
     ...messages,
     {
-      role: 'user',
-      content: input
-    }
+      role: "user",
+      content: input,
+    },
   ];
 
   setMessages(newMessages);
-  setInput('');
+  setInput("");
 
   const result = await continueConversation(newMessages);
 
@@ -143,16 +149,16 @@ async function handleSendMessage({e, messages, setMessages, input, setInput}: Ch
     setMessages([
       ...newMessages,
       {
-        role: 'assistant',
-        content: content as string
-      }
-    ])
+        role: "assistant",
+        content: content as string,
+      },
+    ]);
   }
 }
 
-export function ChatbotUI(){
+export function ChatbotUI() {
   const [messages, setMessages] = useState<CoreMessage[]>([]);
-  const [input, setInput] = useState<string>('');
+  const [input, setInput] = useState<string>("");
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
 
   const scrollToBottom = () => {
@@ -169,19 +175,22 @@ export function ChatbotUI(){
         {messages.map((message, index) => (
           <div key={index}>
             <div className="">
-              {message.role}: <ReactMarkdown>{`${String(message.content)}`}</ReactMarkdown>
+              {message.role}:{" "}
+              <ReactMarkdown>{`${String(message.content)}`}</ReactMarkdown>
             </div>
           </div>
         ))}
         <div ref={messagesEndRef} />
       </div>
       <div className="">
-        <form 
-          onSubmit={(e) => handleSendMessage({e, messages, setMessages, input, setInput})}
+        <form
+          onSubmit={(e) =>
+            handleSendMessage({ e, messages, setMessages, input, setInput })
+          }
           className="flex items-center gap-2"
         >
           <div className="relative max-h-60 flex flex-row w-full grow justify-between overflow-hidden bg-zinc-100 dark:bg-slate-800 px-6 rounded-full border focus:outline-1">
-            <input 
+            <input
               id="message"
               placeholder="Type your message here..."
               className="max-h-[60px] flex-1 border-none focus-within:outline-none bg-transparent"
@@ -195,27 +204,27 @@ export function ChatbotUI(){
               size="icon"
               className="rounded-full hover:bg-muted"
             >
-              <Send className="w-4 h-4"/>
+              <Send className="w-4 h-4" />
             </Button>
           </div>
         </form>
       </div>
     </div>
-  )
+  );
 }
 ```
 
-Now let's navigate to *app/page.tsx*
+Now let's navigate to _app/page.tsx_
 
 ```tsx
-import { ChatbotUI } from '@/components/chatbot';
+import { ChatbotUI } from "@/components/chatbot";
 
-export default function Home(){
-  return(
+export default function Home() {
+  return (
     <div className="">
       <ChatbotUI />
     </div>
-  )
+  );
 }
 ```
 
@@ -227,7 +236,7 @@ Once you added your own styling and everything is setup properly, let's start up
 bun run dev
 ```
 
-and navigate to *http://localhost:3000*
+and navigate to _http://localhost:3000_
 
 # Conclusion
 

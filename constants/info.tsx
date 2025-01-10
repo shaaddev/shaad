@@ -21,7 +21,7 @@ export interface Projects {
 export interface Education {
   id: number;
   href?: string;
-  logoUrl: string | undefined;
+  logoUrl?: string | undefined;
   school: string;
   title: string;
   duration: string;
@@ -44,7 +44,6 @@ export const projects: Projects[] = [
     activeLink: "https://www.llandit.com/",
     link: "https://github.com/shaaddev/ApplicationRecord",
     dates: "June 2024 - Present",
-    image: "/2.png",
   },
   {
     title: "Rate your Professor AI",
@@ -60,7 +59,6 @@ export const projects: Projects[] = [
     link: "https://github.com/rukaiah-edhah/RateMyProf",
     activeLink: "https://rate-my-prof-plum.vercel.app/",
     dates: "August 2024 - August 2024",
-    image: "/1.png",
     video: "",
   },
   {
@@ -76,7 +74,6 @@ export const projects: Projects[] = [
     link: "https://github.com/TechWise-Project-2/SerenityFocus",
     activeLink: "https://serenityfocuss.com/",
     dates: "December 2023 - Present",
-    image: "/6.jpeg",
   },
   {
     title: "Social Events",
@@ -92,16 +89,6 @@ export const projects: Projects[] = [
     link: "https://github.com/shaaddev/SocialEventsNextJS",
     activeLink: "https://events.shaaddev.com/",
     dates: "2022 - 2024",
-    image: "/5.jpeg",
-  },
-  {
-    title: "Compute Age",
-    desc: "From the Terminal to the User Interface, originally created in Java, this web app helps you to calculate your age",
-    techStack: ["Next.js", "Tailwind CSS", "Shadcn"],
-    link: "https://github.com/shaaddev/ComputeAge",
-    activeLink: "https://age.shaaddev.com/",
-    dates: "2023 - 2023",
-    image: "/4.jpeg",
   },
 ];
 
@@ -159,11 +146,19 @@ export interface Experience {
   badges: string[];
   location: string;
   title: string;
-  logoUrl: string;
+  logoUrl?: string;
   duration: string;
 }
 
 export const experience: Experience[] = [
+  {
+    company: "Masari Tech",
+    href: "",
+    badges: [],
+    location: "New York, NY, Hybrid",
+    title: "Co-Founder",
+    duration: "December 2024 - Present",
+  },
   {
     company: "Headstarter",
     href: "https://headstarter.com/",
