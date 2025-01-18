@@ -37,7 +37,7 @@ export default function PortfolioEmail({ message, name, email }: EmailProps) {
               </Text>
             </Section>
             <Hr className="border-[#cccccc] mt-5" />
-            <Text className="color-[#8898aa] leading-7">
+            <Text className="text-[#8898aa] leading-7">
               10010 New York, New York
             </Text>
           </Container>
