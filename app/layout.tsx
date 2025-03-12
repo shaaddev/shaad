@@ -35,11 +35,9 @@ export default function RootLayout({
         <body className="antialiased tracking-tight">
           <div className="flex flex-col justify-between min-h-screen py-12 sm:py-24 px-6 bg-background max-w-2xl mx-auto">
             <Providers>
-              <main className="">
-                {children}
-                <Copyright />
-                <Toaster position="bottom-right" />
-              </main>
+              <main className="">{children}</main>
+              <Copyright />
+              <Toaster position="bottom-right" />
               <Contact />
             </Providers>
           </div>
