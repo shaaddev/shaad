@@ -13,8 +13,15 @@ const mont = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Shaad Lee Hue",
-  description: "Shaad is a full-stack developer based in New York",
+  metadataBase: new URL("https://shaaddev.com"),
+  alternates: {
+    canonical: "/",
+  },
+  title: {
+    default: "Shaad Lee Hue",
+    template: "%s | Shaad Lee Hue",
+  },
+  description: "CTO & Full stack developer based in New York",
 };
 
 export default function RootLayout({
