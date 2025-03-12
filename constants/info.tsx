@@ -31,6 +31,14 @@ export interface Education {
 
 export const projects: Projects[] = [
   {
+    title: "Chat AI",
+    desc: "",
+    techStack: ["Next.js", "Tailwind CSS", "Shadcn", "Neon", "Better Auth"],
+    activeLink: "https://chat.shaaddev.com/",
+    link: "",
+    dates: "February 2025 - Present",
+  },
+  {
     title: "Landit (Application Record)",
     desc: "Spreadsheet alternative for managing Job Applications. Scaling to 400+ users and iterated on user feedback to make continuous optimizations",
     techStack: [
