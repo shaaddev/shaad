@@ -35,7 +35,7 @@ export const projects: Projects[] = [
     desc: "",
     techStack: ["Next.js", "Tailwind CSS", "Shadcn", "Neon", "Better Auth"],
     activeLink: "https://chat.shaaddev.com/",
-    link: "",
+    link: "https://github.com/shaaddev/chat-ai",
     dates: "February 2025 - Present",
   },
   {
