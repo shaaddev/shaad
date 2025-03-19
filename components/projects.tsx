@@ -20,14 +20,9 @@ export function Projects() {
               </p>
               {project.techStack && project.techStack.length > 0 && (
                 <div className="flex flex-row gap-1">
-                  {project?.techStack.map((tech) => (
-                    <p
-                      key={tech}
-                      className="hidden text-sm sm:block text-muted-foreground"
-                    >
-                      {tech},
-                    </p>
-                  ))}
+                  <p className="hidden text-sm sm:block text-muted-foreground">
+                    {project.techStack.join(", ")}
+                  </p>
                 </div>
               )}
             </div>
@@ -36,7 +31,7 @@ export function Projects() {
                 href={`${project.activeLink}`}
                 target="_blank"
                 className={cn(
-                  buttonVariants({ variant: "outline", size: "sm" }),
+                  buttonVariants({ variant: "outline", size: "sm" })
                 )}
               >
                 <Globe className="w-4 h-4" />
@@ -45,7 +40,7 @@ export function Projects() {
                 href={`${project.link}`}
                 target="_blank"
                 className={cn(
-                  buttonVariants({ variant: "outline", size: "sm" }),
+                  buttonVariants({ variant: "outline", size: "sm" })
                 )}
               >
                 <Github className="w-4 h-4" />
