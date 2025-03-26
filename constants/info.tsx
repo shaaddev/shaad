@@ -69,35 +69,6 @@ export const projects: Projects[] = [
     dates: "August 2024 - August 2024",
     video: "",
   },
-  {
-    title: "Serenity Focus",
-    desc: "A productivity tracker app developed by a group as part of the TechWise Program web development course, supported by Google and provided by TalentSprint",
-    techStack: [
-      "Next.js",
-      "PostgreSQL",
-      "Tailwind CSS",
-      "DaisyUI",
-      "KindeAuth",
-    ],
-    link: "https://github.com/TechWise-Project-2/SerenityFocus",
-    activeLink: "https://serenityfocuss.com/",
-    dates: "December 2023 - Present",
-  },
-  {
-    title: "Social Events",
-    desc: "This is a web app intended to help persons of interest to promote their upcoming events. Originally created using the python framework Django.",
-    techStack: [
-      "Next.js",
-      "PostgreSQL",
-      "Tailwind CSS",
-      "Shadcn",
-      "AWS",
-      "KindeAuth",
-    ],
-    link: "https://github.com/shaaddev/SocialEventsNextJS",
-    activeLink: "https://events.shaaddev.com/",
-    dates: "2022 - 2024",
-  },
 ];
 
 const techwise_desc =
@@ -105,11 +76,6 @@ const techwise_desc =
 and supported by Google that identifies and empowers capable students, preparing them for high-growth tech \
 careers. A holistic program cultivating Industry-Ready Skills in Python, Web Developement, DSA, and Corporate \
 Proficiency, TechWise enables its participants to be job ready.";
-
-const uwi_desc =
-  "Graduated with an Associate Degree that mixes a variety of Information Technology (IT) disciplines, such as \
-information systems, programming, database systems, web design, hardware, and networking, with the business skills required to \
-get ready for a job in the IT sector. ";
 
 const mercy_desc =
   "Currently studying Computer Science at Mercy University obtaining knowledge of programme creation and computer systems \
@@ -135,16 +101,6 @@ export const education: Education[] = [
     desc: techwise_desc,
     href: "",
     logoUrl: "/education/tw.png",
-  },
-  {
-    id: 3,
-    school: "UWI Roytec",
-    title: "Information Systems Management",
-    duration: "2020 - 2022",
-    degree: "A.S. Information Systems Management",
-    desc: uwi_desc,
-    href: "https://www.roytec.edu/",
-    logoUrl: "/education/uwi.png",
   },
 ];
 
@@ -174,7 +130,7 @@ export const experience: Experience[] = [
     location: "New York, NY, Hybrid",
     title: "Software Engineer Fellow",
     logoUrl: "/hs.jpg",
-    duration: "July 2024 - Present",
+    duration: "July 2024 - November 2024",
   },
 ];
 
