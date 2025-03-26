@@ -4,7 +4,7 @@ import "./globals.css";
 import Copyright from "@/components/Copyright";
 import { Providers } from "./providers";
 import { Contact } from "@/components/contact";
-import { ViewTransitions } from "next-view-transitions";
+import { unstable_ViewTransition as ViewTransitions } from "react";
 
 const mont = Montserrat({
   variable: "--font-mont",
@@ -29,18 +29,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ViewTransitions>
-      <html lang="en" suppressHydrationWarning className={`${mont.className}`}>
-        <body className="antialiased tracking-tight">
-          <div className="flex flex-col justify-between min-h-screen py-12 sm:py-24 px-6 bg-background max-w-2xl mx-auto">
-            <Providers>
-              <main className="">{children}</main>
-              <Copyright />
-              <Contact />
-            </Providers>
-          </div>
-        </body>
-      </html>
-    </ViewTransitions>
+    <html lang="en" suppressHydrationWarning className={`${mont.className}`}>
+      <body className="antialiased tracking-tight">
+        <div className="flex flex-col justify-between min-h-screen py-12 sm:py-24 px-6 bg-background max-w-2xl mx-auto">
+          <Providers>
+            <main className="">
+              <ViewTransitions>{children}</ViewTransitions>
+            </main>
+            <Copyright />
+            <Contact />
+          </Providers>
+        </div>
+      </body>
+    </html>
   );
 }

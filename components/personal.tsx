@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "./ui/button";
-import { Link } from "next-view-transitions";
+import Link from "next/link";
 
 export function Personal() {
   const route = [

@@ -6,6 +6,7 @@ const nextConfig = {
   pageExtensions: ["mdx", "ts", "tsx"],
   experimental: {
     mdxRs: false,
+    ViewTransition: true,
   },
 };
 
