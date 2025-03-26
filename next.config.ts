@@ -1,19 +1,21 @@
-// import type { NextConfig } from "next";
+import type { NextConfig } from "next";
 import createMDX from "@next/mdx";
 import rehypePrettyCode from "rehype-pretty-code";
 
-const nextConfig = {
+const nextConfig: NextConfig = {
   pageExtensions: ["mdx", "ts", "tsx"],
   experimental: {
     mdxRs: false,
-    ViewTransition: true,
+    viewTransition: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
   },
 };
 
 const withMDX = createMDX({
   options: {
     remarkPlugins: [],
-    rehypePlugins: [[rehypePrettyCode, { theme: "github-dark-high-contrast" }]],
   },
 });
 

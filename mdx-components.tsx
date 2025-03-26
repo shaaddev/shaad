@@ -1,6 +1,7 @@
 import type { MDXComponents } from "mdx/types";
 import React, { ComponentPropsWithoutRef } from "react";
 import Link from "next/link";
+import { CodeBlock } from "./components/code-block";
 
 type AnchorProps = ComponentPropsWithoutRef<"a">;
 
@@ -62,6 +63,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         {...props}
       />
     ),
+    code: CodeBlock,
     blockquote: (props) => (
       <blockquote
         className="mt-6 border-l-2 border-primary pl-6 italic text-muted-foreground"
