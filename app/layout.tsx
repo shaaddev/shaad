@@ -4,7 +4,6 @@ import "./globals.css";
 import Copyright from "@/components/Copyright";
 import { Providers } from "./providers";
 import { Contact } from "@/components/contact";
-import { Toaster } from "@/components/ui/sonner";
 import { ViewTransitions } from "next-view-transitions";
 
 const mont = Montserrat({
@@ -37,7 +36,6 @@ export default function RootLayout({
             <Providers>
               <main className="">{children}</main>
               <Copyright />
-              <Toaster position="bottom-right" />
               <Contact />
             </Providers>
           </div>

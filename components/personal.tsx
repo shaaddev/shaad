@@ -4,7 +4,6 @@ import { Link } from "next-view-transitions";
 
 export function Personal() {
   const route = [
-    { name: "Contact Me", url: "/say_hi" },
     { name: "Resume", url: "/CV.pdf" },
     { name: "Notes", url: "/w" },
   ];
