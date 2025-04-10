@@ -11,7 +11,7 @@ export function Projects() {
         <h2 className="text-xl font-bold mb-5">Projects</h2>
         {projects.map((project, index) => (
           <div key={index} className="flex flex-row justify-between">
-            <div className="flex flex-col items-start leading-snug">
+            <div className="flex flex-col items-start leading-8 gap-2 mb-5">
               <h2 className="text-sm sm:text-md font-medium">
                 {project.title}
               </h2>

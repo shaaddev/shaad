@@ -47,7 +47,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
     h4: (props) => <h4 className="text-lg font-medium" {...props} />,
     a: CustomLink,
-    p: (props) => <p className="leading-snug mt-6" {...props} />,
+    p: (props) => <p className="leading-8 mt-6 font-base" {...props} />,
     ul: (props) => <ul className="my-6 list-disc space-y-1 pl-5" {...props} />,
     ol: (props) => (
       <ol
