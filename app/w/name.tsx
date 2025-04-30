@@ -1,8 +1,8 @@
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 
 export function Name() {
   return (
-    <Link href="/" className="flex font-medium text-gray-400 fade-in mb-8">
+    <Link href="/" className="flex font-medium text-gray-400 fade-in mb-8 name">
       @shaaddev
     </Link>
   );

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import { notes } from "@/constants/info";
 import { Name } from "./name";
 
@@ -15,7 +15,7 @@ export default function Page() {
             className="rounded-lg p-2 hover:bg-primary/10 w-full transition-all duration-300 ease-in-out"
           >
             <h2 className="text-sm sm:text-md font-bold">{note.name}</h2>
-            <p className="text-sm sm:text-sm text-muted-foreground">
+            <p className="text-sm sm:text-sm text-muted-foreground desc">
               {note.desc}
             </p>
           </Link>
