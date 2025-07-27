@@ -116,11 +116,11 @@ export interface Experience {
 
 export const experience: Experience[] = [
   {
-    company: "Masari Tech",
+    company: "Masira",
     href: "",
     badges: [],
     location: "New York, NY, Hybrid",
-    title: "Co-Founder",
+    title: "CTO",
     duration: "December 2024 - Present",
   },
   {
@@ -171,8 +171,8 @@ export const about = {
   summary:
     "I am currently a third year Computer Science major (Bachelor of Science) at **[Mercy University, Dobbs Ferry](https://mercy.edu/)**. Seeking a challenging role within a progressive organization to provide the opportunity to utilize my skills as a **[Software Development Engineer](https://www.linkedin.com/in/rleehue-joseph/)**.",
   skills: [
+    "AI SDK",
     "Next.js",
-    "React.js",
     "TypeScript",
     "Python",
     "Postgres",
