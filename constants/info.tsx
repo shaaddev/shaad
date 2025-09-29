@@ -49,7 +49,7 @@ export const projects: Projects[] = [
       "PostgreSQL",
       "Kinde Auth",
     ],
-    activeLink: "https://www.llandit.com/",
+    activeLink: "https://application-record.vercel.app/",
     link: "https://github.com/shaaddev/ApplicationRecord",
     dates: "June 2024 - Present",
   },
