@@ -1,9 +1,8 @@
 import type { NextConfig } from "next";
 import createMDX from "@next/mdx";
-import rehypePrettyCode from "rehype-pretty-code";
 
 const nextConfig: NextConfig = {
-  pageExtensions: ["mdx", "ts", "tsx"],
+  pageExtensions: ["ts", "tsx"],
   experimental: {
     mdxRs: false,
     viewTransition: true,
@@ -13,10 +12,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-const withMDX = createMDX({
-  options: {
-    remarkPlugins: [],
-  },
-});
-
-export default withMDX(nextConfig);
+export default nextConfig;
