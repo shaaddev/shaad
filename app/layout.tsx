@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Copyright from "@/components/Copyright";
+import { Copyright } from "@/components/copyright";
 import { Providers } from "./providers";
-import { Contact } from "@/components/contact";
 import { ViewTransitions } from "next-view-transitions";
 
 const inter = Inter({
@@ -32,11 +31,19 @@ export default function RootLayout({
     <ViewTransitions>
       <html lang="en" suppressHydrationWarning className={`${inter.className}`}>
         <body className="antialiased tracking-tight">
-          <div className="flex flex-col justify-between min-h-screen py-12 sm:py-24 px-6 bg-background max-w-2xl mx-auto">
+          {/* background layers */}
+          <div className="space-scene" aria-hidden="true">
+            <div className="space-stars" />
+            <div className="space-stars2" />
+            <div className="space-stars3" />
+            <div className="space-glow" />
+          </div>
+          <div className="relative z-10 flex min-h-screen items-center justify-center px-6">
             <Providers>
-              <main className="">{children}</main>
-              <Copyright />
-              <Contact />
+              <main className="w-full flex items-center justify-center">
+                {children}
+                <Copyright />
+              </main>
             </Providers>
           </div>
         </body>
