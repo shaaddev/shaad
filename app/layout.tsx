@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 import { ViewTransitions } from "next-view-transitions";
+import { Copyright } from "@/components/footer";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -41,6 +42,7 @@ export default function RootLayout({
             <Providers>
               <main className="w-full flex items-center justify-center">
                 {children}
+                <Copyright />
               </main>
             </Providers>
           </div>
