@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Copyright } from "@/components/copyright";
 import { Providers } from "./providers";
 import { ViewTransitions } from "next-view-transitions";
 
@@ -42,7 +41,6 @@ export default function RootLayout({
             <Providers>
               <main className="w-full flex items-center justify-center">
                 {children}
-                <Copyright />
               </main>
             </Providers>
           </div>
