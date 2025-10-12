@@ -11,7 +11,7 @@ export default function Home() {
           lineHeight: 1.05,
         }}
       >
-        Shaad is Building Masira
+        Shaad is building Masira
       </h1>
       <section className="flex flex-row justify-center gap-3">
         <div className="flex flex-row items-center gap-3">
