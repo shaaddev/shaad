@@ -30,13 +30,6 @@ export default function RootLayout({
     <ViewTransitions>
       <html lang="en" suppressHydrationWarning className={`${inter.className}`}>
         <body className="antialiased tracking-tight">
-          {/* background layers */}
-          <div className="space-scene" aria-hidden="true">
-            <div className="space-stars" />
-            <div className="space-stars2" />
-            <div className="space-stars3" />
-            <div className="space-glow" />
-          </div>
           <div className="relative z-10 flex min-h-screen items-center justify-center px-6">
             <Providers>
               <main className="w-full flex items-center justify-center">
