@@ -11,7 +11,17 @@ export default function Home() {
           lineHeight: 1.05,
         }}
       >
-        Shaad is building Masira
+        Shaad is building{" "}
+        <span>
+          <Link
+            href="https://masira.store/"
+            className="hover:underline hover:cursor-ne-resize"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Masira
+          </Link>
+        </span>
       </h1>
       <section className="flex flex-row justify-center gap-3">
         <div className="flex flex-row items-center gap-3">
