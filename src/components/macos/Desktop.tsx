@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { MenuBar } from "./MenuBar";
 import { Dock } from "./Dock";
 import { Window } from "./Window";
-import { Folder, User, Terminal, Mail, Github, Globe } from "lucide-react";
+import { Folder, User, Terminal, Mail, Github } from "lucide-react";
+import { useSound } from "../../hooks/use-sound";
 
 interface WindowState {
   id: string;
@@ -14,6 +15,9 @@ interface WindowState {
 }
 
 export const Desktop: React.FC = () => {
+  const playClick = useSound("/sounds/click.mp3");
+  const playSwoosh = useSound("/sounds/swoosh.mp3");
+
   const [windows, setWindows] = useState<WindowState[]>([
     {
       id: "finder",
@@ -147,6 +151,16 @@ export const Desktop: React.FC = () => {
     );
   };
 
+  const handleDockClick = (id: string) => {
+    playSwoosh();
+    openWindow(id);
+  };
+
+  const handleDesktopClick = (id: string) => {
+    playClick();
+    openWindow(id);
+  };
+
   const closeWindow = (id: string) => {
     setWindows((prev) =>
       prev.map((w) => (w.id === id ? { ...w, isOpen: false } : w))
@@ -173,22 +187,22 @@ export const Desktop: React.FC = () => {
           <DesktopIcon
             icon={Folder}
             label="Portfolio"
-            onClick={() => openWindow("finder")}
+            onClick={() => handleDesktopClick("finder")}
           />
           <DesktopIcon
             icon={User}
             label="About Me"
-            onClick={() => openWindow("about")}
+            onClick={() => handleDesktopClick("about")}
           />
           <DesktopIcon
             icon={Terminal}
             label="Projects"
-            onClick={() => openWindow("projects")}
+            onClick={() => handleDesktopClick("projects")}
           />
           <DesktopIcon
             icon={Mail}
             label="Contact"
-            onClick={() => openWindow("contact")}
+            onClick={() => handleDesktopClick("contact")}
           />
         </div>
 
@@ -204,7 +218,10 @@ export const Desktop: React.FC = () => {
         ))}
       </div>
 
-      <Dock onAppClick={openWindow} />
+      <Dock
+        onAppClick={handleDockClick}
+        openApps={windows.filter((w) => w.isOpen).map((w) => w.id)}
+      />
     </div>
   );
 };
