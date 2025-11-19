@@ -1,20 +1,17 @@
-import React from "react";
-import { useTime } from "../../hooks/use-time";
+import React, { useState, useEffect } from "react";
+import { format } from "date-fns";
 import { Apple, Battery, Wifi, Search, Command } from "lucide-react";
 
 export const MenuBar: React.FC = () => {
-  const time = useTime();
+  const [time, setTime] = useState(new Date());
 
-  const formatTime = (date: Date) => {
-    return date
-      .toLocaleTimeString("en-US", {
-        weekday: "short",
-        hour: "numeric",
-        minute: "2-digit",
-        hour12: true,
-      })
-      .replace(/,/g, "");
-  };
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTime(new Date());
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <div className="h-8 bg-white/40 dark:bg-black/40 backdrop-blur-md border-b border-white/20 dark:border-white/10 flex items-center justify-between px-4 text-xs font-medium text-black dark:text-white select-none z-50 relative w-full">
@@ -58,7 +55,7 @@ export const MenuBar: React.FC = () => {
         <button className="hover:bg-white/30 dark:hover:bg-white/20 rounded px-2 py-0.5 transition-colors">
           <Command className="w-4 h-4" />
         </button>
-        <span className="px-2">{formatTime(time)}</span>
+        <span className="px-2">{format(time, "EEE h:mm aa")}</span>
       </div>
     </div>
   );
