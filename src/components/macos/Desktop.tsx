@@ -71,7 +71,7 @@ export const Desktop: React.FC = () => {
         <div className="flex flex-col items-center justify-center h-full gap-4">
           <Github className="w-16 h-16" />
           <a
-            href="https://github.com"
+            href="https://github.com/shaaddev"
             target="_blank"
             rel="noreferrer"
             className="text-blue-500 hover:underline"
@@ -90,50 +90,64 @@ export const Desktop: React.FC = () => {
       content: (
         <div className="space-y-4">
           <h1 className="text-2xl font-bold">Hello, I'm Shaad</h1>
-          <p className="text-lg">I'm a full stack developer.</p>
+          <p className="text-lg">
+            Currently building at{" "}
+            <a
+              href="https://masira.store"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:underline"
+            >
+              Masira
+            </a>
+          </p>
           <p className="text-sm opacity-80">
-            Welcome to my digital garden. I build interactive experiences and
-            thoughtful interfaces.
+            Welcome to my digital garden. Currently working with AI as you can
+            see LOL.
+          </p>
+          <p className="text-sm opacity-80">
+            Also also, if you are seeing this, I was forced to push this due to
+            the recent React Attack.
           </p>
         </div>
       ),
     },
-    {
-      id: "projects",
-      title: "Projects",
-      isOpen: false,
-      zIndex: 0,
-      defaultPosition: { x: 150, y: 120 },
-      content: (
-        <div className="grid grid-cols-1 gap-4">
-          <div className="p-4 bg-black/5 dark:bg-white/5 rounded-lg">
-            <h3 className="font-bold">Project Alpha</h3>
-            <p className="text-sm">
-              A revolutionary new way to think about things.
-            </p>
-          </div>
-          <div className="p-4 bg-black/5 dark:bg-white/5 rounded-lg">
-            <h3 className="font-bold">Project Beta</h3>
-            <p className="text-sm">
-              Another cool project description goes here.
-            </p>
-          </div>
-        </div>
-      ),
-    },
-    {
-      id: "contact",
-      title: "Contact",
-      isOpen: false,
-      zIndex: 0,
-      defaultPosition: { x: 200, y: 160 },
-      content: (
-        <div className="space-y-4">
-          <h2 className="text-xl font-bold">Get in touch</h2>
-          <p>Email: rashaadleehue1@gmail.com</p>
-        </div>
-      ),
-    },
+    // {
+    //   id: "projects",
+    //   title: "Projects",
+    //   isOpen: false,
+    //   zIndex: 0,
+    //   defaultPosition: { x: 150, y: 120 },
+    //   content: (
+    //     <div className="grid grid-cols-1 gap-4">
+    //       <div className="p-4 bg-black/5 dark:bg-white/5 rounded-lg">
+    //         <h3 className="font-bold">Project Alpha</h3>
+    //         <p className="text-sm">
+    //           A revolutionary new way to think about things.
+    //         </p>
+    //       </div>
+    //       <div className="p-4 bg-black/5 dark:bg-white/5 rounded-lg">
+    //         <h3 className="font-bold">Project Beta</h3>
+    //         <p className="text-sm">
+    //           Another cool project description goes here.
+    //         </p>
+    //       </div>
+    //     </div>
+    //   ),
+    // },
+    // {
+    //   id: "contact",
+    //   title: "Contact",
+    //   isOpen: false,
+    //   zIndex: 0,
+    //   defaultPosition: { x: 200, y: 160 },
+    //   content: (
+    //     <div className="space-y-4">
+    //       <h2 className="text-xl font-bold">Get in touch</h2>
+    //       <p>Email: rashaadleehue1@gmail.com</p>
+    //     </div>
+    //   ),
+    // },
   ]);
 
   const [maxZIndex, setMaxZIndex] = useState(2);
