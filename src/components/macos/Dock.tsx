@@ -38,7 +38,7 @@ export const Dock: React.FC<DockProps> = ({ onAppClick, openApps }) => {
       <motion.div
         onMouseMove={(e) => mouseX.set(e.pageX)}
         onMouseLeave={() => mouseX.set(Infinity)}
-        className="bg-white/20 dark:bg-black/20 backdrop-blur-2xl border border-white/20 dark:border-white/10 rounded-3xl px-4 pb-3 pt-3 flex items-end gap-3 shadow-2xl h-[4rem] box-content"
+        className="bg-white/20 dark:bg-black/20 backdrop-blur-2xl border border-white/20 dark:border-white/10 rounded-3xl px-4 pb-3 pt-3 flex items-end gap-3 shadow-2xl h-16 box-content"
       >
         {apps.map((app) => (
           <DockItem
@@ -50,7 +50,7 @@ export const Dock: React.FC<DockProps> = ({ onAppClick, openApps }) => {
           />
         ))}
 
-        <div className="w-[1px] h-10 bg-white/10 dark:bg-white/20 self-center mx-1" />
+        <div className="w-px h-10 bg-white/10 dark:bg-white/20 self-center mx-1" />
 
         {/* Trash/Downloads Section - Treated as Dock Items for consistency */}
         <DockItem
@@ -118,14 +118,14 @@ const DockItem: React.FC<DockItemProps> = ({
       >
         {/* Special handling for Trash to have a different look if needed, but keeping consistent for now */}
         {app.id === "trash" ? (
-          <div className="w-full h-full flex items-center justify-center bg-gradient-to-b from-zinc-700 to-zinc-800">
+          <div className="w-full h-full flex items-center justify-center bg-linear-to-b from-zinc-700 to-zinc-800">
             <div className="w-full h-full bg-white/5 absolute inset-0" />
             <Trash className="w-1/2 h-1/2 text-white/80" />
           </div>
         ) : (
           <>
             <app.icon className="w-1/2 h-1/2 drop-shadow-md relative z-10" />
-            <div className="absolute inset-0 rounded-2xl bg-gradient-to-b from-white/20 to-transparent pointer-events-none" />
+            <div className="absolute inset-0 rounded-2xl bg-linear-to-b from-white/20 to-transparent pointer-events-none" />
           </>
         )}
       </motion.button>
