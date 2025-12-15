@@ -1,7 +1,7 @@
-import { Desktop } from "./components/macos/Desktop";
+import { Details } from "./components/details";
 
 function App() {
-  return <Desktop />;
+  return <Details />;
 }
 
 export default App;
