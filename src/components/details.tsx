@@ -7,7 +7,7 @@ export function Details() {
           I am currently building{" "}
           <span className="underline cursor-pointer hover:no-underline transition-all ease-in-out duration-300">
             <a
-              href="https://masira.store"
+              href="https://shopmasira.com/"
               target="_blank"
               rel="noopener noreferrer"
             >
