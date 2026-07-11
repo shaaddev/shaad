@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { DinoGame } from "./dino-game";
+import { CoinGame } from "./coin-game";
 
 export function Details() {
   const [started, setStarted] = useState(false);
 
   return (
     <section className="relative h-[100dvh] w-full overflow-hidden bg-neutral-950 text-white">
-      <DinoGame onStart={() => setStarted(true)} />
+      <CoinGame onStart={() => setStarted(true)} />
 
       {/* Portfolio text — sits where it originally did, then clears upward on start. */}
       <motion.div
@@ -41,7 +41,7 @@ export function Details() {
         animate={{ opacity: started ? 0 : 1 }}
         transition={{ duration: 0.5 }}
       >
-        press space or tap to play · space / ↑ jump · ↓ duck
+        press space or tap to play · hold to jump higher · ↓ drop
       </motion.p>
     </section>
   );
