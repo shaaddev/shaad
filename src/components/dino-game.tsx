@@ -157,29 +157,6 @@ const BIRD2 = parse([
   "................",
 ]);
 
-// Collectible coin (round) plus an off-center highlight disc.
-const COIN = parse([
-  "..XXXX..",
-  ".XXXXXX.",
-  "XXXXXXXX",
-  "XXXXXXXX",
-  "XXXXXXXX",
-  "XXXXXXXX",
-  ".XXXXXX.",
-  "..XXXX..",
-]);
-
-const COIN_HI = parse([
-  "........",
-  "..XX....",
-  ".XXX....",
-  ".XXX....",
-  "..XX....",
-  "........",
-  "........",
-  "........",
-]);
-
 /* -------------------------------------------------------------------------- */
 /*  Constants (sprite sizes are fixed; the world is sized to the viewport)    */
 /* -------------------------------------------------------------------------- */
@@ -195,8 +172,6 @@ const CACTUS_UNIT_W = CACTUS[0].length * PX;
 const CACTUS_H = CACTUS.length * PX;
 const BIRD_W = BIRD1[0].length * PX;
 const BIRD_H = BIRD1.length * PX;
-const COIN_W = COIN[0].length * PX;
-const COIN_H = COIN.length * PX;
 
 const DINO_X = 80; // dino's fixed horizontal position
 
@@ -207,16 +182,12 @@ const DUCK_GRAVITY = 3.0; // extra pull when holding down mid-air
 const BASE_SPEED = 6; // normalized; multiplied by the width scale on screen
 const MAX_SPEED = 13;
 
-const COIN_VALUE = 50;
-
 const COLORS = {
   fg: "#e5e5e5",
   dim: "#3f3f46",
   ground: "#52525b",
   score: "#a1a1aa",
   scoreDim: "#71717a",
-  coin: "#f5c518",
-  coinHi: "#fde68a",
 };
 
 const HS_KEY = "dino-highscore";
@@ -237,20 +208,6 @@ interface Obstacle {
   h: number;
   count: number; // cactus cluster size
   frame: number; // bird wing animation
-}
-
-interface Coin {
-  x: number;
-  y: number;
-  spin: number;
-  gone: boolean;
-}
-
-interface Popup {
-  x: number;
-  y: number;
-  life: number;
-  text: string;
 }
 
 interface Cloud {
@@ -274,17 +231,12 @@ interface GameState {
   speed: number;
   distance: number;
   score: number;
-  bonus: number; // score from coins
-  coinCount: number;
   highScore: number;
   newHigh: boolean;
   obstacles: Obstacle[];
-  coins: Coin[];
-  popups: Popup[];
   clouds: Cloud[];
   pebbles: Pebble[];
   spawnTimer: number;
-  coinTimer: number;
   legTimer: number;
   legFrame: number;
   flash: number; // milestone flash timer
@@ -381,17 +333,12 @@ export function DinoGame({ onStart }: { onStart?: () => void }) {
       speed: BASE_SPEED,
       distance: 0,
       score: 0,
-      bonus: 0,
-      coinCount: 0,
       highScore,
       newHigh: false,
       obstacles: [],
-      coins: [],
-      popups: [],
       clouds: makeClouds(),
       pebbles: makePebbles(),
       spawnTimer: 40,
-      coinTimer: 90,
       legTimer: 0,
       legFrame: 0,
       flash: 0,
@@ -501,27 +448,6 @@ export function DinoGame({ onStart }: { onStart?: () => void }) {
       state.spawnTimer = gap;
     };
 
-    const spawnCoins = () => {
-      const arc = Math.random() < 0.55; // arc you jump through, else a low run of coins
-      const n = arc ? 3 + Math.floor(rand(0, 4)) : 1 + Math.floor(rand(0, 3));
-      const baseY = groundY - COIN_H - rand(6, 44);
-      const peak = rand(70, 150);
-      for (let i = 0; i < n; i++) {
-        let y = baseY;
-        if (arc) {
-          const t = n > 1 ? i / (n - 1) : 0.5;
-          y = groundY - COIN_H - 24 - Math.sin(t * Math.PI) * peak;
-        }
-        state.coins.push({
-          x: W + 24 + i * (COIN_W + 16),
-          y,
-          spin: i * 1.4,
-          gone: false,
-        });
-      }
-      state.coinTimer = rand(150, 320);
-    };
-
     /* --- collision ------------------------------------------------------ */
 
     const hits = (ob: Obstacle): boolean => {
@@ -539,23 +465,6 @@ export function DinoGame({ onStart }: { onStart?: () => void }) {
       const oBottom = ob.y + ob.h - 6;
 
       return dx < oRight && dRight > ox && dTop < oBottom && dBottom > oy;
-    };
-
-    const grabs = (coin: Coin): boolean => {
-      const duck = state.ducking && state.onGround;
-      const dw = duck ? DUCK_W : DINO_W;
-      const dh = duck ? DUCK_H : DINO_H;
-      const dx = DINO_X + 6;
-      const dTop = state.feetY - dh + 4;
-      const dRight = DINO_X + dw - 6;
-      const dBottom = state.feetY - 2;
-
-      const cx = coin.x + 4;
-      const cy = coin.y + 4;
-      const cRight = coin.x + COIN_W - 4;
-      const cBottom = coin.y + COIN_H - 4;
-
-      return dx < cRight && dRight > cx && dTop < cBottom && dBottom > cy;
     };
 
     /* --- update --------------------------------------------------------- */
@@ -587,7 +496,7 @@ export function DinoGame({ onStart }: { onStart?: () => void }) {
       state.speed = Math.min(MAX_SPEED, BASE_SPEED + state.distance / 1800);
 
       const prevScore = state.score;
-      state.score = Math.floor(state.distance / 12) + state.bonus;
+      state.score = Math.floor(state.distance / 12);
       if (Math.floor(prevScore / 100) !== Math.floor(state.score / 100) && state.score > 0) {
         state.flash = 22;
       }
@@ -621,35 +530,6 @@ export function DinoGame({ onStart }: { onStart?: () => void }) {
         if (hits(ob)) endGame();
       }
       state.obstacles = state.obstacles.filter((o) => o.x + o.w > -4);
-
-      // Coins.
-      state.coinTimer -= state.speed * step;
-      if (state.coinTimer <= 0) spawnCoins();
-      for (const coin of state.coins) {
-        coin.x -= move;
-        coin.spin += step;
-        if (!coin.gone && grabs(coin)) {
-          coin.gone = true;
-          state.bonus += COIN_VALUE;
-          state.coinCount += 1;
-          state.score += COIN_VALUE;
-          state.flash = Math.max(state.flash, 10);
-          state.popups.push({
-            x: coin.x + COIN_W / 2,
-            y: coin.y,
-            life: 44,
-            text: "+" + COIN_VALUE,
-          });
-        }
-      }
-      state.coins = state.coins.filter((c) => !c.gone && c.x + COIN_W > -4);
-
-      // Floating "+50" popups.
-      for (const p of state.popups) {
-        p.life -= step;
-        p.y -= step * 0.9;
-      }
-      state.popups = state.popups.filter((p) => p.life > 0);
     };
 
     const endGame = () => {
@@ -685,40 +565,6 @@ export function DinoGame({ onStart }: { onStart?: () => void }) {
         ctx.fillText("HI " + pad(state.highScore), x, 18);
       }
       ctx.textAlign = "left";
-    };
-
-    const drawCoinCounter = () => {
-      const cx = 26;
-      const cy = 27;
-      ctx.fillStyle = COLORS.coin;
-      ctx.beginPath();
-      ctx.arc(cx, cy, 8, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.fillStyle = COLORS.coinHi;
-      ctx.beginPath();
-      ctx.arc(cx - 2.5, cy - 2.5, 2.6, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.fillStyle = COLORS.score;
-      ctx.font = `700 17px ${MONO}`;
-      ctx.textAlign = "left";
-      ctx.textBaseline = "middle";
-      ctx.fillText("× " + state.coinCount, cx + 14, cy + 1);
-      ctx.textBaseline = "top";
-    };
-
-    const drawCoins = () => {
-      for (const coin of state.coins) {
-        const bob = Math.sin(coin.spin * 0.16) * 2;
-        const cx = coin.x + COIN_W / 2;
-        const sx = 0.28 + 0.72 * Math.abs(Math.cos(coin.spin * 0.13)); // spin squash
-        ctx.save();
-        ctx.translate(cx, 0);
-        ctx.scale(sx, 1);
-        ctx.translate(-cx, 0);
-        drawBitmap(ctx, COIN, coin.x, coin.y + bob, COLORS.coin);
-        drawBitmap(ctx, COIN_HI, coin.x, coin.y + bob, COLORS.coinHi);
-        ctx.restore();
-      }
     };
 
     const drawCactus = (ob: Obstacle) => {
@@ -760,8 +606,6 @@ export function DinoGame({ onStart }: { onStart?: () => void }) {
       ctx.fillRect(0, groundY + 1, W, 3);
       for (const pb of state.pebbles) ctx.fillRect(pb.x, pb.y, pb.w, 3);
 
-      drawCoins();
-
       // Obstacles.
       for (const ob of state.obstacles) {
         if (ob.kind === "cactus") {
@@ -773,20 +617,7 @@ export function DinoGame({ onStart }: { onStart?: () => void }) {
       }
 
       drawDino();
-
-      // Floating coin popups.
-      ctx.textAlign = "center";
-      ctx.font = `700 18px ${MONO}`;
-      for (const p of state.popups) {
-        ctx.globalAlpha = clamp(p.life / 44, 0, 1);
-        ctx.fillStyle = COLORS.coin;
-        ctx.fillText(p.text, p.x, p.y);
-      }
-      ctx.globalAlpha = 1;
-      ctx.textAlign = "left";
-
       drawScore();
-      drawCoinCounter();
 
       // Game-over overlay (idle prompts live in the HTML layer over the canvas).
       if (state.phase === "over") {
@@ -832,7 +663,7 @@ export function DinoGame({ onStart }: { onStart?: () => void }) {
     <canvas
       ref={canvasRef}
       role="img"
-      aria-label="A dinosaur running game. Press space or tap to jump, down arrow to duck, and collect coins."
+      aria-label="A dinosaur running game. Press space or tap to jump, down arrow to duck."
       className="absolute inset-0 h-full w-full cursor-pointer touch-none select-none"
       style={{ imageRendering: "pixelated" }}
     />

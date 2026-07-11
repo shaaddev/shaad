@@ -41,7 +41,7 @@ export function Details() {
         animate={{ opacity: started ? 0 : 1 }}
         transition={{ duration: 0.5 }}
       >
-        press space or tap to play · space / ↑ jump · ↓ duck · grab coins
+        press space or tap to play · space / ↑ jump · ↓ duck
       </motion.p>
     </section>
   );
