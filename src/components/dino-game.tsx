@@ -157,15 +157,35 @@ const BIRD2 = parse([
   "................",
 ]);
 
+// Collectible coin (round) plus an off-center highlight disc.
+const COIN = parse([
+  "..XXXX..",
+  ".XXXXXX.",
+  "XXXXXXXX",
+  "XXXXXXXX",
+  "XXXXXXXX",
+  "XXXXXXXX",
+  ".XXXXXX.",
+  "..XXXX..",
+]);
+
+const COIN_HI = parse([
+  "........",
+  "..XX....",
+  ".XXX....",
+  ".XXX....",
+  "..XX....",
+  "........",
+  "........",
+  "........",
+]);
+
 /* -------------------------------------------------------------------------- */
-/*  Constants                                                                 */
+/*  Constants (sprite sizes are fixed; the world is sized to the viewport)    */
 /* -------------------------------------------------------------------------- */
 
-const PX = 2; // size of one sprite pixel in logical units
-const W = 600; // logical canvas width
-const H = 160; // logical canvas height
-const GROUND_Y = 132; // y of the ground line (feet rest here)
-const DINO_X = 42; // dino's fixed horizontal position
+const PX = 4; // size of one sprite pixel in logical units
+const DESIGN_W = 600; // width the original speeds were tuned for
 
 const DINO_W = DINO_STAND[0].length * PX;
 const DINO_H = DINO_STAND.length * PX;
@@ -175,15 +195,19 @@ const CACTUS_UNIT_W = CACTUS[0].length * PX;
 const CACTUS_H = CACTUS.length * PX;
 const BIRD_W = BIRD1[0].length * PX;
 const BIRD_H = BIRD1.length * PX;
+const COIN_W = COIN[0].length * PX;
+const COIN_H = COIN.length * PX;
 
-const GRAVITY = 0.62;
-const JUMP_V = -10.7;
-const DUCK_GRAVITY = 1.5; // extra pull when holding down mid-air
-const BASE_SPEED = 6;
+const DINO_X = 80; // dino's fixed horizontal position
+
+// Vertical physics are in logical px (scaled ~2x from the original PX=2 tune).
+const GRAVITY = 1.24;
+const JUMP_V = -21.4;
+const DUCK_GRAVITY = 3.0; // extra pull when holding down mid-air
+const BASE_SPEED = 6; // normalized; multiplied by the width scale on screen
 const MAX_SPEED = 13;
 
-// Bird altitudes: high one you run under, mid you duck, low you jump.
-const BIRD_HEIGHTS = [GROUND_Y - BIRD_H - 52, GROUND_Y - BIRD_H - 26, GROUND_Y - BIRD_H];
+const COIN_VALUE = 50;
 
 const COLORS = {
   fg: "#e5e5e5",
@@ -191,9 +215,13 @@ const COLORS = {
   ground: "#52525b",
   score: "#a1a1aa",
   scoreDim: "#71717a",
+  coin: "#f5c518",
+  coinHi: "#fde68a",
 };
 
 const HS_KEY = "dino-highscore";
+
+const MONO = "ui-monospace, SFMono-Regular, Menlo, monospace";
 
 /* -------------------------------------------------------------------------- */
 /*  Game state                                                                */
@@ -211,6 +239,20 @@ interface Obstacle {
   frame: number; // bird wing animation
 }
 
+interface Coin {
+  x: number;
+  y: number;
+  spin: number;
+  gone: boolean;
+}
+
+interface Popup {
+  x: number;
+  y: number;
+  life: number;
+  text: string;
+}
+
 interface Cloud {
   x: number;
   y: number;
@@ -225,63 +267,31 @@ interface Pebble {
 
 interface GameState {
   phase: Phase;
-  feetY: number; // y of dino feet (dips below GROUND_Y while airborne)
+  feetY: number; // y of dino feet (dips below groundY while airborne)
   vy: number;
   ducking: boolean;
   onGround: boolean;
   speed: number;
   distance: number;
   score: number;
+  bonus: number; // score from coins
+  coinCount: number;
   highScore: number;
   newHigh: boolean;
   obstacles: Obstacle[];
+  coins: Coin[];
+  popups: Popup[];
   clouds: Cloud[];
   pebbles: Pebble[];
   spawnTimer: number;
+  coinTimer: number;
   legTimer: number;
   legFrame: number;
   flash: number; // milestone flash timer
 }
 
 const rand = (min: number, max: number) => min + Math.random() * (max - min);
-
-function makeClouds(): Cloud[] {
-  return Array.from({ length: 3 }, () => ({
-    x: rand(0, W),
-    y: rand(18, 64),
-    vf: rand(0.2, 0.4),
-  }));
-}
-
-function makePebbles(): Pebble[] {
-  return Array.from({ length: 14 }, () => ({
-    x: rand(0, W),
-    y: GROUND_Y + rand(4, 12),
-    w: rand(2, 7),
-  }));
-}
-
-function makeState(highScore: number): GameState {
-  return {
-    phase: "idle",
-    feetY: GROUND_Y,
-    vy: 0,
-    ducking: false,
-    onGround: true,
-    speed: BASE_SPEED,
-    distance: 0,
-    score: 0,
-    highScore,
-    newHigh: false,
-    obstacles: [],
-    clouds: makeClouds(),
-    pebbles: makePebbles(),
-    spawnTimer: 40,
-    legTimer: 0,
-    legFrame: 0,
-    flash: 0,
-  };
-}
+const clamp = (v: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, v));
 
 /* -------------------------------------------------------------------------- */
 /*  Drawing helpers                                                           */
@@ -303,19 +313,15 @@ function drawBitmap(
   }
 }
 
-function drawCactus(ctx: CanvasRenderingContext2D, ob: Obstacle) {
-  for (let i = 0; i < ob.count; i++) {
-    drawBitmap(ctx, CACTUS, ob.x + i * (CACTUS_UNIT_W - PX), GROUND_Y - CACTUS_H, COLORS.fg);
-  }
-}
-
 /* -------------------------------------------------------------------------- */
 /*  Component                                                                 */
 /* -------------------------------------------------------------------------- */
 
-export function DinoGame() {
+export function DinoGame({ onStart }: { onStart?: () => void }) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const stateRef = useRef<GameState | null>(null);
+  const onStartRef = useRef(onStart);
+  onStartRef.current = onStart;
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -323,12 +329,73 @@ export function DinoGame() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    // Crisp pixels on hi-dpi screens.
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    canvas.width = W * dpr;
-    canvas.height = H * dpr;
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    ctx.imageSmoothingEnabled = false;
+    // World dimensions, recomputed from the viewport on mount and on resize.
+    let W = window.innerWidth;
+    let H = window.innerHeight;
+    let groundY = H - 96;
+    let speedScale = 1; // scales horizontal motion so timing tracks screen width
+    let birdHeights: number[] = [];
+
+    const layout = () => {
+      W = Math.max(320, window.innerWidth);
+      H = Math.max(240, window.innerHeight);
+      groundY = Math.round(H - clamp(H * 0.14, 84, 150));
+      speedScale = clamp(W / DESIGN_W, 0.75, 2.6);
+      birdHeights = [
+        groundY - BIRD_H - 104, // high: run under it
+        groundY - BIRD_H - 52, // mid: duck under it
+        groundY - BIRD_H, // low: jump over it
+      ];
+
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = Math.round(W * dpr);
+      canvas.height = Math.round(H * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.imageSmoothingEnabled = false;
+    };
+
+    layout();
+
+    /* --- world factories ------------------------------------------------ */
+
+    const makeClouds = (): Cloud[] =>
+      Array.from({ length: Math.max(3, Math.round(W / 380)) }, () => ({
+        x: rand(0, W),
+        y: rand(H * 0.08, H * 0.42),
+        vf: rand(0.2, 0.4),
+      }));
+
+    const makePebbles = (): Pebble[] =>
+      Array.from({ length: Math.max(10, Math.round(W / 55)) }, () => ({
+        x: rand(0, W),
+        y: groundY + rand(8, 26),
+        w: rand(3, 12),
+      }));
+
+    const makeState = (highScore: number): GameState => ({
+      phase: "idle",
+      feetY: groundY,
+      vy: 0,
+      ducking: false,
+      onGround: true,
+      speed: BASE_SPEED,
+      distance: 0,
+      score: 0,
+      bonus: 0,
+      coinCount: 0,
+      highScore,
+      newHigh: false,
+      obstacles: [],
+      coins: [],
+      popups: [],
+      clouds: makeClouds(),
+      pebbles: makePebbles(),
+      spawnTimer: 40,
+      coinTimer: 90,
+      legTimer: 0,
+      legFrame: 0,
+      flash: 0,
+    });
 
     let highScore = 0;
     try {
@@ -339,12 +406,21 @@ export function DinoGame() {
     const state = makeState(highScore);
     stateRef.current = state;
 
+    const onResize = () => {
+      layout();
+      state.clouds = makeClouds();
+      state.pebbles = makePebbles();
+      if (state.onGround) state.feetY = groundY;
+    };
+    window.addEventListener("resize", onResize);
+
     /* --- input ---------------------------------------------------------- */
 
     const start = () => {
       const hs = state.highScore;
       Object.assign(state, makeState(hs));
       state.phase = "running";
+      onStartRef.current?.();
     };
 
     const jump = () => {
@@ -357,7 +433,7 @@ export function DinoGame() {
 
     const action = () => {
       if (state.phase === "running") jump();
-      else start(); // idle or over -> (re)start; first press also jumps below
+      else start(); // idle or over -> (re)start
     };
 
     const setDuck = (on: boolean) => {
@@ -398,7 +474,7 @@ export function DinoGame() {
     const spawn = () => {
       const canBird = state.score > 260 && Math.random() < 0.28;
       if (canBird) {
-        const y = BIRD_HEIGHTS[Math.floor(rand(0, BIRD_HEIGHTS.length))];
+        const y = birdHeights[Math.floor(rand(0, birdHeights.length))];
         state.obstacles.push({
           kind: "bird",
           x: W + 10,
@@ -413,7 +489,7 @@ export function DinoGame() {
         state.obstacles.push({
           kind: "cactus",
           x: W + 10,
-          y: GROUND_Y - CACTUS_H,
+          y: groundY - CACTUS_H,
           w: CACTUS_UNIT_W + (count - 1) * (CACTUS_UNIT_W - PX),
           h: CACTUS_H,
           count,
@@ -425,44 +501,82 @@ export function DinoGame() {
       state.spawnTimer = gap;
     };
 
+    const spawnCoins = () => {
+      const arc = Math.random() < 0.55; // arc you jump through, else a low run of coins
+      const n = arc ? 3 + Math.floor(rand(0, 4)) : 1 + Math.floor(rand(0, 3));
+      const baseY = groundY - COIN_H - rand(6, 44);
+      const peak = rand(70, 150);
+      for (let i = 0; i < n; i++) {
+        let y = baseY;
+        if (arc) {
+          const t = n > 1 ? i / (n - 1) : 0.5;
+          y = groundY - COIN_H - 24 - Math.sin(t * Math.PI) * peak;
+        }
+        state.coins.push({
+          x: W + 24 + i * (COIN_W + 16),
+          y,
+          spin: i * 1.4,
+          gone: false,
+        });
+      }
+      state.coinTimer = rand(150, 320);
+    };
+
     /* --- collision ------------------------------------------------------ */
 
     const hits = (ob: Obstacle): boolean => {
       const duck = state.ducking && state.onGround;
       const dw = duck ? DUCK_W : DINO_W;
       const dh = duck ? DUCK_H : DINO_H;
-      const dx = DINO_X + 7;
-      const dTop = state.feetY - dh + 4;
-      const dRight = DINO_X + dw - 7;
-      const dBottom = state.feetY - 2;
+      const dx = DINO_X + 12;
+      const dTop = state.feetY - dh + 8;
+      const dRight = DINO_X + dw - 12;
+      const dBottom = state.feetY - 4;
 
-      const ox = ob.x + 3;
-      const oy = ob.y + 3;
-      const oRight = ob.x + ob.w - 3;
-      const oBottom = ob.y + ob.h - 3;
+      const ox = ob.x + 6;
+      const oy = ob.y + 6;
+      const oRight = ob.x + ob.w - 6;
+      const oBottom = ob.y + ob.h - 6;
 
       return dx < oRight && dRight > ox && dTop < oBottom && dBottom > oy;
+    };
+
+    const grabs = (coin: Coin): boolean => {
+      const duck = state.ducking && state.onGround;
+      const dw = duck ? DUCK_W : DINO_W;
+      const dh = duck ? DUCK_H : DINO_H;
+      const dx = DINO_X + 6;
+      const dTop = state.feetY - dh + 4;
+      const dRight = DINO_X + dw - 6;
+      const dBottom = state.feetY - 2;
+
+      const cx = coin.x + 4;
+      const cy = coin.y + 4;
+      const cRight = coin.x + COIN_W - 4;
+      const cBottom = coin.y + COIN_H - 4;
+
+      return dx < cRight && dRight > cx && dTop < cBottom && dBottom > cy;
     };
 
     /* --- update --------------------------------------------------------- */
 
     const update = (step: number) => {
       // Scroll clouds & ground regardless of phase for a lively idle screen.
-      const drift = (state.phase === "running" ? state.speed : BASE_SPEED) * step;
+      const worldSpeed = (state.phase === "running" ? state.speed : BASE_SPEED) * speedScale;
       for (const cl of state.clouds) {
-        cl.x -= drift * cl.vf;
-        if (cl.x < -60) {
-          cl.x = W + rand(0, 80);
-          cl.y = rand(18, 64);
+        cl.x -= worldSpeed * cl.vf * step;
+        if (cl.x < -80) {
+          cl.x = W + rand(0, 120);
+          cl.y = rand(H * 0.08, H * 0.42);
           cl.vf = rand(0.2, 0.4);
         }
       }
       for (const pb of state.pebbles) {
-        pb.x -= drift;
-        if (pb.x < -8) {
-          pb.x = W + rand(0, 40);
-          pb.y = GROUND_Y + rand(4, 12);
-          pb.w = rand(2, 7);
+        pb.x -= worldSpeed * step;
+        if (pb.x < -14) {
+          pb.x = W + rand(0, 60);
+          pb.y = groundY + rand(8, 26);
+          pb.w = rand(3, 12);
         }
       }
 
@@ -473,7 +587,7 @@ export function DinoGame() {
       state.speed = Math.min(MAX_SPEED, BASE_SPEED + state.distance / 1800);
 
       const prevScore = state.score;
-      state.score = Math.floor(state.distance / 12);
+      state.score = Math.floor(state.distance / 12) + state.bonus;
       if (Math.floor(prevScore / 100) !== Math.floor(state.score / 100) && state.score > 0) {
         state.flash = 22;
       }
@@ -483,8 +597,8 @@ export function DinoGame() {
       const g = !state.onGround && state.ducking ? DUCK_GRAVITY : GRAVITY;
       state.vy += g * step;
       state.feetY += state.vy * step;
-      if (state.feetY >= GROUND_Y) {
-        state.feetY = GROUND_Y;
+      if (state.feetY >= groundY) {
+        state.feetY = groundY;
         state.vy = 0;
         state.onGround = true;
       }
@@ -500,16 +614,42 @@ export function DinoGame() {
       state.spawnTimer -= state.speed * step;
       if (state.spawnTimer <= 0) spawn();
 
+      const move = state.speed * speedScale * step;
       for (const ob of state.obstacles) {
-        ob.x -= state.speed * step;
-        if (ob.kind === "bird") {
-          ob.frame += step;
-          if (hits(ob)) endGame();
-        } else if (hits(ob)) {
-          endGame();
-        }
+        ob.x -= move;
+        if (ob.kind === "bird") ob.frame += step;
+        if (hits(ob)) endGame();
       }
       state.obstacles = state.obstacles.filter((o) => o.x + o.w > -4);
+
+      // Coins.
+      state.coinTimer -= state.speed * step;
+      if (state.coinTimer <= 0) spawnCoins();
+      for (const coin of state.coins) {
+        coin.x -= move;
+        coin.spin += step;
+        if (!coin.gone && grabs(coin)) {
+          coin.gone = true;
+          state.bonus += COIN_VALUE;
+          state.coinCount += 1;
+          state.score += COIN_VALUE;
+          state.flash = Math.max(state.flash, 10);
+          state.popups.push({
+            x: coin.x + COIN_W / 2,
+            y: coin.y,
+            life: 44,
+            text: "+" + COIN_VALUE,
+          });
+        }
+      }
+      state.coins = state.coins.filter((c) => !c.gone && c.x + COIN_W > -4);
+
+      // Floating "+50" popups.
+      for (const p of state.popups) {
+        p.life -= step;
+        p.y -= step * 0.9;
+      }
+      state.popups = state.popups.filter((p) => p.life > 0);
     };
 
     const endGame = () => {
@@ -529,21 +669,62 @@ export function DinoGame() {
 
     /* --- render --------------------------------------------------------- */
 
+    const pad = (n: number) => String(n).padStart(5, "0");
+
     const drawScore = () => {
-      ctx.font = "600 13px ui-monospace, SFMono-Regular, Menlo, monospace";
+      ctx.font = `600 18px ${MONO}`;
       ctx.textBaseline = "top";
-      const pad = (n: number) => String(n).padStart(5, "0");
-      let x = W - 12;
       ctx.textAlign = "right";
+      let x = W - 20;
       const bright = state.flash > 0 && Math.floor(state.flash / 4) % 2 === 0;
       ctx.fillStyle = bright ? COLORS.fg : COLORS.score;
-      ctx.fillText(pad(state.score), x, 12);
+      ctx.fillText(pad(state.score), x, 18);
       if (state.highScore > 0) {
-        x -= 62;
+        x -= 92;
         ctx.fillStyle = COLORS.scoreDim;
-        ctx.fillText("HI " + pad(state.highScore), x, 12);
+        ctx.fillText("HI " + pad(state.highScore), x, 18);
       }
       ctx.textAlign = "left";
+    };
+
+    const drawCoinCounter = () => {
+      const cx = 26;
+      const cy = 27;
+      ctx.fillStyle = COLORS.coin;
+      ctx.beginPath();
+      ctx.arc(cx, cy, 8, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = COLORS.coinHi;
+      ctx.beginPath();
+      ctx.arc(cx - 2.5, cy - 2.5, 2.6, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = COLORS.score;
+      ctx.font = `700 17px ${MONO}`;
+      ctx.textAlign = "left";
+      ctx.textBaseline = "middle";
+      ctx.fillText("× " + state.coinCount, cx + 14, cy + 1);
+      ctx.textBaseline = "top";
+    };
+
+    const drawCoins = () => {
+      for (const coin of state.coins) {
+        const bob = Math.sin(coin.spin * 0.16) * 2;
+        const cx = coin.x + COIN_W / 2;
+        const sx = 0.28 + 0.72 * Math.abs(Math.cos(coin.spin * 0.13)); // spin squash
+        ctx.save();
+        ctx.translate(cx, 0);
+        ctx.scale(sx, 1);
+        ctx.translate(-cx, 0);
+        drawBitmap(ctx, COIN, coin.x, coin.y + bob, COLORS.coin);
+        drawBitmap(ctx, COIN_HI, coin.x, coin.y + bob, COLORS.coinHi);
+        ctx.restore();
+      }
+    };
+
+    const drawCactus = (ob: Obstacle) => {
+      for (let i = 0; i < ob.count; i++) {
+        drawBitmap(ctx, CACTUS, ob.x + i * (CACTUS_UNIT_W - PX), groundY - CACTUS_H, COLORS.fg);
+      }
     };
 
     const drawDino = () => {
@@ -569,20 +750,22 @@ export function DinoGame() {
       // Clouds.
       ctx.fillStyle = COLORS.dim;
       for (const cl of state.clouds) {
-        ctx.fillRect(cl.x, cl.y, 22, 4);
-        ctx.fillRect(cl.x + 4, cl.y - 4, 14, 4);
-        ctx.fillRect(cl.x + 2, cl.y + 4, 18, 4);
+        ctx.fillRect(cl.x, cl.y, 40, 6);
+        ctx.fillRect(cl.x + 8, cl.y - 6, 26, 6);
+        ctx.fillRect(cl.x + 4, cl.y + 6, 32, 6);
       }
 
       // Ground line + pebbles.
       ctx.fillStyle = COLORS.ground;
-      ctx.fillRect(0, GROUND_Y + 1, W, 2);
-      for (const pb of state.pebbles) ctx.fillRect(pb.x, pb.y, pb.w, 2);
+      ctx.fillRect(0, groundY + 1, W, 3);
+      for (const pb of state.pebbles) ctx.fillRect(pb.x, pb.y, pb.w, 3);
+
+      drawCoins();
 
       // Obstacles.
       for (const ob of state.obstacles) {
         if (ob.kind === "cactus") {
-          drawCactus(ctx, ob);
+          drawCactus(ob);
         } else {
           const bmp = Math.floor(ob.frame / 6) % 2 === 0 ? BIRD1 : BIRD2;
           drawBitmap(ctx, bmp, ob.x, ob.y, COLORS.fg);
@@ -590,27 +773,36 @@ export function DinoGame() {
       }
 
       drawDino();
-      drawScore();
 
-      // Overlays.
+      // Floating coin popups.
       ctx.textAlign = "center";
-      if (state.phase === "idle") {
-        ctx.fillStyle = COLORS.score;
-        ctx.font = "600 12px ui-monospace, SFMono-Regular, Menlo, monospace";
-        ctx.fillText("PRESS SPACE OR TAP TO PLAY", W / 2, 20);
-      } else if (state.phase === "over") {
+      ctx.font = `700 18px ${MONO}`;
+      for (const p of state.popups) {
+        ctx.globalAlpha = clamp(p.life / 44, 0, 1);
+        ctx.fillStyle = COLORS.coin;
+        ctx.fillText(p.text, p.x, p.y);
+      }
+      ctx.globalAlpha = 1;
+      ctx.textAlign = "left";
+
+      drawScore();
+      drawCoinCounter();
+
+      // Game-over overlay (idle prompts live in the HTML layer over the canvas).
+      if (state.phase === "over") {
+        ctx.textAlign = "center";
         ctx.fillStyle = COLORS.fg;
-        ctx.font = "700 16px ui-monospace, SFMono-Regular, Menlo, monospace";
-        ctx.fillText("G A M E   O V E R", W / 2, 40);
+        ctx.font = `700 34px ${MONO}`;
+        ctx.fillText("G A M E   O V E R", W / 2, H / 2 - 26);
         ctx.fillStyle = COLORS.score;
-        ctx.font = "600 11px ui-monospace, SFMono-Regular, Menlo, monospace";
+        ctx.font = `600 15px ${MONO}`;
         ctx.fillText(
           state.newHigh ? "NEW HIGH SCORE — SPACE / TAP TO RETRY" : "SPACE / TAP TO RETRY",
           W / 2,
-          62,
+          H / 2 + 16,
         );
+        ctx.textAlign = "left";
       }
-      ctx.textAlign = "left";
     };
 
     /* --- loop ----------------------------------------------------------- */
@@ -629,6 +821,7 @@ export function DinoGame() {
 
     return () => {
       cancelAnimationFrame(raf);
+      window.removeEventListener("resize", onResize);
       window.removeEventListener("keydown", onKeyDown);
       window.removeEventListener("keyup", onKeyUp);
       canvas.removeEventListener("pointerdown", onPointerDown);
@@ -636,17 +829,12 @@ export function DinoGame() {
   }, []);
 
   return (
-    <div className="mt-10 w-full max-w-[600px] select-none">
-      <canvas
-        ref={canvasRef}
-        role="img"
-        aria-label="A dinosaur running game. Press space or tap to jump, down arrow to duck."
-        className="block w-full cursor-pointer touch-none"
-        style={{ imageRendering: "pixelated" }}
-      />
-      <p className="mt-3 text-center text-xs tracking-wide text-neutral-600">
-        space / ↑ jump · ↓ duck
-      </p>
-    </div>
+    <canvas
+      ref={canvasRef}
+      role="img"
+      aria-label="A dinosaur running game. Press space or tap to jump, down arrow to duck, and collect coins."
+      className="absolute inset-0 h-full w-full cursor-pointer touch-none select-none"
+      style={{ imageRendering: "pixelated" }}
+    />
   );
 }
