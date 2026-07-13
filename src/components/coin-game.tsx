@@ -10,24 +10,8 @@ type Bitmap = boolean[][];
 const parse = (rows: string[]): Bitmap =>
   rows.map((r) => [...r].map((c) => c !== "." && c !== " "));
 
-// The Apple logo stamped on the coin's face: leaf on top, bite on the right.
-const APPLE = parse([
-  "......XX....",
-  "......XXX...",
-  ".......XX...",
-  "........X...",
-  "..XXXXXXXX..",
-  ".XXXXXXXXXX.",
-  "XXXXXXXXXX..",
-  "XXXXXXXXXX..",
-  "XXXXXXXXXXX.",
-  "XXXXXXXXXXXX",
-  ".XXXXXXXXXX.",
-  ".XXXXXXXXXX.",
-  "...XXXXXX...",
-]);
-const APPLE_W = APPLE[0].length;
-const APPLE_H = APPLE.length;
+// The emoji stamped on the coin's face.
+const COIN_EMOJI = "💭";
 
 // A layered pine tree (last two rows are the trunk).
 const TREE_PINE = parse([
@@ -77,8 +61,9 @@ const JUMP_CUT = 0.62; // releasing early scales upward velocity -> shorter hop
 const FAST_FALL_G = 3.0; // extra pull when holding down mid-air
 const SPIN_SPEED = 0.17; // coin spin, radians per step
 
-const BASE_SPEED = 6; // normalized; multiplied by the width scale on screen
-const MAX_SPEED = 13;
+const BASE_SPEED = 4; // normalized; multiplied by the width scale on screen
+const MAX_SPEED = 11;
+const RAMP = 2600; // distance units per +1 speed (bigger = gentler ramp)
 
 const COLORS = {
   fg: "#e5e5e5",
@@ -86,7 +71,7 @@ const COLORS = {
   ground: "#52525b",
   score: "#a1a1aa",
   scoreDim: "#71717a",
-  token: "#26262c", // drifting code tokens in the sky
+  token: "#34353e", // drifting code tokens in the sky
   treeLeaf: "#3a5f50",
   treeLeafFar: "#283d34",
   treeTrunk: "#3a3330",
@@ -98,7 +83,6 @@ const COLORS = {
   coinRim: "#a06a08",
   coinHi: "#ffe493",
   coinEdge: "#f0c53f",
-  apple: "#141416",
 };
 
 // Soft syntax-highlight colors for the box glyphs.
@@ -111,6 +95,7 @@ const AIR_SYMS = ["</>", "{ }", "( )", "=>", "[]", "::", "&&", "||", "0x", "fn",
 const HS_KEY = "coinrun-highscore";
 
 const MONO = "ui-monospace, SFMono-Regular, Menlo, monospace";
+const EMOJI_FONT = "'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif";
 
 /* -------------------------------------------------------------------------- */
 /*  Game state                                                                */
@@ -206,7 +191,9 @@ export function CoinGame({ onStart }: { onStart?: () => void }) {
       W = Math.max(320, window.innerWidth);
       H = Math.max(240, window.innerHeight);
       groundY = Math.round(H - clamp(H * 0.14, 84, 150));
-      speedScale = clamp(W / DESIGN_W, 0.75, 2.6);
+      // Cap kept low: on a wide desktop the old 2.6x cap launched the game at
+      // ~2.5x the tuned speed, making the opening nearly unplayable.
+      speedScale = clamp(W / DESIGN_W, 0.75, 1.4);
 
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
       canvas.width = Math.round(W * dpr);
@@ -440,7 +427,7 @@ export function CoinGame({ onStart }: { onStart?: () => void }) {
 
       // Difficulty ramp.
       state.distance += state.speed * step;
-      state.speed = Math.min(MAX_SPEED, BASE_SPEED + state.distance / 1800);
+      state.speed = Math.min(MAX_SPEED, BASE_SPEED + state.distance / RAMP);
 
       const prevScore = state.score;
       state.score = Math.floor(state.distance / 12);
@@ -489,7 +476,9 @@ export function CoinGame({ onStart }: { onStart?: () => void }) {
 
     /* --- drawing helpers ------------------------------------------------ */
 
-    const snap = (v: number) => Math.round(v / PX) * PX;
+    // Snap to whole pixels only: quantizing to the 4px sprite grid made the
+    // coin visibly stutter mid-jump. Cell sizes keep the pixel-art look.
+    const snap = (v: number) => Math.round(v);
 
     // Pixel-snapped filled ellipse, drawn row by row for a crisp coin.
     const fillEllipse = (cx: number, cy: number, rx: number, ry: number, color: string) => {
@@ -499,25 +488,6 @@ export function CoinGame({ onStart }: { onStart?: () => void }) {
         const hw = rx * Math.sqrt(Math.max(0, 1 - t * t));
         if (hw < 0.5) continue;
         ctx.fillRect(snap(cx - hw), snap(cy + yy), Math.max(PX, snap(2 * hw)), PX + 0.5);
-      }
-    };
-
-    // A boolean bitmap, with independent x/y cell sizes (used to squash the
-    // Apple logo as the coin spins).
-    const drawBitmap = (
-      bmp: Bitmap,
-      x: number,
-      y: number,
-      color: string,
-      cellW = PX,
-      cellH = PX,
-    ) => {
-      ctx.fillStyle = color;
-      for (let r = 0; r < bmp.length; r++) {
-        const row = bmp[r];
-        for (let c = 0; c < row.length; c++) {
-          if (row[c]) ctx.fillRect(x + c * cellW, y + r * cellH, cellW + 0.6, cellH + 0.6);
-        }
       }
     };
 
@@ -582,14 +552,16 @@ export function CoinGame({ onStart }: { onStart?: () => void }) {
       // Metallic sheen near the top-left edge.
       fillEllipse(COIN_CX - rx * 0.34, cy - COIN_R * 0.46, rx * 0.32, COIN_R * 0.22, COLORS.coinHi);
 
-      // The Apple logo shows on the front face, squashed with the spin.
+      // The thinking emoji shows on the front face, squashed with the spin.
       if (sx > 0 && squash > 0.42) {
-        const scale = 0.84; // leave a gold margin so it reads as "stamped"
-        const cellW = PX * squash * scale;
-        const cellH = PX * scale;
-        const aw = APPLE_W * cellW;
-        const ah = APPLE_H * cellH;
-        drawBitmap(APPLE, COIN_CX - aw / 2, cy - ah / 2 - 1, COLORS.apple, cellW, cellH);
+        ctx.save();
+        ctx.translate(COIN_CX, cy);
+        ctx.scale(squash, 1);
+        ctx.font = `${Math.round(COIN_R * 1.3)}px ${EMOJI_FONT}`;
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText(COIN_EMOJI, 0, 2);
+        ctx.restore();
       }
 
       if (over) {
@@ -669,13 +641,22 @@ export function CoinGame({ onStart }: { onStart?: () => void }) {
 
     /* --- loop ----------------------------------------------------------- */
 
+    // Fixed-timestep simulation (120 Hz) with rendering per animation frame.
+    // Variable-step Euler integration made jump arcs (and therefore the game
+    // feel) depend on the display's refresh rate; fixed ticks keep physics
+    // identical on 60 / 120 / 144 Hz screens.
+    const SIM_DT = 1000 / 120;
+    const SIM_STEP = 0.5; // one tick, in the 60fps units the constants use
     let raf = 0;
     let last = performance.now();
+    let acc = 0;
     const frame = (now: number) => {
-      const dt = now - last;
+      acc += Math.min(now - last, 100); // clamp after tab switches
       last = now;
-      const step = Math.min(3, dt / (1000 / 60)); // clamp after tab switches
-      update(step);
+      while (acc >= SIM_DT) {
+        update(SIM_STEP);
+        acc -= SIM_DT;
+      }
       render();
       raf = requestAnimationFrame(frame);
     };
@@ -697,7 +678,7 @@ export function CoinGame({ onStart }: { onStart?: () => void }) {
     <canvas
       ref={canvasRef}
       role="img"
-      aria-label="An endless runner. You are a spinning coin with an Apple logo. Press space or tap to jump, hold to jump higher, down arrow to drop faster."
+      aria-label="An endless runner. You are a spinning coin stamped with a thinking emoji. Press space or tap to jump, hold to jump higher, down arrow to drop faster."
       className="absolute inset-0 h-full w-full cursor-pointer touch-none select-none"
       style={{ imageRendering: "pixelated" }}
     />
