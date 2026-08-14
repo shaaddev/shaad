@@ -22,10 +22,12 @@ export function Details() {
             I am currently building{" "}
             <span className="underline cursor-pointer hover:no-underline transition-all ease-in-out duration-300">
               <a
-                href="https://shopmasira.com/"
+                href="https://masirahq.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={started ? "pointer-events-none" : "pointer-events-auto"}
+                className={
+                  started ? "pointer-events-none" : "pointer-events-auto"
+                }
               >
                 Masira
               </a>
